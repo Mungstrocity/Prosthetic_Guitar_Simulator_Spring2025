@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw3u7blr3m85t"]
+
+[ext_resource type="ArrayMesh" uid="uid://c0wedv0q44ook" path="res://Guitar2.obj" id="1_ej58m"]
+[ext_resource type="ArrayMesh" uid="uid://brpdsdfjqauck" path="res://PlayerModel.obj" id="2_4h8av"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Guitar2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.681228, 0.539707, 0.494616, -0.333394, 0.830227, -0.446734, -0.651749, 0.139426, 0.745509, -2.85054, 13.1077, 2.57201)
+mesh = ExtResource("1_ej58m")
+
+[node name="Finalmodel" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.412283, 0, 14.9943, 0, 15, 0, -14.9943, 0, -0.412283, -3.19656, -4.76837e-07, -2.17528)
+mesh = ExtResource("2_4h8av")

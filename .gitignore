@@ -8,3 +8,6 @@ modelling_3d/fretHand/MANO/models_compressed
 modelling_3d/fretHand/MANO/mano/__pycache__/
 position_mapping/__pycache__/
 CadenCV/__pycache__/
+# Godot 4+ specific ignores
+prosthetic_guitar_simulator/.godot/
+/android/

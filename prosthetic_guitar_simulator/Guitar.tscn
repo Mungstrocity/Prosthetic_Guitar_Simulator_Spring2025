@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://3m6qonxfwunt"]
+
+[ext_resource type="ArrayMesh" uid="uid://c0wedv0q44ook" path="res://Guitar2.obj" id="1_0vqio"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Guitar2" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -11.4052, 114.266, 2.57201)
+mesh = ExtResource("1_0vqio")

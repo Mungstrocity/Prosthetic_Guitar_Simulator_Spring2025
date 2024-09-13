@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cgjc8vsnol0j6"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 3047.0
+offset_top = 1486.0
+offset_right = 3360.0
+offset_bottom = 1510.0
+text = "Bio-Pnuematic Guitar Playing Simulation"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(3215, 1497)

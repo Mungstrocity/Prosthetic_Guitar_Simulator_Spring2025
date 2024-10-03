@@ -1,6 +1,32 @@
-[gd_scene format=3 uid="uid://bf5t0yyx36v6y"]
+[gd_scene load_steps=6 format=3 uid="uid://bf5t0yyx36v6y"]
 
-[node name="Node3D" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://7r5362hu3fwq" path="res://GuitarPlayer.tscn" id="1_yy2rj"]
+[ext_resource type="PackedScene" uid="uid://3m6qonxfwunt" path="res://Guitar.tscn" id="2_nc5dh"]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.258819, 0, 0.965926, 0, 1, 0, -0.965926, 0, 0.258819, 58.5405, 46.3221, 19.1038)
+[sub_resource type="BoxShape3D" id="BoxShape3D_sth5g"]
+size = Vector3(128, 1, 128)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxevq"]
+albedo_color = Color(0.52549, 0.988235, 0.619608, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ycdc"]
+material = SubResource("StandardMaterial3D_uxevq")
+size = Vector3(128, 1, 128)
+
+[node name="Main" type="Node"]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.124023)
+shape = SubResource("BoxShape3D_sth5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_4ycdc")
+
+[node name="GuitarPlayer" parent="." instance=ExtResource("1_yy2rj")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Guitar" parent="." instance=ExtResource("2_nc5dh")]
+transform = Transform3D(0.997473, 0, 0.0710448, 0.0094883, 0.991042, -0.133216, -0.0704084, 0.133554, 0.988537, -19.1728, 138.956, 54.4889)

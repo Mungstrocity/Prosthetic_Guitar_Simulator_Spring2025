@@ -1,9 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://3m6qonxfwunt"]
+[gd_scene load_steps=4 format=3 uid="uid://3m6qonxfwunt"]
 
 [ext_resource type="ArrayMesh" uid="uid://c0wedv0q44ook" path="res://Guitar2.obj" id="1_0vqio"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_bw1vs"]
+height = 463.305
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yxxp2"]
+size = Vector3(1, 1, 9.43848)
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Guitar2" type="MeshInstance3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -11.4052, 114.266, 2.57201)
+transform = Transform3D(3.11643, 8.81266, 3.55315, -6.48043, 4.70601, -5.98811, -6.94923, -0.436445, 7.17758, 0, 0, 0)
 mesh = ExtResource("1_0vqio")
+
+[node name="Strings" type="RigidBody3D" parent="."]
+
+[node name="6_E_StringCollider" type="CollisionShape3D" parent="Strings"]
+transform = Transform3D(0.499988, -0.00295375, 0.00186007, 0, 0.266438, 0.423097, -0.00349063, -0.423086, 0.266432, 52.522, 2.1738, -17)
+shape = SubResource("CylinderShape3D_bw1vs")
+
+[node name="5_A_StringCollider" type="CollisionShape3D" parent="Strings"]
+transform = Transform3D(0.499993, -0.00221532, 0.00139506, 0, 0.266438, 0.423097, -0.00261798, -0.423091, 0.266434, 52.522, 0.094857, -17)
+shape = SubResource("CylinderShape3D_bw1vs")
+
+[node name="4_D_StringCollider" type="CollisionShape3D" parent="Strings"]
+transform = Transform3D(0.499993, -0.00220798, 0.00140664, 0, 0.26865, 0.421696, -0.00261798, -0.42169, 0.268646, 52.522, -1.96622, -17)
+shape = SubResource("CylinderShape3D_bw1vs")
+
+[node name="3_G_StringCollider" type="CollisionShape3D" parent="Strings"]
+transform = Transform3D(0.499993, -0.00220059, 0.00141818, 0, 0.270854, 0.420283, -0.00261798, -0.420278, 0.27085, 52.522, -4.33705, -17)
+shape = SubResource("CylinderShape3D_bw1vs")
+
+[node name="5_B_StringCollider" type="CollisionShape3D" parent="Strings"]
+transform = Transform3D(0.499997, -0.00146375, 0.000950572, 0, 0.272319, 0.419335, -0.00174533, -0.419333, 0.272318, 52.522, -6.36238, -17)
+shape = SubResource("CylinderShape3D_bw1vs")
+
+[node name="1_E_StringCollider" type="CollisionShape3D" parent="Strings"]
+transform = Transform3D(0.499997, -0.00145876, 0.000958224, 0, 0.274511, 0.417904, -0.00174533, -0.417901, 0.27451, 52.522, -8.53067, -17)
+shape = SubResource("CylinderShape3D_bw1vs")
+
+[node name="Frets" type="RigidBody3D" parent="."]
+
+[node name="1_Fret" type="CollisionShape3D" parent="Frets"]
+transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.6532, 57.5192, -112.036)
+shape = SubResource("BoxShape3D_yxxp2")
+
+[node name="2_Fret" type="CollisionShape3D" parent="Frets"]
+transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.6554, 54.2545, -106.55)
+shape = SubResource("BoxShape3D_yxxp2")

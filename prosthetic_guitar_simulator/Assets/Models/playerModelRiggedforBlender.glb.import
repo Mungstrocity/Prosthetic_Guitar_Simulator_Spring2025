@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cqb51im7pdn4t"
+uid="uid://43m8er617sog"
 path="res://.godot/imported/playerModelRiggedforBlender.glb-7fcc7e7df5376a78bab8090d0387f5e1.scn"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/playerModelRiggedforBlender.glb-7fcc7e7df5376
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="CharacterBody3D"
 nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -31,12 +31,6 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"nodes": {
-"PATH:Armature/Skeleton3D": {
-"rest_pose/external_animation_library": null
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

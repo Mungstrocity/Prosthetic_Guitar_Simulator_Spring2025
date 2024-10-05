@@ -26,7 +26,7 @@ shape = SubResource("BoxShape3D_sth5g")
 mesh = SubResource("BoxMesh_4ycdc")
 
 [node name="GuitarPlayer" parent="." instance=ExtResource("1_yy2rj")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, -5, 0)
 
 [node name="Guitar" parent="." instance=ExtResource("2_nc5dh")]
-transform = Transform3D(0.997473, 0, 0.0710448, 0.0094883, 0.991042, -0.133216, -0.0704084, 0.133554, 0.988537, -19.1728, 138.956, 54.4889)
+transform = Transform3D(0.997473, 0, 0.0710448, 0.0094883, 0.991042, -0.133216, -0.0704084, 0.133554, 0.988537, -19.1728, 133.956, 54.4889)

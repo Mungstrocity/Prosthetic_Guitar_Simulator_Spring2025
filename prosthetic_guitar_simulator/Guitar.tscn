@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://3m6qonxfwunt"]
+[gd_scene load_steps=5 format=3 uid="uid://3m6qonxfwunt"]
 
 [ext_resource type="ArrayMesh" uid="uid://c0wedv0q44ook" path="res://Assets/Models/Guitar2.obj" id="1_0vqio"]
 
@@ -8,7 +8,10 @@ height = 463.305
 [sub_resource type="BoxShape3D" id="BoxShape3D_yxxp2"]
 size = Vector3(1, 1, 9.78049)
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyeet"]
+size = Vector3(1, 150, 9)
+
+[node name="Guitar" type="RigidBody3D"]
 
 [node name="Guitar2" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.11643, 8.81266, 3.55315, -6.48043, 4.70601, -5.98811, -6.94923, -0.436445, 7.17758, 0, 0, 0)
@@ -121,3 +124,7 @@ shape = SubResource("BoxShape3D_yxxp2")
 [node name="20_Fret" type="CollisionShape3D" parent="Frets"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0715, 17.7201, -49.2212)
 shape = SubResource("BoxShape3D_yxxp2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.536004, 0.844216, 0, -0.844216, 0.536004, 51.1599, 20.8444, -54.1612)
+shape = SubResource("BoxShape3D_nyeet")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf5t0yyx36v6y"]
+[gd_scene load_steps=8 format=3 uid="uid://bf5t0yyx36v6y"]
 
 [ext_resource type="PackedScene" uid="uid://7r5362hu3fwq" path="res://GuitarPlayer.tscn" id="1_yy2rj"]
 [ext_resource type="PackedScene" uid="uid://3m6qonxfwunt" path="res://Guitar.tscn" id="2_nc5dh"]
@@ -13,9 +13,17 @@ albedo_color = Color(0.52549, 0.988235, 0.619608, 1)
 material = SubResource("StandardMaterial3D_uxevq")
 size = Vector3(128, 1, 128)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqhyn"]
+albedo_color = Color(0.509804, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w1wly"]
+material = SubResource("StandardMaterial3D_dqhyn")
+size = Vector3(150, 1, 150)
+
 [node name="Main" type="Node"]
 
 [node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
@@ -25,8 +33,29 @@ shape = SubResource("BoxShape3D_sth5g")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
 mesh = SubResource("BoxMesh_4ycdc")
 
+[node name="Background" type="StaticBody3D" parent="."]
+transform = Transform3D(-8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0, 0, 20, -573, 65, 0)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.124023)
+shape = SubResource("BoxShape3D_sth5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
+mesh = SubResource("BoxMesh_w1wly")
+
 [node name="Guitar" parent="." instance=ExtResource("2_nc5dh")]
 transform = Transform3D(0.997473, 0, 0.0710448, 0.0094883, 0.991042, -0.133216, -0.0704084, 0.133554, 0.988537, -19.1728, 133.956, 54.4889)
+gravity_scale = 0.0
 
 [node name="playerModelRiggedforBlender" parent="." instance=ExtResource("1_yy2rj")]
 transform = Transform3D(-5.24537e-06, 0, 120, 0, 120, 0, -120, 0, -5.24537e-06, 21, -5.09527, 0)
+
+[node name="MainCamera" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 175.036, 140.611, 0)
+
+[node name="GuitarNeckCamera" type="Camera3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 68.0364, 174.611, -14)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -3.09086e-08, 0.707107, -0.707107, -3.09086e-08, 0.707107, 0, -1, -4.37114e-08, 0, 0, 0)

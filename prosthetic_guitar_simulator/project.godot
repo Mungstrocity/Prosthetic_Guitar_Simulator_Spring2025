@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Prosthetic_Guitar_Simulator"
-run/main_scene="res://MainMenu.tscn"
+run/main_scene="res://gui_control.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 

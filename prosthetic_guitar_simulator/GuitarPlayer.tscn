@@ -3126,7 +3126,7 @@ bones/84/rotation = Quaternion(-0.0885246, -1.70167e-09, -0.023519, 0.995796)
 surface_material_override/0 = SubResource("StandardMaterial3D_awhtr")
 
 [node name="Attach_LIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.248679, -0.307577, 0.918453, -0.874148, -0.337131, -0.349584, 0.417163, -0.889797, -0.185031, 0.324049, 1.6908, 0.232232)
+transform = Transform3D(0.000889677, 0.980581, -0.196113, -0.99999, -4.71016e-07, -0.00453927, -0.00445128, 0.196115, 0.980571, 0.860995, 1.59905, 0.0535792)
 bone_name = "finger_index.L.003"
 bone_idx = 14
 
@@ -3159,7 +3159,7 @@ target_node = NodePath("../Target_LIndex3")
 max_iterations = 20
 
 [node name="Attach_LMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.0629241, -0.15225, 0.986337, -0.784965, -0.617881, -0.0452983, 0.616336, -0.77139, -0.158391, 0.289591, 1.70152, 0.2319)
+transform = Transform3D(0.000172014, 0.999279, -0.0379717, -0.99999, -2.68948e-07, -0.00453931, -0.00453611, 0.037972, 0.999269, 0.880223, 1.59905, 0.0264628)
 bone_name = "finger_middle.L.003"
 bone_idx = 19
 
@@ -3183,7 +3183,7 @@ target_node = NodePath("../Target_LMiddle3")
 transform = Transform3D(0.000172013, 0.999279, -0.0379717, -0.999989, -2.90111e-07, -0.00453934, -0.00453612, 0.0379719, 0.999268, 0.900308, 1.5965, 0.0289653)
 
 [node name="Attach_LRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.0488423, -0.126224, 0.990799, -0.7124, -0.699691, -0.0540193, 0.700072, -0.703207, -0.124096, 0.265009, 1.68949, 0.230417)
+transform = Transform3D(-0.000110302, 0.999707, 0.0242085, -0.99999, -3.22456e-07, -0.00453941, -0.00453813, -0.0242088, 0.999697, 0.874374, 1.59905, -0.00292478)
 bone_name = "finger_ring.L.003"
 bone_idx = 24
 
@@ -3207,7 +3207,7 @@ target_node = NodePath("../Target_LRing3")
 transform = Transform3D(-0.000110303, 0.999707, 0.0242085, -0.999989, -3.42272e-07, -0.00453944, -0.00453814, -0.0242088, 0.999696, 0.902984, 1.59162, -0.00995032)
 
 [node name="Attach_LPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.0580786, -8.54935e-05, 0.998312, -0.95021, -0.306674, 0.0552539, 0.306151, -0.951815, -0.0178926, 0.241584, 1.66854, 0.228618)
+transform = Transform3D(-0.00104555, 0.973123, 0.230282, -0.99999, -1.10245e-07, -0.00453942, -0.00441745, -0.230284, 0.973113, 0.855115, 1.59905, -0.0337389)
 bone_name = "finger_pinky.L.003"
 bone_idx = 29
 
@@ -3231,7 +3231,7 @@ target_node = NodePath("../Target_LPinky3")
 transform = Transform3D(-0.00104555, 0.973123, 0.230282, -0.999989, -1.29919e-07, -0.00453946, -0.00441747, -0.230284, 0.973113, 0.879628, 1.59321, -0.0349206)
 
 [node name="Attach_RIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="13"]
-transform = Transform3D(-0.284775, -0.662596, 0.692727, -0.410915, 0.737265, 0.536273, -0.866056, -0.131935, -0.482225, -0.148525, 1.20824, 0.29303)
+transform = Transform3D(0.000889688, -0.980581, 0.196113, 0.99999, -4.98178e-07, -0.00453892, 0.00445095, 0.196115, 0.980571, -0.752856, 1.59905, 0.0535792)
 bone_name = "finger_index.R.003"
 bone_idx = 47
 
@@ -3255,7 +3255,7 @@ target_node = NodePath("../Target_RIndex3")
 transform = Transform3D(0.000890152, -0.980581, 0.196113, 0.999989, -4.05998e-08, -0.00453881, 0.00445075, 0.196115, 0.98057, -0.789016, 1.60022, 0.0562712)
 
 [node name="Attach_RMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="16"]
-transform = Transform3D(-0.194841, -0.468314, 0.861812, -0.704717, 0.677978, 0.209093, -0.682211, -0.566593, -0.462127, -0.188627, 1.22121, 0.28652)
+transform = Transform3D(0.000171964, -0.999279, 0.0379718, 0.99999, -4.30911e-07, -0.00453898, 0.00453581, 0.0379721, 0.999269, -0.772084, 1.59905, 0.0264628)
 bone_name = "finger_middle.R.003"
 bone_idx = 52
 
@@ -3279,7 +3279,7 @@ target_node = NodePath("../Target_RMiddle3")
 transform = Transform3D(0.000172428, -0.999279, 0.037972, 0.999989, 7.11818e-09, -0.00453881, 0.00453561, 0.0379722, 0.999268, -0.800747, 1.59955, 0.0275065)
 
 [node name="Attach_RRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="19"]
-transform = Transform3D(-0.253943, -0.332548, 0.908254, -0.885351, 0.458016, -0.0798418, -0.389443, -0.824399, -0.410731, -0.206794, 1.21235, 0.29952)
+transform = Transform3D(-0.000110178, -0.999707, -0.0242084, 0.99999, -3.09214e-07, -0.00453931, 0.00453805, -0.0242087, 0.999697, -0.766235, 1.59905, -0.00292474)
 bone_name = "finger_ring.R.003"
 bone_idx = 57
 
@@ -3303,7 +3303,7 @@ target_node = NodePath("../Target_RRing3")
 transform = Transform3D(-0.000109707, -0.999707, -0.0242082, 0.999989, 1.07126e-07, -0.00453911, 0.00453785, -0.0242086, 0.999696, -0.789358, 1.59762, -0.00286172)
 
 [node name="Attach_RPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="22"]
-transform = Transform3D(-0.408014, -0.0501966, 0.911595, -0.832542, 0.43025, -0.348939, -0.374698, -0.901313, -0.217339, -0.220319, 1.21618, 0.316545)
+transform = Transform3D(-0.00104554, -0.973123, -0.230282, 0.99999, -2.23765e-07, -0.00453941, 0.00441743, -0.230284, 0.973113, -0.746976, 1.59905, -0.0337389)
 bone_name = "finger_pinky.R.003"
 bone_idx = 62
 
@@ -3327,7 +3327,7 @@ target_node = NodePath("../Target_RPinky3")
 transform = Transform3D(-0.00104507, -0.973123, -0.230282, 0.999989, 1.54267e-07, -0.00453912, 0.00441723, -0.230284, 0.973113, -0.765976, 1.59691, -0.0369384)
 
 [node name="Attach_RThumb3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="25"]
-transform = Transform3D(0.483883, -0.599906, 0.637159, -0.873772, -0.371782, 0.31353, 0.0487957, -0.708442, -0.70408, -0.150293, 1.24428, 0.280591)
+transform = Transform3D(0.00251325, -0.83262, 0.55384, 0.999989, -4.20667e-07, -0.00453822, 0.00377877, 0.553846, 0.832611, -0.681778, 1.59905, 0.0741219)
 bone_name = "finger_thumb.R.003"
 bone_idx = 68
 

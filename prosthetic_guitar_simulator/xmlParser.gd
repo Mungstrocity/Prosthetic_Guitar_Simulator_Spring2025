@@ -20,49 +20,45 @@ func parse_music_XML():
 	var songData = {}
 	parser.open("res://Assets/InputFiles/input.xml")
 	var node_name = ""
-	var parent_name = ""
 	var node_data
 	var num_measures = 0
 	var num_notes = 0
-	var next_is_sibling = false
 	var in_measure_scope = false
 	var in_note_scope = false
+	var tempName
 	while parser.read() != ERR_FILE_EOF:
 		if parser.get_node_type() == XMLParser.NODE_ELEMENT:
-			if !next_is_sibling:
-				parent_name = node_name #retaining parent value from previous iteration else parent doesn't change from last one
 			node_name = parser.get_node_name()
 			if node_name == "measure":
 				in_measure_scope = true
 				num_measures += 1
+				tempName = "-m" + str(num_measures-1) + "," + "+n" + str(0) + ",num_notes" #creates a node which keeps track of the number of notes per measure
+				songData[tempName] = num_notes #stores the number of notes in the previous measure
 				num_notes = 0 #should reset number of notes when in new measure
 			if node_name == "note":
 				in_note_scope = true
 				num_notes += 1
 			if in_note_scope: #also should be in measure scope
-				node_name = "m" + str(num_measures) + "," + "n" + str(num_notes) + "," + node_name
+				node_name = "-m" + str(num_measures) + "," + "+n" + str(num_notes) + "," + node_name
 			elif in_measure_scope:
-				node_name = "m" + str(num_measures) + "," + "n" + str(num_notes) + "," + node_name
+				node_name = "-m" + str(num_measures) + "," + "+n" + str(num_notes) + "," + node_name
 			var attributes_dict = {}
-			var child_or_data_dict = {}
 			for idx in range(parser.get_attribute_count()):
 				attributes_dict[parser.get_attribute_name(idx)] = parser.get_attribute_value(idx)
-			songData[node_name] = [attributes_dict, child_or_data_dict] #add attributes to the key value pair of the element
-			if(!parent_name.is_empty()): #checks for the first node which has no parent
-				songData[parent_name][1][node_name] = songData[node_name] #add the current elementname to the parent element's child_or_data_dict dictionary in index 1
-			print("The ", node_name, " element has the following attributes: ", attributes_dict)
+			songData[node_name] = attributes_dict #add attributes to the key value pair of the element
+			#print("The ", node_name, " element has the following attributes: ", attributes_dict)
 		elif parser.get_node_type() == XMLParser.NODE_TEXT:
 			node_data = parser.get_node_data()
 			if(!node_data.strip_edges().is_empty()):
-				#should check if attributes have been assigned making it size 1. there shouldn't be a second element in a leaf node (no child nodes)
-				if songData[node_name].size() == 1:
-					songData[node_name].append({"data": node_data})
-				print(node_name, " data is: ", node_data)
+				songData[node_name]["data"] = node_data #add the data stored in the element to the attributes dictionary
+				#print(node_name, " data is: ", node_data)
 		elif parser.get_node_type() == XMLParser.NODE_ELEMENT_END:
-			# End of an element node next will be a sibling of the previous
-			next_is_sibling = true
 			if node_name == "measure": #exiting scope
 				in_measure_scope = false
 			if node_name == "note": #exiting scope
 				in_note_scope = false
+	#before exiting, return the number of measures and notes of the last measure as well by adding them to the dictionary.
+	tempName = "-m" + str(num_measures) + "," + "+n" + str(0) + ",num_notes" #creates a node which keeps track of the number of notes per measure
+	songData[tempName] = num_notes #stores the number of notes in the previous measure
+	songData["num_measures"] = num_measures
 	return songData

@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf5t0yyx36v6y"]
+[gd_scene load_steps=7 format=3 uid="uid://bf5t0yyx36v6y"]
 
 [ext_resource type="PackedScene" uid="uid://7r5362hu3fwq" path="res://GuitarPlayer.tscn" id="1_yy2rj"]
-[ext_resource type="PackedScene" uid="uid://3m6qonxfwunt" path="res://Guitar.tscn" id="2_nc5dh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sth5g"]
 size = Vector3(128, 1, 128)
@@ -34,7 +33,7 @@ shape = SubResource("BoxShape3D_sth5g")
 mesh = SubResource("BoxMesh_4ycdc")
 
 [node name="Background" type="StaticBody3D" parent="."]
-transform = Transform3D(-8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0, 0, 20, -573, 65, 0)
+transform = Transform3D(3.82137e-14, -8.74228e-07, -20, -20, -8.74228e-07, 0, -8.74228e-07, 20, -8.74228e-07, 25, 65, -582)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Background"]
@@ -44,18 +43,13 @@ shape = SubResource("BoxShape3D_sth5g")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background"]
 mesh = SubResource("BoxMesh_w1wly")
 
-[node name="Guitar" parent="." instance=ExtResource("2_nc5dh")]
-transform = Transform3D(0.997473, 0, 0.0710448, 0.0094883, 0.991042, -0.133216, -0.0704084, 0.133554, 0.988537, -19.1728, 133.956, 54.4889)
-gravity_scale = 0.0
-
-[node name="playerModelRiggedforBlender" parent="." instance=ExtResource("1_yy2rj")]
-transform = Transform3D(-5.24537e-06, 0, 120, 0, 120, 0, -120, 0, -5.24537e-06, 21, -5.09527, 0)
-
 [node name="MainCamera" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 175.036, 140.611, 0)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -4.964, 140.611, 243)
 
 [node name="GuitarNeckCamera" type="Camera3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 68.0364, 174.611, -14)
+transform = Transform3D(1, 0, 5.96047e-08, 0, 1, 0, -5.96047e-08, 0, 1, -0.9636, 178.611, 54)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.707107, -3.09086e-08, 0.707107, -0.707107, -3.09086e-08, 0.707107, 0, -1, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(0.707107, -3.09086e-08, 0.707107, -0.353553, 0.866025, 0.353553, -0.612373, -0.5, 0.612373, 0, 0, 0)
+
+[node name="playerModelRiggedforBlender" parent="." instance=ExtResource("1_yy2rj")]

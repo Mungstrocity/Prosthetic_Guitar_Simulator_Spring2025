@@ -11,7 +11,7 @@ extends CharacterBody3D
 #parsed parts should include musicXML dynamics, pitch(inlcudes note and octave), measure maybe? (again probly good for looking ahead?)
 #duration (not sure about what this means...) and type of beat (quarter, eighth, etc...),
 #notations maybe? (tell you if the notes are tied to others or not... should be useful for looking ahead
-#the only notes that need to be looked ahead at are probably eighths or quicker until you get to really fast tempos)
+#the only notes that need to be looked ahead at are probably checking for chords, eighths or quicker until you get to really fast tempos)
 
 #audio could use the output midi file instead of generated music worst case. but it would be piano music...
 #

@@ -2992,7 +2992,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0516403, 0.00350462, -0.18
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 transform = Transform3D(0.999999, -0.00105495, 0.00101163, 0.00105635, 0.999998, -0.00140041, -0.00101016, 0.00140146, 0.999998, 0, 0, 0)
-bones/0/position = Vector3(0.0502105, 1.0813, 0.038298)
 bones/0/rotation = Quaternion(0.0619288, 1.1898e-07, 7.38249e-09, 0.998081)
 bones/1/rotation = Quaternion(-0.117028, 5.24177e-14, -2.79017e-08, 0.993129)
 bones/2/rotation = Quaternion(-0.0272424, -6.07505e-14, -6.49509e-09, 0.999629)
@@ -3127,8 +3126,62 @@ bones/84/rotation = Quaternion(-0.0885246, -1.70167e-09, -0.023519, 0.995796)
 [node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_awhtr")
 
-[node name="Attach_LIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.248679, -0.307577, 0.918453, -0.874148, -0.337131, -0.349584, 0.417163, -0.889797, -0.185031, 0.323345, 1.6908, 0.232232)
+[node name="Target_LUpperArm" type="Node3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999993, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, 0.469427, 1.60816, 0.00324592)
+
+[node name="Target_LLowerArm" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm" index="0"]
+transform = Transform3D(1, -2.98023e-08, -2.98023e-08, 0, 1, 0, -8.9407e-08, -2.98023e-08, 0.999999, -0.0105346, -0.237189, 0.163292)
+
+[node name="Target_LHand" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm" index="0"]
+transform = Transform3D(0.999999, -1.86265e-09, 4.65661e-10, -1.16415e-09, 1, -5.06639e-07, -7.91624e-09, -8.04663e-07, 0.999999, -0.0023756, -0.128412, 0.0903351)
+
+[node name="Target_LIndex3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="0"]
+transform = Transform3D(-0.997001, 0.018292, 0.0752296, 0.0401933, -0.7082, 0.70487, 0.0661708, 0.70578, 0.705337, 0.00355887, 0.0399712, 0.0299573)
+
+[node name="Target_LMiddle3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="1"]
+transform = Transform3D(-0.999991, 0.00265498, -0.000858345, -0.00265553, -0.810988, 0.585056, 0.00085715, 0.585057, 0.810991, 0.00209284, 0.00341022, 0.0193467)
+
+[node name="Target_LRing3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="2"]
+transform = Transform3D(-0.999992, 0.00242101, -0.000700533, -0.00242159, -0.845783, 0.533521, 0.000699115, 0.533521, 0.845785, 0.00390995, -0.00355059, -0.0164258)
+
+[node name="Target_LPinky3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="3"]
+transform = Transform3D(-0.999994, 0.00157562, -0.00028303, -0.00157605, -0.937782, 0.347217, 0.000281606, 0.347218, 0.937784, -0.00282872, 0.00359029, -0.0626808)
+
+[node name="Target_LThumb3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="4"]
+transform = Transform3D(-0.999994, 0.00157562, -0.00028303, -0.00157605, -0.937782, 0.347217, 0.000281606, 0.347218, 0.937784, 0.00548303, 0.123472, 0.0143542)
+
+[node name="LUpperArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/Target_LUpperArm" index="1"]
+transform = Transform3D(-0.998582, 0.0424127, -0.0320737, -0.0531381, -0.818467, 0.572091, -0.00198735, 0.572986, 0.819563, -0.0130279, 0.251409, -0.176005)
+bone_name = "upper_arm.L"
+bone_idx = 8
+use_external_skeleton = true
+external_skeleton = NodePath("../..")
+
+[node name="IK_LUpperArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.480261, 1.60111, 0.0857075)
+root_bone = &"upper_arm.L"
+tip_bone = &"upper_arm.L.IKtip"
+override_tip_basis = false
+target_node = NodePath("../Target_LUpperArm")
+
+[node name="IK_LLowerArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.439963, 1.60115, 0.0856667)
+root_bone = &"lower_arm.L"
+tip_bone = &"lower_arm.L.IKtip"
+override_tip_basis = false
+use_magnet = true
+magnet = Vector3(0, -10, 0)
+target_node = NodePath("../Target_LUpperArm/Target_LLowerArm")
+
+[node name="IK_LHand" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.439963, 1.60115, 0.0856667)
+root_bone = &"hand.L"
+tip_bone = &"hand.L.IKtip"
+override_tip_basis = false
+target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand")
+
+[node name="Attach_LIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="5"]
+transform = Transform3D(-0.21093, 0.949762, -0.231217, -0.975167, -0.220792, -0.0173318, -0.067512, 0.22182, 0.972747, 0.862126, 1.60577, 0.0506943)
 bone_name = "finger_index.L.003"
 bone_idx = 14
 
@@ -3147,21 +3200,18 @@ joint_constraints/angular_limit_relaxation = 1.0
 transform = Transform3D(1, 5.82077e-11, 0, 0, 1, -1.49012e-08, -4.65661e-10, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="Target_LIndex3" type="Node3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.000676105, 0.980596, -0.196055, -0.997295, 0.0150887, 0.0720277, 0.0735877, 0.195475, 0.977945, 0.307853, 1.68764, 0.202081)
-
-[node name="IK_LIndex3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="3"]
+[node name="IK_LIndex3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="6"]
 transform = Transform3D(0.000889677, 0.980581, -0.196113, -0.999989, -4.97446e-07, -0.00453929, -0.00445129, 0.196115, 0.98057, 0.876054, 1.60065, 0.0585349)
 root_bone = &"finger_index.L.001"
 tip_bone = &"finger_index.L.004"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_LIndex3")
+target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LIndex3")
 max_iterations = 20
 
-[node name="Attach_LMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.0629241, -0.15225, 0.986337, -0.784965, -0.617881, -0.0452983, 0.616336, -0.77139, -0.158391, 0.288887, 1.70152, 0.2319)
+[node name="Attach_LMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="7"]
+transform = Transform3D(-0.202099, 0.970284, -0.13306, -0.979024, -0.203741, 0.00129555, -0.0258527, 0.13053, 0.991107, 0.88051, 1.60485, 0.024286)
 bone_name = "finger_middle.L.003"
 bone_idx = 19
 
@@ -3172,20 +3222,17 @@ transform = Transform3D(1, -4.51109e-10, -2.32831e-09, -1.01863e-10, 1, -3.35276
 transform = Transform3D(1, 5.82077e-11, 0, 5.82077e-11, 1, -3.35276e-08, -1.86265e-09, 1.49012e-08, 1, 0.00300968, 0.000673413, -1.19209e-05)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_LMiddle3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="5"]
+[node name="IK_LMiddle3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="8"]
 transform = Transform3D(0.000172013, 0.999279, -0.0379717, -0.999989, -2.90111e-07, -0.00453934, -0.00453612, 0.0379719, 0.999268, 0.900309, 1.5965, 0.0289653)
 root_bone = &"finger_middle.L.001"
 tip_bone = &"finger_middle.L.004"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_LMiddle3")
+target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LMiddle3")
 
-[node name="Target_LMiddle3" type="Node3D" parent="Armature/Skeleton3D" index="6"]
-transform = Transform3D(0.000172013, 0.999279, -0.0379717, -0.999989, -2.90111e-07, -0.00453934, -0.00453612, 0.0379719, 0.999268, 0.900308, 1.5965, 0.0289653)
-
-[node name="Attach_LRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="7"]
-transform = Transform3D(0.0488423, -0.126224, 0.990799, -0.7124, -0.699691, -0.0540193, 0.700072, -0.703207, -0.124096, 0.264306, 1.68949, 0.230417)
+[node name="Attach_LRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="9"]
+transform = Transform3D(-0.197651, 0.979869, -0.0281032, -0.980272, -0.197583, 0.00519601, -0.000461365, 0.0285756, 0.999591, 0.873944, 1.60498, -0.00474232)
 bone_name = "finger_ring.L.003"
 bone_idx = 24
 
@@ -3196,20 +3243,17 @@ transform = Transform3D(0.999999, -4.1473e-10, -1.39698e-09, -1.01863e-10, 1, -2
 transform = Transform3D(1, 9.45874e-11, 0, -2.18279e-11, 1, -1.30385e-08, 4.65661e-10, 1.49012e-08, 1, -3.6478e-05, -0.000761449, -5.14537e-05)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_LRing3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="8"]
+[node name="IK_LRing3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="10"]
 transform = Transform3D(-0.000110303, 0.999707, 0.0242085, -0.999989, -3.42244e-07, -0.00453944, -0.00453814, -0.0242088, 0.999696, 0.890154, 1.59555, -0.0028937)
 root_bone = &"finger_ring.L.001"
 tip_bone = &"finger_ring.L.004"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_LRing3")
+target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LRing3")
 
-[node name="Target_LRing3" type="Node3D" parent="Armature/Skeleton3D" index="9"]
-transform = Transform3D(-0.000110303, 0.999707, 0.0242085, -0.999989, -3.42272e-07, -0.00453944, -0.00453814, -0.0242088, 0.999696, 0.902984, 1.59162, -0.00995032)
-
-[node name="Attach_LPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="10"]
-transform = Transform3D(0.0580787, -8.55923e-05, 0.998312, -0.95021, -0.306672, 0.0552539, 0.30615, -0.951815, -0.0178926, 0.24088, 1.66855, 0.228618)
+[node name="Attach_LPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="11"]
+transform = Transform3D(-0.316164, 0.928867, 0.192992, -0.944241, -0.327806, 0.0308485, 0.0919181, -0.172478, 0.980715, 0.854533, 1.59933, -0.0342381)
 bone_name = "finger_pinky.L.003"
 bone_idx = 29
 
@@ -3220,20 +3264,70 @@ transform = Transform3D(0.999998, 0.000437451, 2.11126e-05, -0.000437448, 0.9953
 transform = Transform3D(1, 1.86265e-09, 9.31323e-10, -2.32831e-09, 1, 1.49012e-07, -2.79397e-09, -5.96046e-08, 1, -0.00148904, -0.00241762, 0.00112037)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_LPinky3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="11"]
+[node name="IK_LPinky3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="12"]
 transform = Transform3D(-0.00104555, 0.973123, 0.230282, -0.999989, -1.3092e-07, -0.00453946, -0.00441747, -0.230284, 0.973113, 0.866558, 1.59545, -0.036234)
 root_bone = &"finger_pinky.L.001"
 tip_bone = &"finger_pinky.L.004"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_LPinky3")
+target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LPinky3")
 
-[node name="Target_LPinky3" type="Node3D" parent="Armature/Skeleton3D" index="12"]
-transform = Transform3D(-0.00104555, 0.973123, 0.230282, -0.999989, -1.29919e-07, -0.00453946, -0.00441747, -0.230284, 0.973113, 0.879628, 1.59321, -0.0349206)
+[node name="IK_LThumb3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="13"]
+transform = Transform3D(-0.00104555, 0.973123, 0.230282, -0.999989, -1.30938e-07, -0.00453946, -0.00441747, -0.230284, 0.973113, 0.797148, 1.59568, 0.0748374)
+root_bone = &"finger_thumb.L.001"
+tip_bone = &"finger_thumb.L.005"
+override_tip_basis = false
+use_magnet = true
+target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LThumb3")
 
-[node name="Attach_RIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="13"]
-transform = Transform3D(-0.284775, -0.662596, 0.692727, -0.410915, 0.737265, 0.536273, -0.866056, -0.131935, -0.482225, -0.149229, 1.20825, 0.29303)
+[node name="Target_RUpperArm" type="Node3D" parent="Armature/Skeleton3D" index="14"]
+transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999993, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, -0.396565, 1.60226, -0.00139692)
+
+[node name="Target_RLowerArm" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm" index="0"]
+transform = Transform3D(0.999999, 3.49246e-09, 4.65661e-09, -2.56114e-09, 1, -2.98023e-08, 0, 0, 1, 0.00489402, 0.221124, -0.133088)
+
+[node name="Target_RHand" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm" index="0"]
+transform = Transform3D(0.999997, -2.32831e-10, -4.65661e-10, 2.56114e-09, 1, -2.98023e-08, 1.39698e-08, -3.27826e-07, 1, -0.0125207, 0.136363, -0.0849189)
+
+[node name="Target_RIndex3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="0"]
+transform = Transform3D(0.999995, -0.00172367, -0.000340078, 0.00172388, 0.925068, 0.379798, -0.000339978, -0.379798, 0.925068, 0.00265515, 0.0149161, 0.0490864)
+
+[node name="Target_RMiddle3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="1"]
+transform = Transform3D(0.999994, -0.00236826, -0.000666917, 0.00236846, 0.853049, 0.521824, -0.000666831, -0.521825, 0.853051, 0.00229037, 0.0132679, 0.0093196)
+
+[node name="Target_RRing3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="2"]
+transform = Transform3D(0.999994, -0.00260423, -0.000821893, 0.00260462, 0.818967, 0.573834, -0.000821223, -0.573835, 0.818969, 0.00255895, -0.0176938, -0.00789267)
+
+[node name="Target_RPinky3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="3"]
+transform = Transform3D(0.999992, -0.00331615, -0.00144035, 0.00331661, 0.682699, 0.730692, -0.0014397, -0.730691, 0.682704, 0.0022639, -0.0571088, -0.0251837)
+
+[node name="Target_RThumb3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="4"]
+transform = Transform3D(0.999997, 4.65661e-10, 3.25963e-09, 2.56114e-09, 1, 2.98023e-08, -1.39698e-09, -1.19209e-06, 1, -0.000187874, -0.0390251, 0.121679)
+
+[node name="IK_RUpperArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="15"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
+root_bone = &"upper_arm.R"
+tip_bone = &"upper_arm.R.IKtip"
+override_tip_basis = false
+target_node = NodePath("../Target_RUpperArm")
+
+[node name="IK_RLowerArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="16"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
+root_bone = &"lower_arm.R"
+tip_bone = &"lower_arm.R.IKtip"
+override_tip_basis = false
+target_node = NodePath("../Target_RUpperArm/Target_RLowerArm")
+
+[node name="IK_RHand" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="17"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
+root_bone = &"hand.R"
+tip_bone = &"hand.R.IKtip"
+override_tip_basis = false
+target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand")
+
+[node name="Attach_RIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="18"]
+transform = Transform3D(0.00088968, -0.980581, 0.196113, 0.99999, -5.13224e-07, -0.00453893, 0.00445096, 0.196115, 0.980571, -0.752856, 1.59905, 0.0535793)
 bone_name = "finger_index.R.003"
 bone_idx = 47
 
@@ -3244,20 +3338,17 @@ transform = Transform3D(0.999997, 0.00127389, 2.46596e-05, -0.00126679, 0.996126
 transform = Transform3D(1, 1.86265e-09, 1.39698e-09, -3.14321e-09, 1, 1.49012e-07, -3.25963e-09, -1.49012e-07, 1, -0.00149465, -1.60933e-05, 0.000415653)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_RIndex3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="14"]
+[node name="IK_RIndex3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="19"]
 transform = Transform3D(0.000890151, -0.980581, 0.196113, 0.999989, -4.09522e-08, -0.00453882, 0.00445075, 0.196115, 0.98057, -0.781851, 1.60091, 0.0581122)
 root_bone = &"finger_index.R.001"
 tip_bone = &"finger_index.R.IKtip"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_RIndex3")
+target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RIndex3")
 
-[node name="Target_RIndex3" type="Node3D" parent="Armature/Skeleton3D" index="15"]
-transform = Transform3D(0.000890152, -0.980581, 0.196113, 0.999989, -4.05998e-08, -0.00453881, 0.00445075, 0.196115, 0.98057, -0.789016, 1.60022, 0.0562712)
-
-[node name="Attach_RMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="16"]
-transform = Transform3D(-0.194841, -0.468314, 0.861812, -0.704717, 0.677978, 0.209093, -0.682211, -0.566593, -0.462127, -0.189331, 1.22121, 0.28652)
+[node name="Attach_RMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="20"]
+transform = Transform3D(0.000171948, -0.999279, 0.0379718, 0.99999, -4.5175e-07, -0.004539, 0.00453581, 0.0379721, 0.999269, -0.772085, 1.59905, 0.0264629)
 bone_name = "finger_middle.R.003"
 bone_idx = 52
 
@@ -3268,20 +3359,17 @@ transform = Transform3D(0.999997, 0.00127389, 2.466e-05, -0.00126679, 0.996126, 
 transform = Transform3D(1, 1.92085e-09, 1.39698e-09, -3.14321e-09, 1, 1.56462e-07, -4.19095e-09, -1.63913e-07, 1, -0.00149357, -0.000790477, 0.000513792)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_RMiddle3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="17"]
+[node name="IK_RMiddle3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="21"]
 transform = Transform3D(0.000172428, -0.999279, 0.037972, 0.999989, 7.14846e-09, -0.00453881, 0.00453561, 0.0379722, 0.999268, -0.798931, 1.59745, 0.0289509)
 root_bone = &"finger_middle.R.001"
 tip_bone = &"finger_middle.R.IKtip"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_RMiddle3")
+target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RMiddle3")
 
-[node name="Target_RMiddle3" type="Node3D" parent="Armature/Skeleton3D" index="18"]
-transform = Transform3D(0.000172428, -0.999279, 0.037972, 0.999989, 7.11818e-09, -0.00453881, 0.00453561, 0.0379722, 0.999268, -0.800747, 1.59955, 0.0275065)
-
-[node name="Attach_RRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="19"]
-transform = Transform3D(-0.253943, -0.332548, 0.908254, -0.885351, 0.458016, -0.0798418, -0.389443, -0.824399, -0.410731, -0.207498, 1.21235, 0.29952)
+[node name="Attach_RRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="22"]
+transform = Transform3D(-0.000110171, -0.999707, -0.0242084, 0.99999, -3.09083e-07, -0.00453932, 0.00453806, -0.0242087, 0.999697, -0.766236, 1.59905, -0.00292472)
 bone_name = "finger_ring.R.003"
 bone_idx = 57
 
@@ -3292,20 +3380,17 @@ transform = Transform3D(0.999998, 0.00096726, 4.12827e-05, -0.000966217, 0.99979
 transform = Transform3D(1, 1.93904e-09, 1.39698e-09, -3.29419e-09, 1, 1.49477e-07, -3.25963e-09, -1.48779e-07, 0.999999, -0.00149763, 0.00334793, 0.000428587)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_RRing3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="20"]
+[node name="IK_RRing3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="23"]
 transform = Transform3D(-0.000109707, -0.999707, -0.0242082, 0.999989, 1.07141e-07, -0.00453911, 0.00453785, -0.0242086, 0.999696, -0.789275, 1.59745, -0.00257684)
 root_bone = &"finger_ring.R.001"
 tip_bone = &"finger_ring.R.IKtip"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_RRing3")
+target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RRing3")
 
-[node name="Target_RRing3" type="Node3D" parent="Armature/Skeleton3D" index="21"]
-transform = Transform3D(-0.000109707, -0.999707, -0.0242082, 0.999989, 1.07126e-07, -0.00453911, 0.00453785, -0.0242086, 0.999696, -0.789358, 1.59762, -0.00286172)
-
-[node name="Attach_RPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="22"]
-transform = Transform3D(-0.408014, -0.0501966, 0.911595, -0.832542, 0.43025, -0.348939, -0.374698, -0.901313, -0.217339, -0.221023, 1.21619, 0.316545)
+[node name="Attach_RPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="24"]
+transform = Transform3D(-0.00104553, -0.973124, -0.230282, 0.99999, -2.12865e-07, -0.00453942, 0.00441743, -0.230285, 0.973113, -0.746977, 1.59905, -0.0337389)
 bone_name = "finger_pinky.R.003"
 bone_idx = 62
 
@@ -3316,20 +3401,17 @@ transform = Transform3D(0.999998, 0.000464767, 2.36444e-05, -0.000465002, 0.9959
 transform = Transform3D(1, 1.97906e-09, 9.31323e-10, -3.25963e-09, 1, 1.49012e-07, -2.79397e-09, -1.49012e-07, 1, -0.00149739, -0.00438082, -0.00104444)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_RPinky3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="23"]
+[node name="IK_RPinky3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="25"]
 transform = Transform3D(-0.00104507, -0.973124, -0.230282, 0.999989, 1.54297e-07, -0.00453912, 0.00441723, -0.230284, 0.973113, -0.764164, 1.59745, -0.0370951)
 root_bone = &"finger_pinky.R.001"
 tip_bone = &"finger_pinky.R.IKtip"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_RPinky3")
+target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RPinky3")
 
-[node name="Target_RPinky3" type="Node3D" parent="Armature/Skeleton3D" index="24"]
-transform = Transform3D(-0.00104507, -0.973123, -0.230282, 0.999989, 1.54267e-07, -0.00453912, 0.00441723, -0.230284, 0.973113, -0.765976, 1.59691, -0.0369384)
-
-[node name="Attach_RThumb3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="25"]
-transform = Transform3D(0.483883, -0.599906, 0.637159, -0.873772, -0.371782, 0.31353, 0.0487957, -0.708442, -0.70408, -0.150996, 1.24428, 0.280591)
+[node name="Attach_RThumb3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="26"]
+transform = Transform3D(0.00251321, -0.83262, 0.55384, 0.999989, -3.66184e-07, -0.00453813, 0.00377875, 0.553846, 0.832611, -0.681778, 1.59905, 0.0741219)
 bone_name = "finger_thumb.R.003"
 bone_idx = 68
 
@@ -3340,78 +3422,13 @@ transform = Transform3D(0.999998, 0.000464766, 2.36486e-05, -0.000465002, 0.9959
 transform = Transform3D(1, 1.74623e-09, 9.31323e-10, -3.84171e-09, 1, 8.9407e-08, -2.32831e-09, -1.19209e-07, 1, -0.00149739, -0.00442576, -0.00104097)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_RThumb3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="26"]
+[node name="IK_RThumb3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="27"]
 transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14343e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
 root_bone = &"finger_thumb.R.001"
 tip_bone = &"finger_thumb.R.IKtip"
 override_tip_basis = false
 use_magnet = true
-target_node = NodePath("../Target_RThumb3")
-
-[node name="Target_RThumb3" type="Node3D" parent="Armature/Skeleton3D" index="27"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999989, -2.12633e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, -0.700892, 1.60256, 0.0829499)
-
-[node name="IK_RHand" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="28"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14343e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
-root_bone = &"hand.R"
-tip_bone = &"hand.R.IKtip"
-override_tip_basis = false
-target_node = NodePath("../Target_RHand")
-
-[node name="Target_RHand" type="Node3D" parent="Armature/Skeleton3D" index="29"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.99999, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, -0.186206, 1.23211, 0.283636)
-
-[node name="IK_RLowerArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="30"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14343e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
-root_bone = &"lower_arm.R"
-tip_bone = &"lower_arm.R.IKtip"
-override_tip_basis = false
-target_node = NodePath("../Target_RLowerArm")
-
-[node name="Target_RLowerArm" type="Node3D" parent="Armature/Skeleton3D" index="31"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999991, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, -0.102908, 1.18281, 0.267123)
-
-[node name="IK_RUpperArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="32"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14343e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
-root_bone = &"upper_arm.R"
-tip_bone = &"upper_arm.R.IKtip"
-override_tip_basis = false
-target_node = NodePath("../Target_RUpperArm")
-
-[node name="Target_RUpperArm" type="Node3D" parent="Armature/Skeleton3D" index="33"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999991, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, -0.298603, 1.53838, 0.221855)
-
-[node name="IK_LUpperArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="34"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.480261, 1.60111, 0.0857075)
-root_bone = &"upper_arm.L"
-tip_bone = &"upper_arm.L.IKtip"
-override_tip_basis = false
-target_node = NodePath("../Target_LUpperArm")
-
-[node name="Target_LUpperArm" type="Node3D" parent="Armature/Skeleton3D" index="35"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999992, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, 0.344519, 1.34114, 0.0847338)
-
-[node name="IK_LLowerArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="36"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.439963, 1.60115, 0.0856667)
-root_bone = &"upper_arm.L"
-tip_bone = &"lower_arm.L.IKtip"
-override_tip_basis = false
-use_magnet = true
-magnet = Vector3(0, -10, 0)
-target_node = NodePath("../Target_LLowerArm")
-
-[node name="Target_LLowerArm" type="Node3D" parent="Armature/Skeleton3D" index="37"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999993, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, 0.336263, 1.56637, 0.242743)
-
-[node name="IK_LHand" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="38"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.439963, 1.60115, 0.0856667)
-root_bone = &"hand.L"
-tip_bone = &"hand.L.IKtip"
-override_tip_basis = false
-target_node = NodePath("../Target_LHand")
-
-[node name="Target_LHand" type="Node3D" parent="Armature/Skeleton3D" index="39"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999994, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, 0.259728, 1.71687, 0.242455)
+target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RThumb3")
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -3424,5 +3441,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00193672, 0.999321, -0.124
 shape = SubResource("CapsuleShape3D_tcf3v")
 
 [node name="Guitar" parent="." index="3" instance=ExtResource("3_3isvk")]
-transform = Transform3D(0.0243041, -0.0437938, -0.998745, 0.00106539, 0.999041, -0.0437808, 0.999704, 0, 0.0243275, -57.2088, 139.728, -42.9406)
+transform = Transform3D(0.07293, 0.0726992, -0.994684, -0.00177069, 0.997348, 0.0727641, 0.997335, -0.00354541, 0.0728654, -48.8153, 149.961, -43.0156)
 top_level = true

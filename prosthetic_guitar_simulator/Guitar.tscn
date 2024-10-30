@@ -887,7 +887,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.261799, -43.4958, 53.6766)
 
 [node name="LowerArm_Target" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.9982, 50.9267, -111.174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.9982, 51.9267, -108.174)
 
 [node name="Target_F1" type="Node3D" parent="LowerArm_Target"]
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0, -5.73618, -3.4495)

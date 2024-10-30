@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://7r5362hu3fwq"]
+[gd_scene load_steps=16 format=3 uid="uid://7r5362hu3fwq"]
 
 [ext_resource type="PackedScene" uid="uid://43m8er617sog" path="res://Assets/Models/playerModelRiggedforBlender.glb" id="1_21urw"]
 [ext_resource type="Script" path="res://guitar_player.gd" id="2_n1x2b"]
@@ -1768,11 +1768,610 @@ tracks/85/interp = 1
 tracks/85/loop_wrap = true
 tracks/85/keys = PackedFloat32Array(0, 1, -0.0885246, -1.70167e-09, -0.023519, 0.995796)
 
+[sub_resource type="Animation" id="Animation_4qkc1"]
+resource_name = "fret6"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:spine")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.0619288, 1.1898e-07, 7.38249e-09, 0.998081)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Armature/Skeleton3D:spine.001")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, -0.117028, 5.26382e-14, -2.79017e-08, 0.993129)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Armature/Skeleton3D:spine.002")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, -0.0272424, -6.07505e-14, -6.49509e-09, 0.999629)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Armature/Skeleton3D:spine.003")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.0531713, 1.84837e-14, 1.2677e-08, 0.998585)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Armature/Skeleton3D:neck")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.229753, -3.32081e-14, 5.47774e-08, 0.973249)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Armature/Skeleton3D:head")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.114226, 4.00281e-15, -2.72337e-08, 0.993455)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Armature/Skeleton3D:head.001")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, -0.337537, 3.12685e-08, 0.312674, 0.887865)
+tracks/7/type = "rotation_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Armature/Skeleton3D:collar.L")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, -0.057204, 0.102939, -0.75139, 0.649265)
+tracks/8/type = "rotation_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Armature/Skeleton3D:upper_arm.L")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0.0976093, 0.0753484, -0.454455, 0.882194)
+tracks/9/type = "rotation_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Armature/Skeleton3D:lower_arm.L")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0.657748, -0.442831, -0.537479, 0.287027)
+tracks/10/type = "rotation_3d"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Armature/Skeleton3D:hand.L")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = PackedFloat32Array(0, 1, 0.122532, -0.0970363, -0.36862, 0.916346)
+tracks/11/type = "rotation_3d"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Armature/Skeleton3D:finger_index.L")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = PackedFloat32Array(0, 1, 0.248623, 0.00290631, 0.0639161, 0.966485)
+tracks/12/type = "rotation_3d"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Armature/Skeleton3D:finger_index.L.001")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = PackedFloat32Array(0, 1, -0.111137, -0.0935959, -0.236229, 0.960773)
+tracks/13/type = "rotation_3d"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Armature/Skeleton3D:finger_index.L.002")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = PackedFloat32Array(0, 1, 0.0421931, -0.04975, -0.248508, 0.966431)
+tracks/14/type = "rotation_3d"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Armature/Skeleton3D:finger_index.L.003")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = PackedFloat32Array(0, 1, 0.0731392, -0.0676212, -0.368526, 0.924265)
+tracks/15/type = "rotation_3d"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Armature/Skeleton3D:finger_index.L.004")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = PackedFloat32Array(0, 1, 0.303541, -0.0830146, -0.560698, 0.765891)
+tracks/16/type = "rotation_3d"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Armature/Skeleton3D:finger_middle.L")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = PackedFloat32Array(0, 1, 0.0551149, -0.0094098, 0.0623967, 0.996484)
+tracks/17/type = "rotation_3d"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Armature/Skeleton3D:finger_middle.L.001")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = PackedFloat32Array(0, 1, 0.0212349, -0.0308524, -0.251647, 0.967094)
+tracks/18/type = "rotation_3d"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("Armature/Skeleton3D:finger_middle.L.002")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = PackedFloat32Array(0, 1, 0.0499521, -0.0219021, -0.252453, 0.966071)
+tracks/19/type = "rotation_3d"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("Armature/Skeleton3D:finger_middle.L.003")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = PackedFloat32Array(0, 1, 0.072882, -0.0245499, -0.489021, 0.868875)
+tracks/20/type = "rotation_3d"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Armature/Skeleton3D:finger_middle.L.004")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = PackedFloat32Array(0, 1, 0.107637, 4.83631e-09, -0.405043, 0.90794)
+tracks/21/type = "rotation_3d"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Armature/Skeleton3D:finger_ring.L")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = PackedFloat32Array(0, 1, -0.128647, -0.0206526, 0.058781, 0.989731)
+tracks/22/type = "rotation_3d"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("Armature/Skeleton3D:finger_ring.L.001")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = PackedFloat32Array(0, 1, 0.140034, 0.0313164, -0.251051, 0.957279)
+tracks/23/type = "rotation_3d"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("Armature/Skeleton3D:finger_ring.L.002")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = PackedFloat32Array(0, 1, 0.0545273, 0.00791925, -0.253255, 0.965829)
+tracks/24/type = "rotation_3d"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("Armature/Skeleton3D:finger_ring.L.003")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = PackedFloat32Array(0, 1, 0.0949135, 0.0183448, -0.489193, 0.866802)
+tracks/25/type = "rotation_3d"
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/path = NodePath("Armature/Skeleton3D:finger_ring.L.004")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/keys = PackedFloat32Array(0, 1, -0.0687363, -9.42134e-08, -0.395169, 0.916033)
+tracks/26/type = "rotation_3d"
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/path = NodePath("Armature/Skeleton3D:finger_pinky.L")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/keys = PackedFloat32Array(0, 1, -0.295229, -0.0304565, 0.0536429, 0.953433)
+tracks/27/type = "rotation_3d"
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/path = NodePath("Armature/Skeleton3D:finger_pinky.L.001")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/keys = PackedFloat32Array(0, 1, 0.188823, 0.158231, -0.339131, 0.907909)
+tracks/28/type = "rotation_3d"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("Armature/Skeleton3D:finger_pinky.L.002")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = PackedFloat32Array(0, 1, 0.0749736, 0.0728842, -0.242588, 0.964478)
+tracks/29/type = "rotation_3d"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("Armature/Skeleton3D:finger_pinky.L.003")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = PackedFloat32Array(0, 1, 0.108201, 0.126451, -0.472878, 0.865268)
+tracks/30/type = "rotation_3d"
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/path = NodePath("Armature/Skeleton3D:finger_pinky.L.004")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/keys = PackedFloat32Array(0, 1, -0.183818, -3.9489e-08, -0.330081, 0.925882)
+tracks/31/type = "rotation_3d"
+tracks/31/imported = false
+tracks/31/enabled = true
+tracks/31/path = NodePath("Armature/Skeleton3D:finger_thumb.L")
+tracks/31/interp = 1
+tracks/31/loop_wrap = true
+tracks/31/keys = PackedFloat32Array(0, 1, 0.856984, 0.0584589, 0.0324626, 0.510986)
+tracks/32/type = "rotation_3d"
+tracks/32/imported = false
+tracks/32/enabled = true
+tracks/32/path = NodePath("Armature/Skeleton3D:finger_thumb.L.004")
+tracks/32/interp = 1
+tracks/32/loop_wrap = true
+tracks/32/keys = PackedFloat32Array(0, 1, -0.524426, 0.0956237, 0.196361, 0.822968)
+tracks/33/type = "rotation_3d"
+tracks/33/imported = false
+tracks/33/enabled = true
+tracks/33/path = NodePath("Armature/Skeleton3D:finger_thumb.L.001")
+tracks/33/interp = 1
+tracks/33/loop_wrap = true
+tracks/33/keys = PackedFloat32Array(0, 1, -0.30793, -0.465565, 0.684618, -0.468751)
+tracks/34/type = "rotation_3d"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Armature/Skeleton3D:finger_thumb.L.002")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = PackedFloat32Array(0, 1, -0.065763, 0.00176755, 0.0430829, 0.996903)
+tracks/35/type = "rotation_3d"
+tracks/35/imported = false
+tracks/35/enabled = true
+tracks/35/path = NodePath("Armature/Skeleton3D:finger_thumb.L.003")
+tracks/35/interp = 1
+tracks/35/loop_wrap = true
+tracks/35/keys = PackedFloat32Array(0, 1, -0.0569737, -0.000418131, 0.00872975, 0.998337)
+tracks/36/type = "rotation_3d"
+tracks/36/imported = false
+tracks/36/enabled = true
+tracks/36/path = NodePath("Armature/Skeleton3D:finger_thumb.L.005")
+tracks/36/interp = 1
+tracks/36/loop_wrap = true
+tracks/36/keys = PackedFloat32Array(0, 1, 0.322295, 8.49461e-08, -0.21658, 0.921531)
+tracks/37/type = "rotation_3d"
+tracks/37/imported = false
+tracks/37/enabled = true
+tracks/37/path = NodePath("Armature/Skeleton3D:hand.L.IKtip")
+tracks/37/interp = 1
+tracks/37/loop_wrap = true
+tracks/37/keys = PackedFloat32Array(0, 1, -0.774226, 1.41946e-07, -0.269318, 0.572749)
+tracks/38/type = "rotation_3d"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Armature/Skeleton3D:lower_arm.L.IKtip")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = PackedFloat32Array(0, 1, 0.453376, -4.55722e-08, 0.564167, 0.690048)
+tracks/39/type = "rotation_3d"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Armature/Skeleton3D:upper_arm.L.IKtip")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = PackedFloat32Array(0, 1, 0.25586, -1.45548e-07, 0.77801, 0.573791)
+tracks/40/type = "rotation_3d"
+tracks/40/imported = false
+tracks/40/enabled = true
+tracks/40/path = NodePath("Armature/Skeleton3D:collar.R")
+tracks/40/interp = 1
+tracks/40/loop_wrap = true
+tracks/40/keys = PackedFloat32Array(0, 1, -0.0572043, -0.102939, 0.75139, 0.649265)
+tracks/41/type = "rotation_3d"
+tracks/41/imported = false
+tracks/41/enabled = true
+tracks/41/path = NodePath("Armature/Skeleton3D:upper_arm.R")
+tracks/41/interp = 1
+tracks/41/loop_wrap = true
+tracks/41/keys = PackedFloat32Array(0, 1, 0.465237, -0.108217, -0.0373701, 0.877751)
+tracks/42/type = "rotation_3d"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Armature/Skeleton3D:lower_arm.R")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = PackedFloat32Array(0, 1, 0.622426, 0.0656705, 0.445937, 0.639854)
+tracks/43/type = "rotation_3d"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Armature/Skeleton3D:hand.R")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = PackedFloat32Array(0, 1, 0.0131421, 0.0672183, 0.328872, 0.941888)
+tracks/44/type = "rotation_3d"
+tracks/44/imported = false
+tracks/44/enabled = true
+tracks/44/path = NodePath("Armature/Skeleton3D:finger_index.R")
+tracks/44/interp = 1
+tracks/44/loop_wrap = true
+tracks/44/keys = PackedFloat32Array(0, 1, 0.248623, -0.00290621, -0.0639161, 0.966485)
+tracks/45/type = "rotation_3d"
+tracks/45/imported = false
+tracks/45/enabled = true
+tracks/45/path = NodePath("Armature/Skeleton3D:finger_index.R.001")
+tracks/45/interp = 1
+tracks/45/loop_wrap = true
+tracks/45/keys = PackedFloat32Array(0, 1, -0.142122, 0.0911046, 0.532567, 0.829381)
+tracks/46/type = "rotation_3d"
+tracks/46/imported = false
+tracks/46/enabled = true
+tracks/46/path = NodePath("Armature/Skeleton3D:finger_index.R.002")
+tracks/46/interp = 1
+tracks/46/loop_wrap = true
+tracks/46/keys = PackedFloat32Array(0, 1, -0.010808, 0.00142286, 0.130567, 0.991379)
+tracks/47/type = "rotation_3d"
+tracks/47/imported = false
+tracks/47/enabled = true
+tracks/47/path = NodePath("Armature/Skeleton3D:finger_index.R.003")
+tracks/47/interp = 1
+tracks/47/loop_wrap = true
+tracks/47/keys = PackedFloat32Array(0, 1, -0.0048243, 0.00199832, 0.3827, 0.923858)
+tracks/48/type = "rotation_3d"
+tracks/48/imported = false
+tracks/48/enabled = true
+tracks/48/path = NodePath("Armature/Skeleton3D:finger_index.R.IKtip")
+tracks/48/interp = 1
+tracks/48/loop_wrap = true
+tracks/48/keys = PackedFloat32Array(0, 1, -0.140562, -3.92753e-09, 0.458405, 0.877558)
+tracks/49/type = "rotation_3d"
+tracks/49/imported = false
+tracks/49/enabled = true
+tracks/49/path = NodePath("Armature/Skeleton3D:finger_middle.R")
+tracks/49/interp = 1
+tracks/49/loop_wrap = true
+tracks/49/keys = PackedFloat32Array(0, 1, 0.0551149, 0.00940979, -0.0623967, 0.996484)
+tracks/50/type = "rotation_3d"
+tracks/50/imported = false
+tracks/50/enabled = true
+tracks/50/path = NodePath("Armature/Skeleton3D:finger_middle.R.001")
+tracks/50/interp = 1
+tracks/50/loop_wrap = true
+tracks/50/keys = PackedFloat32Array(0, 1, -0.0293731, 0.0141126, 0.432965, 0.900822)
+tracks/51/type = "rotation_3d"
+tracks/51/imported = false
+tracks/51/enabled = true
+tracks/51/path = NodePath("Armature/Skeleton3D:finger_middle.R.002")
+tracks/51/interp = 1
+tracks/51/loop_wrap = true
+tracks/51/keys = PackedFloat32Array(0, 1, -0.00275181, 0.000882974, 0.305499, 0.952188)
+tracks/52/type = "rotation_3d"
+tracks/52/imported = false
+tracks/52/enabled = true
+tracks/52/path = NodePath("Armature/Skeleton3D:finger_middle.R.003")
+tracks/52/interp = 1
+tracks/52/loop_wrap = true
+tracks/52/keys = PackedFloat32Array(0, 1, -0.0328926, 0.00603338, 0.180465, 0.983013)
+tracks/53/type = "rotation_3d"
+tracks/53/imported = false
+tracks/53/enabled = true
+tracks/53/path = NodePath("Armature/Skeleton3D:finger_middle.R.IKtip")
+tracks/53/interp = 1
+tracks/53/loop_wrap = true
+tracks/53/keys = PackedFloat32Array(0, 1, -0.270247, 3.28416e-08, 0.349917, 0.896953)
+tracks/54/type = "rotation_3d"
+tracks/54/imported = false
+tracks/54/enabled = true
+tracks/54/path = NodePath("Armature/Skeleton3D:finger_ring.R")
+tracks/54/interp = 1
+tracks/54/loop_wrap = true
+tracks/54/keys = PackedFloat32Array(0, 1, -0.128647, 0.0206526, -0.0587811, 0.989731)
+tracks/55/type = "rotation_3d"
+tracks/55/imported = false
+tracks/55/enabled = true
+tracks/55/path = NodePath("Armature/Skeleton3D:finger_ring.R.001")
+tracks/55/interp = 1
+tracks/55/loop_wrap = true
+tracks/55/keys = PackedFloat32Array(0, 1, 0.0827031, -0.0369799, 0.406141, 0.909308)
+tracks/56/type = "rotation_3d"
+tracks/56/imported = false
+tracks/56/enabled = true
+tracks/56/path = NodePath("Armature/Skeleton3D:finger_ring.R.002")
+tracks/56/interp = 1
+tracks/56/loop_wrap = true
+tracks/56/keys = PackedFloat32Array(0, 1, 0.00180686, -0.000362801, 0.196828, 0.980436)
+tracks/57/type = "rotation_3d"
+tracks/57/imported = false
+tracks/57/enabled = true
+tracks/57/path = NodePath("Armature/Skeleton3D:finger_ring.R.003")
+tracks/57/interp = 1
+tracks/57/loop_wrap = true
+tracks/57/keys = PackedFloat32Array(0, 1, -0.00800657, 0.000955298, 0.118523, 0.992919)
+tracks/58/type = "rotation_3d"
+tracks/58/imported = false
+tracks/58/enabled = true
+tracks/58/path = NodePath("Armature/Skeleton3D:finger_ring.R.IKtip")
+tracks/58/interp = 1
+tracks/58/loop_wrap = true
+tracks/58/keys = PackedFloat32Array(0, 1, -0.279286, 3.60214e-09, 0.32035, 0.905193)
+tracks/59/type = "rotation_3d"
+tracks/59/imported = false
+tracks/59/enabled = true
+tracks/59/path = NodePath("Armature/Skeleton3D:finger_pinky.R")
+tracks/59/interp = 1
+tracks/59/loop_wrap = true
+tracks/59/keys = PackedFloat32Array(0, 1, -0.295229, 0.0304566, -0.053643, 0.953433)
+tracks/60/type = "rotation_3d"
+tracks/60/imported = false
+tracks/60/enabled = true
+tracks/60/path = NodePath("Armature/Skeleton3D:finger_pinky.R.001")
+tracks/60/interp = 1
+tracks/60/loop_wrap = true
+tracks/60/keys = PackedFloat32Array(0, 1, 0.111418, -0.046519, 0.381962, 0.916257)
+tracks/61/type = "rotation_3d"
+tracks/61/imported = false
+tracks/61/enabled = true
+tracks/61/path = NodePath("Armature/Skeleton3D:finger_pinky.R.002")
+tracks/61/interp = 1
+tracks/61/loop_wrap = true
+tracks/61/keys = PackedFloat32Array(0, 1, 0.0230512, -0.00103707, 0.044828, 0.998728)
+tracks/62/type = "rotation_3d"
+tracks/62/imported = false
+tracks/62/enabled = true
+tracks/62/path = NodePath("Armature/Skeleton3D:finger_pinky.R.003")
+tracks/62/interp = 1
+tracks/62/loop_wrap = true
+tracks/62/keys = PackedFloat32Array(0, 1, 0.00731321, -0.000874085, 0.118645, 0.992909)
+tracks/63/type = "rotation_3d"
+tracks/63/imported = false
+tracks/63/enabled = true
+tracks/63/path = NodePath("Armature/Skeleton3D:finger_pinky.R.IKtip")
+tracks/63/interp = 1
+tracks/63/loop_wrap = true
+tracks/63/keys = PackedFloat32Array(0, 1, -0.244525, -8.57248e-09, 0.263051, 0.93328)
+tracks/64/type = "rotation_3d"
+tracks/64/imported = false
+tracks/64/enabled = true
+tracks/64/path = NodePath("Armature/Skeleton3D:finger_thumb.R")
+tracks/64/interp = 1
+tracks/64/loop_wrap = true
+tracks/64/keys = PackedFloat32Array(0, 1, 0.856984, -0.0584589, -0.0324626, 0.510986)
+tracks/65/type = "rotation_3d"
+tracks/65/imported = false
+tracks/65/enabled = true
+tracks/65/path = NodePath("Armature/Skeleton3D:finger_thumb.R.004")
+tracks/65/interp = 1
+tracks/65/loop_wrap = true
+tracks/65/keys = PackedFloat32Array(0, 1, -0.524426, -0.0956236, -0.196361, 0.822968)
+tracks/66/type = "rotation_3d"
+tracks/66/imported = false
+tracks/66/enabled = true
+tracks/66/path = NodePath("Armature/Skeleton3D:finger_thumb.R.001")
+tracks/66/interp = 1
+tracks/66/loop_wrap = true
+tracks/66/keys = PackedFloat32Array(0, 1, -0.184366, -0.0536427, 0.768468, 0.6104)
+tracks/67/type = "rotation_3d"
+tracks/67/imported = false
+tracks/67/enabled = true
+tracks/67/path = NodePath("Armature/Skeleton3D:finger_thumb.R.002")
+tracks/67/interp = 1
+tracks/67/loop_wrap = true
+tracks/67/keys = PackedFloat32Array(0, 1, -0.065763, -0.00176734, -0.0430829, 0.996903)
+tracks/68/type = "rotation_3d"
+tracks/68/imported = false
+tracks/68/enabled = true
+tracks/68/path = NodePath("Armature/Skeleton3D:finger_thumb.R.003")
+tracks/68/interp = 1
+tracks/68/loop_wrap = true
+tracks/68/keys = PackedFloat32Array(0, 1, -0.0569737, 0.000418127, -0.00872975, 0.998337)
+tracks/69/type = "rotation_3d"
+tracks/69/imported = false
+tracks/69/enabled = true
+tracks/69/path = NodePath("Armature/Skeleton3D:finger_thumb.R.IKtip")
+tracks/69/interp = 1
+tracks/69/loop_wrap = true
+tracks/69/keys = PackedFloat32Array(0, 1, -0.0779988, 8.9062e-08, 0.504439, 0.859917)
+tracks/70/type = "rotation_3d"
+tracks/70/imported = false
+tracks/70/enabled = true
+tracks/70/path = NodePath("Armature/Skeleton3D:hand.R.IKtip")
+tracks/70/interp = 1
+tracks/70/loop_wrap = true
+tracks/70/keys = PackedFloat32Array(0, 1, 0.530859, -1.52781e-07, -0.646773, 0.547607)
+tracks/71/type = "rotation_3d"
+tracks/71/imported = false
+tracks/71/enabled = true
+tracks/71/path = NodePath("Armature/Skeleton3D:lower_arm.R.IKtip")
+tracks/71/interp = 1
+tracks/71/loop_wrap = true
+tracks/71/keys = PackedFloat32Array(0, 1, -0.520853, -9.57398e-08, 0.738191, -0.428703)
+tracks/72/type = "rotation_3d"
+tracks/72/imported = false
+tracks/72/enabled = true
+tracks/72/path = NodePath("Armature/Skeleton3D:upper_arm.R.IKtip")
+tracks/72/interp = 1
+tracks/72/loop_wrap = true
+tracks/72/keys = PackedFloat32Array(0, 1, -0.564392, 1.07907e-08, 0.575769, 0.591567)
+tracks/73/type = "rotation_3d"
+tracks/73/imported = false
+tracks/73/enabled = true
+tracks/73/path = NodePath("Armature/Skeleton3D:pelvis.L")
+tracks/73/interp = 1
+tracks/73/loop_wrap = true
+tracks/73/keys = PackedFloat32Array(0, 1, -0.380865, -0.638283, -0.304295, 0.59577)
+tracks/74/type = "rotation_3d"
+tracks/74/imported = false
+tracks/74/enabled = true
+tracks/74/path = NodePath("Armature/Skeleton3D:thigh.L")
+tracks/74/interp = 1
+tracks/74/loop_wrap = true
+tracks/74/keys = PackedFloat32Array(0, 1, 0.620929, 0.348157, -0.615457, -0.3383)
+tracks/75/type = "rotation_3d"
+tracks/75/imported = false
+tracks/75/enabled = true
+tracks/75/path = NodePath("Armature/Skeleton3D:shin.L")
+tracks/75/interp = 1
+tracks/75/loop_wrap = true
+tracks/75/keys = PackedFloat32Array(0, 1, 0.0815628, 6.05136e-08, 6.0522e-08, 0.996668)
+tracks/76/type = "rotation_3d"
+tracks/76/imported = false
+tracks/76/enabled = true
+tracks/76/path = NodePath("Armature/Skeleton3D:foot.L")
+tracks/76/interp = 1
+tracks/76/loop_wrap = true
+tracks/76/keys = PackedFloat32Array(0, 1, -0.580481, 9.31587e-08, -6.14443e-08, 0.814274)
+tracks/77/type = "rotation_3d"
+tracks/77/imported = false
+tracks/77/enabled = true
+tracks/77/path = NodePath("Armature/Skeleton3D:toe.L")
+tracks/77/interp = 1
+tracks/77/loop_wrap = true
+tracks/77/keys = PackedFloat32Array(0, 1, -0.13381, 2.36274e-07, -9.57086e-08, 0.991007)
+tracks/78/type = "rotation_3d"
+tracks/78/imported = false
+tracks/78/enabled = true
+tracks/78/path = NodePath("Armature/Skeleton3D:toe.L.001")
+tracks/78/interp = 1
+tracks/78/loop_wrap = true
+tracks/78/keys = PackedFloat32Array(0, 1, -0.105303, 4.92762e-09, -0.0175491, 0.994285)
+tracks/79/type = "rotation_3d"
+tracks/79/imported = false
+tracks/79/enabled = true
+tracks/79/path = NodePath("Armature/Skeleton3D:pelvis.R")
+tracks/79/interp = 1
+tracks/79/loop_wrap = true
+tracks/79/keys = PackedFloat32Array(0, 1, -0.354687, 0.650871, 0.276346, 0.611716)
+tracks/80/type = "rotation_3d"
+tracks/80/imported = false
+tracks/80/enabled = true
+tracks/80/path = NodePath("Armature/Skeleton3D:thigh.R")
+tracks/80/interp = 1
+tracks/80/loop_wrap = true
+tracks/80/keys = PackedFloat32Array(0, 1, 0.635008, -0.321157, 0.629967, -0.311071)
+tracks/81/type = "rotation_3d"
+tracks/81/imported = false
+tracks/81/enabled = true
+tracks/81/path = NodePath("Armature/Skeleton3D:shin.R")
+tracks/81/interp = 1
+tracks/81/loop_wrap = true
+tracks/81/keys = PackedFloat32Array(0, 1, 0.0815649, -1.53453e-08, 1.45641e-11, 0.996668)
+tracks/82/type = "rotation_3d"
+tracks/82/imported = false
+tracks/82/enabled = true
+tracks/82/path = NodePath("Armature/Skeleton3D:foot.R")
+tracks/82/interp = 1
+tracks/82/loop_wrap = true
+tracks/82/keys = PackedFloat32Array(0, 1, -0.580482, -1.21592e-07, 9.23728e-08, 0.814273)
+tracks/83/type = "rotation_3d"
+tracks/83/imported = false
+tracks/83/enabled = true
+tracks/83/path = NodePath("Armature/Skeleton3D:toe.R")
+tracks/83/interp = 1
+tracks/83/loop_wrap = true
+tracks/83/keys = PackedFloat32Array(0, 1, -0.13381, -3.54413e-07, 1.1166e-07, 0.991007)
+tracks/84/type = "rotation_3d"
+tracks/84/imported = false
+tracks/84/enabled = true
+tracks/84/path = NodePath("Armature/Skeleton3D:toe.R.001")
+tracks/84/interp = 1
+tracks/84/loop_wrap = true
+tracks/84/keys = PackedFloat32Array(0, 1, -0.0885246, -1.70124e-09, -0.023519, 0.995796)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xeny5"]
 _data = {
 "Action": SubResource("Animation_xl3jr"),
 "Armature|mixamo_com|Layer0": SubResource("Animation_vmwj5"),
 "RESET": SubResource("Animation_y3l5f"),
+"fret6": SubResource("Animation_4qkc1"),
 "guitar_pose1": SubResource("Animation_63yge")
 }
 
@@ -2984,14 +3583,14 @@ radius = 0.193648
 height = 1.90406
 
 [node name="playerModelRiggedforBlender" instance=ExtResource("1_21urw")]
-transform = Transform3D(120, 0, 0, 0, 120, 0, 0, 0, 120, 0, -5.09527, 0)
+transform = Transform3D(130, 0, 0, 0, 130, 0, 0, 0, 130, 0, -5.09527, 0)
 script = ExtResource("2_n1x2b")
 
 [node name="Armature" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0516403, 0.00350462, -0.184174)
 
 [node name="Skeleton3D" parent="Armature" index="0"]
-transform = Transform3D(0.999999, -0.00105495, 0.00101163, 0.00105635, 0.999998, -0.00140041, -0.00101016, 0.00140146, 0.999998, 0, 0, 0)
+transform = Transform3D(0.999999, -0.00105495, 0.00101163, 0.00105635, 0.999997, -0.00140041, -0.00101016, 0.00140146, 0.999997, 0, 0, 0)
 bones/0/rotation = Quaternion(0.0619288, 1.1898e-07, 7.38249e-09, 0.998081)
 bones/1/rotation = Quaternion(-0.117028, 5.24177e-14, -2.79017e-08, 0.993129)
 bones/2/rotation = Quaternion(-0.0272424, -6.07505e-14, -6.49509e-09, 0.999629)
@@ -3003,47 +3602,68 @@ bones/5/rotation = Quaternion(-0.114226, 3.99875e-15, -2.72337e-08, 0.993455)
 bones/6/rotation = Quaternion(-0.337537, 2.1902e-08, 0.312674, 0.887865)
 bones/6/scale = Vector3(1, 1, 1)
 bones/7/rotation = Quaternion(-0.057204, 0.102939, -0.75139, 0.649265)
+bones/8/position = Vector3(0.013484, 0.120483, -0.0554532)
 bones/8/rotation = Quaternion(0.101167, 0.0109021, 0.0980515, 0.989966)
-bones/8/scale = Vector3(1, 1, 1)
+bones/8/scale = Vector3(1, 0.999999, 0.999999)
+bones/9/position = Vector3(2.96113e-07, 0.306112, 9.81914e-08)
 bones/9/rotation = Quaternion(0.0410382, -0.000367302, -0.0319141, 0.998648)
 bones/9/scale = Vector3(1, 1, 1)
+bones/10/position = Vector3(3.16013e-07, 0.270564, 2.08474e-07)
 bones/10/rotation = Quaternion(0.0014492, -0.00188863, -0.0492105, 0.998786)
-bones/10/scale = Vector3(1, 1, 1)
+bones/10/scale = Vector3(1, 0.999998, 1)
 bones/11/rotation = Quaternion(0.248623, 0.00290631, 0.0639161, 0.966485)
+bones/12/position = Vector3(-9.64091e-08, 0.0632406, -4.80824e-08)
 bones/12/rotation = Quaternion(-0.168816, -1.1369e-07, -0.000766196, 0.985647)
-bones/12/scale = Vector3(1, 1, 1)
+bones/12/scale = Vector3(1, 0.999998, 0.999999)
+bones/13/position = Vector3(-3.69794e-08, 0.023392, -6.07114e-08)
 bones/13/rotation = Quaternion(-0.0109012, 1.19264e-07, -4.94761e-05, 0.999941)
-bones/13/scale = Vector3(1, 1, 1)
+bones/13/scale = Vector3(1, 0.999997, 0.999999)
+bones/14/position = Vector3(3.01937e-08, 0.0222205, 2.75763e-08)
 bones/14/rotation = Quaternion(-0.00522171, -1.19455e-07, -2.36993e-05, 0.999986)
+bones/14/scale = Vector3(1.00001, 0.999992, 0.999997)
+bones/15/position = Vector3(8.53487e-08, 0.0248882, -6.38562e-08)
 bones/15/rotation = Quaternion(0.248609, 2.0184e-07, -0.35964, 0.899363)
-bones/15/scale = Vector3(1, 1, 1)
+bones/15/scale = Vector3(1, 1, 0.999998)
 bones/16/rotation = Quaternion(0.0551149, -0.0094098, 0.0623967, 0.996484)
 bones/16/scale = Vector3(1, 1, 1)
+bones/17/position = Vector3(-1.92608e-08, 0.0608743, -4.57493e-08)
 bones/17/rotation = Quaternion(-0.0325876, -1.18779e-07, -0.000147907, 0.999469)
-bones/17/scale = Vector3(1, 1, 1)
+bones/17/scale = Vector3(1, 0.999998, 1)
+bones/18/position = Vector3(-1.14609e-07, 0.0348235, -3.23212e-08)
 bones/18/rotation = Quaternion(-0.00288995, 6.09369e-11, -1.3116e-05, 0.999996)
+bones/18/scale = Vector3(1, 0.999997, 1)
+bones/19/position = Vector3(-1.18231e-07, 0.0226063, -6.58807e-08)
 bones/19/rotation = Quaternion(-0.0334412, -1.98539e-10, -0.000151772, 0.999441)
+bones/19/scale = Vector3(1.00001, 0.999995, 0.999999)
 bones/20/rotation = Quaternion(0.107637, 5.48819e-09, -0.405043, 0.90794)
 bones/20/scale = Vector3(1, 1, 1)
 bones/21/rotation = Quaternion(-0.128647, -0.0206526, 0.058781, 0.989731)
 bones/21/scale = Vector3(1, 1, 1)
 bones/22/rotation = Quaternion(0.0905943, -1.24242e-07, 0.000411173, 0.995888)
-bones/22/scale = Vector3(1, 1, 1)
+bones/22/scale = Vector3(1, 0.999998, 1)
+bones/23/position = Vector3(-8.10145e-08, 0.024769, 2.32442e-09)
 bones/23/rotation = Quaternion(0.00184284, -1.36159e-10, 8.36371e-06, 0.999998)
+bones/23/scale = Vector3(1, 0.999997, 1)
+bones/24/position = Vector3(-1.12266e-07, 0.0249081, 1.94035e-08)
 bones/24/rotation = Quaternion(-0.00806339, 6.55684e-10, -3.65956e-05, 0.999968)
-bones/24/scale = Vector3(1, 1, 1)
+bones/24/scale = Vector3(1.00001, 0.999995, 0.999999)
 bones/25/rotation = Quaternion(-0.0687363, -9.72193e-08, -0.395169, 0.916033)
 bones/25/scale = Vector3(1, 1, 1)
 bones/26/rotation = Quaternion(-0.295229, -0.0304565, 0.0536429, 0.953433)
+bones/27/position = Vector3(4.10369e-08, 0.0655376, 4.17175e-08)
 bones/27/rotation = Quaternion(0.120739, -5.23171e-09, 0.000548001, 0.992684)
-bones/27/scale = Vector3(1, 1, 1)
+bones/27/scale = Vector3(1, 0.999996, 1)
+bones/28/position = Vector3(1.51332e-07, 0.0197617, 2.94522e-08)
 bones/28/rotation = Quaternion(0.0230745, -1.468e-11, 0.000104729, 0.999734)
-bones/28/scale = Vector3(1, 1, 1)
+bones/28/scale = Vector3(1, 0.999997, 1)
 bones/29/rotation = Quaternion(0.00736519, -1.1962e-07, 3.34279e-05, 0.999973)
+bones/29/scale = Vector3(1.00001, 0.999994, 1)
 bones/30/rotation = Quaternion(-0.183818, -3.581e-08, -0.330081, 0.925882)
 bones/31/rotation = Quaternion(0.856984, 0.0584589, 0.0324626, 0.510986)
 bones/32/rotation = Quaternion(-0.524426, 0.0956237, 0.196361, 0.822968)
+bones/33/position = Vector3(-2.76245e-07, 0.0104815, 2.1319e-07)
 bones/33/rotation = Quaternion(-0.0862306, 0.0199442, -0.255177, 0.962835)
+bones/33/scale = Vector3(1, 0.999995, 1)
 bones/34/rotation = Quaternion(-0.065763, 0.00176755, 0.0430829, 0.996903)
 bones/34/scale = Vector3(1, 1, 1)
 bones/35/rotation = Quaternion(-0.0569737, -0.000418131, 0.00872975, 0.998337)
@@ -3057,31 +3677,41 @@ bones/38/scale = Vector3(1, 1, 1)
 bones/39/rotation = Quaternion(0.25586, -1.39245e-07, 0.77801, 0.573791)
 bones/39/scale = Vector3(1, 1, 1)
 bones/40/rotation = Quaternion(-0.0572043, -0.102939, 0.75139, 0.649265)
+bones/41/position = Vector3(-0.0142186, 0.115774, -0.0565262)
 bones/41/rotation = Quaternion(0.101167, -0.0109025, -0.0980515, 0.989966)
+bones/41/scale = Vector3(1, 1, 1)
+bones/42/position = Vector3(5.21813e-07, 0.306112, -1.23239e-07)
 bones/42/rotation = Quaternion(0.0410382, 0.000367671, 0.0319141, 0.998648)
-bones/42/scale = Vector3(1, 1, 1)
+bones/42/scale = Vector3(0.999999, 1, 0.999999)
+bones/43/position = Vector3(1.29456e-07, 0.270564, -1.23273e-07)
 bones/43/rotation = Quaternion(0.00144919, 0.00188863, 0.0492105, 0.998786)
+bones/43/scale = Vector3(1, 0.999999, 0.999999)
 bones/44/rotation = Quaternion(0.248623, -0.00290621, -0.0639161, 0.966485)
 bones/44/scale = Vector3(1, 1, 1)
+bones/45/position = Vector3(-1.47227e-07, 0.0632405, -5.33351e-08)
 bones/45/rotation = Quaternion(-0.168816, -2.43211e-09, 0.000766174, 0.985647)
-bones/45/scale = Vector3(1, 1, 1)
+bones/45/scale = Vector3(0.999999, 1, 1)
 bones/46/rotation = Quaternion(-0.0109012, 2.90683e-11, 4.94749e-05, 0.999941)
 bones/46/scale = Vector3(1, 1, 1)
 bones/47/rotation = Quaternion(-0.00522172, 3.49229e-10, 2.36988e-05, 0.999986)
+bones/47/scale = Vector3(1, 1, 1)
 bones/48/rotation = Quaternion(-0.140562, 2.12277e-09, 0.458405, 0.877558)
 bones/49/rotation = Quaternion(0.0551149, 0.00940979, -0.0623967, 0.996484)
 bones/49/scale = Vector3(1, 1, 1)
 bones/50/rotation = Quaternion(-0.0325876, 1.16222e-07, 0.000147905, 0.999469)
-bones/50/scale = Vector3(1, 1, 1)
+bones/50/scale = Vector3(0.999999, 1, 1)
 bones/51/rotation = Quaternion(-0.00288994, 1.52803e-10, 1.31159e-05, 0.999996)
+bones/51/scale = Vector3(1, 1, 1)
 bones/52/rotation = Quaternion(-0.0334412, -7.23165e-11, 0.000151773, 0.999441)
+bones/52/scale = Vector3(0.999999, 1, 1)
 bones/53/rotation = Quaternion(-0.270247, 3.35836e-08, 0.349917, 0.896953)
 bones/53/scale = Vector3(1, 1, 1)
 bones/54/rotation = Quaternion(-0.128647, 0.0206526, -0.0587811, 0.989731)
 bones/54/scale = Vector3(1, 1, 1)
 bones/55/rotation = Quaternion(0.0905943, 1.24449e-07, -0.000411171, 0.995888)
-bones/55/scale = Vector3(1, 1, 1)
+bones/55/scale = Vector3(0.999999, 1, 1)
 bones/56/rotation = Quaternion(0.00184285, -1.83138e-10, -8.36372e-06, 0.999998)
+bones/56/scale = Vector3(1, 1, 1)
 bones/57/rotation = Quaternion(-0.00806339, -1.20056e-07, 3.65966e-05, 0.999968)
 bones/57/scale = Vector3(1, 1, 1)
 bones/58/rotation = Quaternion(-0.279286, -4.62856e-09, 0.32035, 0.905193)
@@ -3091,11 +3721,13 @@ bones/60/scale = Vector3(1, 1, 1)
 bones/61/rotation = Quaternion(0.0230745, -1.09564e-10, -0.000104729, 0.999734)
 bones/61/scale = Vector3(1, 1, 1)
 bones/62/rotation = Quaternion(0.0073652, 3.3472e-10, -3.34288e-05, 0.999973)
+bones/62/scale = Vector3(1, 1, 1)
 bones/63/rotation = Quaternion(-0.244525, -6.82203e-10, 0.263051, 0.93328)
 bones/64/rotation = Quaternion(0.856984, -0.0584589, -0.0324626, 0.510986)
 bones/64/scale = Vector3(1, 1, 1)
 bones/65/rotation = Quaternion(-0.524426, -0.0956236, -0.196361, 0.822968)
 bones/66/rotation = Quaternion(-0.0862305, -0.0199443, 0.255177, 0.962835)
+bones/66/scale = Vector3(1, 1, 0.999999)
 bones/67/rotation = Quaternion(-0.065763, -0.00176734, -0.0430829, 0.996903)
 bones/68/rotation = Quaternion(-0.0569737, 0.000418127, -0.00872975, 0.998337)
 bones/68/scale = Vector3(1, 1, 1)
@@ -3126,66 +3758,66 @@ bones/84/rotation = Quaternion(-0.0885246, -1.70167e-09, -0.023519, 0.995796)
 [node name="Cylinder" parent="Armature/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_awhtr")
 
-[node name="Target_LUpperArm" type="Node3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999993, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, 0.469427, 1.60816, 0.00324592)
+[node name="LCollar_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
+transform = Transform3D(-0.150366, 0.963925, 0.219634, -0.988576, -0.148929, -0.0231821, 0.0103642, -0.220611, 0.975307, 0.0606577, 1.62592, 0.0764197)
+bone_name = "collar.L"
+bone_idx = 7
+use_external_skeleton = true
+external_skeleton = NodePath("..")
 
-[node name="Target_LLowerArm" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm" index="0"]
-transform = Transform3D(1, -2.98023e-08, -2.98023e-08, 0, 1, 0, -8.9407e-08, -2.98023e-08, 0.999999, -0.0105346, -0.237189, 0.163292)
+[node name="Target_LUpperArm" type="Node3D" parent="Armature/Skeleton3D/LCollar_Attach" index="0"]
+transform = Transform3D(-0.988908, 0.130938, -0.070162, -0.147339, -0.924766, 0.350852, -0.0189439, 0.357298, 0.933796, 0.360294, 0.349066, -9.50247e-05)
 
-[node name="Target_LHand" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm" index="0"]
-transform = Transform3D(0.999999, -1.86265e-09, 4.65661e-10, -1.16415e-09, 1, -5.06639e-07, -7.91624e-09, -8.04663e-07, 0.999999, -0.0023756, -0.128412, 0.0903351)
-
-[node name="Target_LIndex3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="0"]
-transform = Transform3D(-0.997001, 0.018292, 0.0752296, 0.0401933, -0.7082, 0.70487, 0.0661708, 0.70578, 0.705337, 0.00355887, 0.0399712, 0.0299573)
-
-[node name="Target_LMiddle3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="1"]
-transform = Transform3D(-0.999991, 0.00265498, -0.000858345, -0.00265553, -0.810988, 0.585056, 0.00085715, 0.585057, 0.810991, 0.00209284, 0.00341022, 0.0193467)
-
-[node name="Target_LRing3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="2"]
-transform = Transform3D(-0.999992, 0.00242101, -0.000700533, -0.00242159, -0.845783, 0.533521, 0.000699115, 0.533521, 0.845785, 0.00390995, -0.00355059, -0.0164258)
-
-[node name="Target_LPinky3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="3"]
-transform = Transform3D(-0.999994, 0.00157562, -0.00028303, -0.00157605, -0.937782, 0.347217, 0.000281606, 0.347218, 0.937784, -0.00282872, 0.00359029, -0.0626808)
-
-[node name="Target_LThumb3" type="Node3D" parent="Armature/Skeleton3D/Target_LUpperArm/Target_LLowerArm/Target_LHand" index="4"]
-transform = Transform3D(-0.999994, 0.00157562, -0.00028303, -0.00157605, -0.937782, 0.347217, 0.000281606, 0.347218, 0.937784, 0.00548303, 0.123472, 0.0143542)
-
-[node name="LUpperArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/Target_LUpperArm" index="1"]
-transform = Transform3D(-0.998582, 0.0424127, -0.0320737, -0.0531381, -0.818467, 0.572091, -0.00198735, 0.572986, 0.819563, -0.0130279, 0.251409, -0.176005)
+[node name="LUpperArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm" index="0"]
+transform = Transform3D(-0.449025, -0.893118, -0.0266373, 0.724075, -0.381181, 0.574819, -0.523539, 0.238823, 0.817848, 0.377688, 0.146196, -0.10756)
 bone_name = "upper_arm.L"
 bone_idx = 8
 use_external_skeleton = true
-external_skeleton = NodePath("../..")
+external_skeleton = NodePath("../../..")
 
-[node name="IK_LUpperArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="2"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.480261, 1.60111, 0.0857075)
-root_bone = &"upper_arm.L"
-tip_bone = &"upper_arm.L.IKtip"
-override_tip_basis = false
-target_node = NodePath("../Target_LUpperArm")
+[node name="Target_LLowerArm" type="Node3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach" index="0"]
+transform = Transform3D(-0.998589, -0.0531325, -0.00199032, 0.0424074, -0.818468, 0.572984, -0.0320739, 0.572089, 0.819563, -0.169865, 0.163403, 0.232245)
 
-[node name="IK_LLowerArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="3"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.439963, 1.60115, 0.0856667)
-root_bone = &"lower_arm.L"
-tip_bone = &"lower_arm.L.IKtip"
-override_tip_basis = false
-use_magnet = true
-magnet = Vector3(0, -10, 0)
-target_node = NodePath("../Target_LUpperArm/Target_LLowerArm")
+[node name="LLowerArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm" index="0"]
+transform = Transform3D(-0.0532567, 0.227447, 0.97233, 0.468665, 0.865507, -0.176788, -0.881776, 0.446281, -0.15269, -0.156124, -0.258694, -0.108908)
+bone_name = "lower_arm.L"
+bone_idx = 9
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../..")
 
-[node name="IK_LHand" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="4"]
-transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.439963, 1.60115, 0.0856667)
-root_bone = &"hand.L"
-tip_bone = &"hand.L.IKtip"
-override_tip_basis = false
-target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand")
+[node name="Target_LHand" type="Node3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach" index="0"]
+transform = Transform3D(0.661174, 0.264887, -0.701915, 0.482637, 0.566119, 0.668258, 0.574384, -0.780605, 0.246459, 0.0327861, 0.342022, -0.00804888)
 
-[node name="Attach_LIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="5"]
-transform = Transform3D(-0.21093, 0.949762, -0.231217, -0.975167, -0.220792, -0.0173318, -0.067512, 0.22182, 0.972747, 0.862126, 1.60577, 0.0506943)
+[node name="LHand_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand" index="0"]
+transform = Transform3D(0.18177, 0.937996, 0.295153, -0.276308, 0.336782, -0.900129, -0.943728, 0.0820636, 0.320392, -0.0515416, -0.0554212, -0.0227556)
+bone_name = "hand.L"
+bone_idx = 10
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../..")
+
+[node name="Target_LIndex3" type="Node3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="0"]
+transform = Transform3D(0.984499, -0.155791, -0.080612, 0.138323, 0.972113, -0.189391, 0.107869, 0.175303, 0.978586, 0.0286896, 0.115542, 0.0319169)
+
+[node name="Target_LMiddle3" type="Node3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="1"]
+transform = Transform3D(0.990113, -0.137597, -0.0271437, 0.137022, 0.990322, -0.0220114, 0.02991, 0.0180728, 0.999385, 0.0398263, 0.131754, 0.00523171)
+
+[node name="Target_LRing3" type="Node3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="2"]
+transform = Transform3D(0.990152, -0.135364, -0.0356345, 0.136742, 0.989813, 0.0395823, 0.0299136, -0.0440676, 0.998576, 0.0284292, 0.105597, -0.015662)
+
+[node name="Target_LPinky3" type="Node3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="3"]
+transform = Transform3D(0.874503, -0.318107, -0.366125, 0.421057, 0.872595, 0.247554, 0.240732, -0.370647, 0.89703, 0.0201301, 0.0881554, -0.0423562)
+
+[node name="Target_LThumb3" type="Node3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="4"]
+transform = Transform3D(0.990276, -0.124149, -0.062742, 0.135818, 0.960395, 0.243293, 0.0300527, -0.24945, 0.967917, 0.0776253, 0.0874604, 0.0389213)
+
+[node name="Attach_LIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="5"]
+transform = Transform3D(-0.0815945, 0.904068, -0.419515, -0.973698, -0.16217, -0.160089, -0.212766, 0.39541, 0.893516, 0.0171432, 0.113516, 0.0448301)
 bone_name = "finger_index.L.003"
 bone_idx = 14
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
 
-[node name="LIndex3" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_LIndex3" index="0"]
+[node name="LIndex3" type="PhysicalBone3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Attach_LIndex3" index="0"]
 transform = Transform3D(1, -7.68527e-06, 5.58794e-09, 7.68463e-06, 0.999999, -0.00169298, 4.19095e-09, 0.00169301, 0.999999, -0.00197458, 0.0181314, 1.3262e-05)
 joint_type = 3
 joint_offset = Transform3D(1, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, 0, 0)
@@ -3196,239 +3828,306 @@ joint_constraints/angular_limit_bias = 0.3
 joint_constraints/angular_limit_softness = 0.9
 joint_constraints/angular_limit_relaxation = 1.0
 
-[node name="Coll_LIndex3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_LIndex3/LIndex3" index="0"]
+[node name="Coll_LIndex3" type="CollisionShape3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Attach_LIndex3/LIndex3" index="0"]
 transform = Transform3D(1, 5.82077e-11, 0, 0, 1, -1.49012e-08, -4.65661e-10, 1.49012e-08, 1, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_yk7mc")
 
-[node name="IK_LIndex3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="6"]
+[node name="Attach_LMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="6"]
+transform = Transform3D(-0.321998, 0.891209, -0.319467, -0.906999, -0.387135, -0.165791, -0.271433, 0.236368, 0.932979, 0.0225533, 0.130375, 0.018111)
+bone_name = "finger_middle.L.003"
+bone_idx = 19
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Attach_LMiddle3" index="0"]
+transform = Transform3D(1, -4.51109e-10, -2.32831e-09, -1.01863e-10, 1, -3.35276e-08, -1.39698e-09, 7.82311e-08, 1, -0.0019747, 0.0174568, 3.89367e-05)
+
+[node name="Coll_LMiddle3" type="CollisionShape3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Attach_LMiddle3/PhysicalBone3D" index="0"]
+transform = Transform3D(1, 5.82077e-11, 0, 5.82077e-11, 1, -3.35276e-08, -1.86265e-09, 1.49012e-08, 1, 0.00300968, 0.000673413, -1.19209e-05)
+shape = SubResource("CapsuleShape3D_yk7mc")
+
+[node name="Attach_LRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="7"]
+transform = Transform3D(-0.322252, 0.90925, -0.263461, -0.906891, -0.376338, -0.189539, -0.271491, 0.177849, 0.945865, 0.0218, 0.123394, -0.0114337)
+bone_name = "finger_ring.L.003"
+bone_idx = 24
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Attach_LRing3" index="0"]
+transform = Transform3D(0.999999, -4.1473e-10, -1.39698e-09, -1.01863e-10, 1, -2.98023e-08, -2.32831e-09, 7.63685e-08, 1, 0.00174701, 0.012122, -0.00011532)
+
+[node name="Coll_LRing3" type="CollisionShape3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Attach_LRing3/PhysicalBone3D" index="0"]
+transform = Transform3D(1, 9.45874e-11, 0, -2.18279e-11, 1, -1.30385e-08, 4.65661e-10, 1.49012e-08, 1, -3.6478e-05, -0.000761449, -5.14537e-05)
+shape = SubResource("CapsuleShape3D_yk7mc")
+
+[node name="Attach_LPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach" index="8"]
+transform = Transform3D(-0.537537, 0.830617, -0.145339, -0.778106, -0.55502, -0.294125, -0.324977, -0.0450133, 0.94465, 0.0217426, 0.101442, -0.0417116)
+bone_name = "finger_pinky.L.003"
+bone_idx = 29
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Attach_LPinky3" index="0"]
+transform = Transform3D(0.999998, 0.000437451, 2.11126e-05, -0.000437448, 0.995346, 0.096366, 2.11382e-05, -0.0963657, 0.995345, 0.00468183, 0.00845665, -0.000969306)
+
+[node name="Coll_LPinky3" type="CollisionShape3D" parent="Armature/Skeleton3D/LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Attach_LPinky3/PhysicalBone3D" index="0"]
+transform = Transform3D(1, 1.86265e-09, 9.31323e-10, -2.32831e-09, 1, 1.49012e-07, -2.79397e-09, -5.96046e-08, 1, -0.00148904, -0.00241762, 0.00112037)
+shape = SubResource("CapsuleShape3D_yk7mc")
+
+[node name="IK_LUpperArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="2"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.480261, 1.60111, 0.0857075)
+root_bone = &"upper_arm.L"
+tip_bone = &"upper_arm.L.IKtip"
+override_tip_basis = false
+target_node = NodePath("../LCollar_Attach/Target_LUpperArm")
+
+[node name="IK_LLowerArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="3"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.439963, 1.60115, 0.0856667)
+root_bone = &"lower_arm.L"
+tip_bone = &"lower_arm.L.IKtip"
+override_tip_basis = false
+use_magnet = true
+magnet = Vector3(0, -10, 0)
+target_node = NodePath("../LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm")
+
+[node name="IK_LHand" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="4"]
+transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, 0.439963, 1.60115, 0.0856667)
+root_bone = &"hand.L"
+tip_bone = &"hand.L.IKtip"
+override_tip_basis = false
+target_node = NodePath("../LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand")
+
+[node name="IK_LIndex3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="5"]
 transform = Transform3D(0.000889677, 0.980581, -0.196113, -0.999989, -4.97446e-07, -0.00453929, -0.00445129, 0.196115, 0.98057, 0.876054, 1.60065, 0.0585349)
 root_bone = &"finger_index.L.001"
 tip_bone = &"finger_index.L.004"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LIndex3")
+target_node = NodePath("../LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Target_LIndex3")
 max_iterations = 20
 
-[node name="Attach_LMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="7"]
-transform = Transform3D(-0.202099, 0.970284, -0.13306, -0.979024, -0.203741, 0.00129555, -0.0258527, 0.13053, 0.991107, 0.88051, 1.60485, 0.024286)
-bone_name = "finger_middle.L.003"
-bone_idx = 19
-
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_LMiddle3" index="0"]
-transform = Transform3D(1, -4.51109e-10, -2.32831e-09, -1.01863e-10, 1, -3.35276e-08, -1.39698e-09, 7.82311e-08, 1, -0.0019747, 0.0174568, 3.89367e-05)
-
-[node name="Coll_LMiddle3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_LMiddle3/PhysicalBone3D" index="0"]
-transform = Transform3D(1, 5.82077e-11, 0, 5.82077e-11, 1, -3.35276e-08, -1.86265e-09, 1.49012e-08, 1, 0.00300968, 0.000673413, -1.19209e-05)
-shape = SubResource("CapsuleShape3D_yk7mc")
-
-[node name="IK_LMiddle3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="8"]
+[node name="IK_LMiddle3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="6"]
 transform = Transform3D(0.000172013, 0.999279, -0.0379717, -0.999989, -2.90111e-07, -0.00453934, -0.00453612, 0.0379719, 0.999268, 0.900309, 1.5965, 0.0289653)
 root_bone = &"finger_middle.L.001"
 tip_bone = &"finger_middle.L.004"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LMiddle3")
+target_node = NodePath("../LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Target_LMiddle3")
 
-[node name="Attach_LRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="9"]
-transform = Transform3D(-0.197651, 0.979869, -0.0281032, -0.980272, -0.197583, 0.00519601, -0.000461365, 0.0285756, 0.999591, 0.873944, 1.60498, -0.00474232)
-bone_name = "finger_ring.L.003"
-bone_idx = 24
-
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_LRing3" index="0"]
-transform = Transform3D(0.999999, -4.1473e-10, -1.39698e-09, -1.01863e-10, 1, -2.98023e-08, -2.32831e-09, 7.63685e-08, 1, 0.00174701, 0.012122, -0.00011532)
-
-[node name="Coll_LRing3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_LRing3/PhysicalBone3D" index="0"]
-transform = Transform3D(1, 9.45874e-11, 0, -2.18279e-11, 1, -1.30385e-08, 4.65661e-10, 1.49012e-08, 1, -3.6478e-05, -0.000761449, -5.14537e-05)
-shape = SubResource("CapsuleShape3D_yk7mc")
-
-[node name="IK_LRing3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="10"]
+[node name="IK_LRing3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="7"]
 transform = Transform3D(-0.000110303, 0.999707, 0.0242085, -0.999989, -3.42244e-07, -0.00453944, -0.00453814, -0.0242088, 0.999696, 0.890154, 1.59555, -0.0028937)
 root_bone = &"finger_ring.L.001"
 tip_bone = &"finger_ring.L.004"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LRing3")
+target_node = NodePath("../LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Target_LRing3")
 
-[node name="Attach_LPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="11"]
-transform = Transform3D(-0.316164, 0.928867, 0.192992, -0.944241, -0.327806, 0.0308485, 0.0919181, -0.172478, 0.980715, 0.854533, 1.59933, -0.0342381)
-bone_name = "finger_pinky.L.003"
-bone_idx = 29
-
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_LPinky3" index="0"]
-transform = Transform3D(0.999998, 0.000437451, 2.11126e-05, -0.000437448, 0.995346, 0.096366, 2.11382e-05, -0.0963657, 0.995345, 0.00468183, 0.00845665, -0.000969306)
-
-[node name="Coll_LPinky3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_LPinky3/PhysicalBone3D" index="0"]
-transform = Transform3D(1, 1.86265e-09, 9.31323e-10, -2.32831e-09, 1, 1.49012e-07, -2.79397e-09, -5.96046e-08, 1, -0.00148904, -0.00241762, 0.00112037)
-shape = SubResource("CapsuleShape3D_yk7mc")
-
-[node name="IK_LPinky3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="12"]
+[node name="IK_LPinky3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="8"]
 transform = Transform3D(-0.00104555, 0.973123, 0.230282, -0.999989, -1.3092e-07, -0.00453946, -0.00441747, -0.230284, 0.973113, 0.866558, 1.59545, -0.036234)
 root_bone = &"finger_pinky.L.001"
 tip_bone = &"finger_pinky.L.004"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LPinky3")
+target_node = NodePath("../LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Target_LPinky3")
 
-[node name="IK_LThumb3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="13"]
+[node name="IK_LThumb3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="9"]
 transform = Transform3D(-0.00104555, 0.973123, 0.230282, -0.999989, -1.30938e-07, -0.00453946, -0.00441747, -0.230284, 0.973113, 0.797148, 1.59568, 0.0748374)
 root_bone = &"finger_thumb.L.001"
 tip_bone = &"finger_thumb.L.005"
 override_tip_basis = false
 use_magnet = true
-target_node = NodePath("../Target_LUpperArm/Target_LLowerArm/Target_LHand/Target_LThumb3")
+target_node = NodePath("../LCollar_Attach/Target_LUpperArm/LUpperArm_Attach/Target_LLowerArm/LLowerArm_Attach/Target_LHand/LHand_Attach/Target_LThumb3")
 
-[node name="Target_RUpperArm" type="Node3D" parent="Armature/Skeleton3D" index="14"]
-transform = Transform3D(0.00251378, -0.832619, 0.55384, 0.999993, -2.12924e-07, -0.00453874, 0.00377907, 0.553846, 0.83261, -0.396565, 1.60226, -0.00139692)
+[node name="RCollar_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="10"]
+transform = Transform3D(-0.150366, -0.963925, -0.219634, 0.988576, -0.148929, -0.0231817, -0.0103646, -0.220611, 0.975307, 0.0425958, 1.62592, 0.0764197)
+bone_name = "collar.R"
+bone_idx = 40
+use_external_skeleton = true
+external_skeleton = NodePath("..")
 
-[node name="Target_RLowerArm" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm" index="0"]
-transform = Transform3D(0.999999, 3.49246e-09, 4.65661e-09, -2.56114e-09, 1, -2.98023e-08, 0, 0, 1, 0.00489402, 0.221124, -0.133088)
+[node name="Target_RUpperArm" type="Node3D" parent="Armature/Skeleton3D/RCollar_Attach" index="0"]
+transform = Transform3D(0.988152, 0.119456, -0.0963952, -0.152185, 0.680398, -0.716867, -0.0200475, 0.723042, 0.690513, 0.0434508, 0.444009, 0.0211082)
 
-[node name="Target_RHand" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm" index="0"]
-transform = Transform3D(0.999997, -2.32831e-10, -4.65661e-10, 2.56114e-09, 1, -2.98023e-08, 1.39698e-08, -3.27826e-07, 1, -0.0125207, 0.136363, -0.0849189)
+[node name="RUpperArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm" index="0"]
+transform = Transform3D(0.984438, -0.137088, -0.10992, 0.115396, 0.976142, -0.183932, 0.132513, 0.168386, 0.976774, -0.00547743, -0.286352, 0.187253)
+bone_name = "upper_arm.R"
+bone_idx = 41
+use_external_skeleton = true
+external_skeleton = NodePath("../../..")
 
-[node name="Target_RIndex3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="0"]
-transform = Transform3D(0.999995, -0.00172367, -0.000340078, 0.00172388, 0.925068, 0.379798, -0.000339978, -0.379798, 0.925068, 0.00265515, 0.0149161, 0.0490864)
+[node name="Target_RLowerArm" type="Node3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach" index="0"]
+transform = Transform3D(0.998761, -0.0151958, 0.047438, 0.0394535, 0.822688, -0.567121, -0.0304091, 0.568289, 0.822266, -0.012549, 0.599576, 0.0246727)
 
-[node name="Target_RMiddle3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="1"]
-transform = Transform3D(0.999994, -0.00236826, -0.000666917, 0.00236846, 0.853049, 0.521824, -0.000666831, -0.521825, 0.853051, 0.00229037, 0.0132679, 0.0093196)
+[node name="RLowerArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm" index="0"]
+transform = Transform3D(0.604331, -0.521122, 0.602669, 0.795431, 0.351417, -0.493757, 0.0455189, 0.777778, 0.62689, 0.00170588, -0.255641, 0.146737)
+bone_name = "lower_arm.R"
+bone_idx = 42
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../..")
 
-[node name="Target_RRing3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="2"]
-transform = Transform3D(0.999994, -0.00260423, -0.000821893, 0.00260462, 0.818967, 0.573834, -0.000821223, -0.573835, 0.818969, 0.00255895, -0.0176938, -0.00789267)
+[node name="Target_RHand" type="Node3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach" index="0"]
+transform = Transform3D(0.998759, -0.0151958, 0.047438, 0.0394534, 0.822688, -0.567121, -0.030409, 0.568289, 0.822266, 0.00218356, 0.372359, -0.00583276)
 
-[node name="Target_RPinky3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="3"]
-transform = Transform3D(0.999992, -0.00331615, -0.00144035, 0.00331661, 0.682699, 0.730692, -0.0014397, -0.730691, 0.682704, 0.0022639, -0.0571088, -0.0251837)
+[node name="RHand_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand" index="0"]
+transform = Transform3D(0.801788, -0.588178, 0.105744, 0.432308, 0.693028, 0.576908, -0.412609, -0.416844, 0.809936, -0.00637418, -0.0803976, 0.0624226)
+bone_name = "hand.R"
+bone_idx = 43
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../..")
 
-[node name="Target_RThumb3" type="Node3D" parent="Armature/Skeleton3D/Target_RUpperArm/Target_RLowerArm/Target_RHand" index="4"]
-transform = Transform3D(0.999997, 4.65661e-10, 3.25963e-09, 2.56114e-09, 1, 2.98023e-08, -1.39698e-09, -1.19209e-06, 1, -0.000187874, -0.0390251, 0.121679)
+[node name="Target_RIndex3" type="Node3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="0"]
+transform = Transform3D(0.998011, 0.061577, 0.0131854, -0.0573956, 0.975612, -0.211859, -0.0259093, 0.210684, 0.977208, 0.0194185, 0.160313, 0.0385694)
 
-[node name="IK_RUpperArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="15"]
+[node name="Target_RMiddle3" type="Node3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="1"]
+transform = Transform3D(0.998055, 0.0579842, 0.0227352, -0.0566806, 0.996913, -0.0543047, -0.0258138, 0.0529113, 0.998262, 0.0182917, 0.174879, 0.00922805)
+
+[node name="Target_RRing3" type="Node3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="2"]
+transform = Transform3D(0.998072, 0.0561777, 0.0262861, -0.0563991, 0.998377, 0.00776122, -0.0258074, -0.00922766, 0.999621, 0.0154756, 0.163343, -0.0214658)
+
+[node name="Target_RPinky3" type="Node3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="3"]
+transform = Transform3D(0.998123, 0.0485966, 0.0372304, -0.0554634, 0.975274, 0.213921, -0.0259139, -0.215581, 0.976139, 0.0111276, 0.139477, -0.0539646)
+
+[node name="Target_RThumb3" type="Node3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="4"]
+transform = Transform3D(0.9979, 0.063691, -0.0115289, -0.0590053, 0.821945, -0.566501, -0.026605, 0.565993, 0.823978, 0.0131332, 0.0821762, 0.0793964)
+
+[node name="Attach_RIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="5"]
+transform = Transform3D(-0.470586, -0.882045, -0.023386, 0.874016, -0.462339, -0.149453, 0.121012, -0.0907703, 0.988491, -0.0333892, 0.0986338, 0.0332473)
+bone_name = "finger_index.R.003"
+bone_idx = 47
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RIndex3" index="0"]
+transform = Transform3D(0.999997, 0.00127389, 2.46596e-05, -0.00126679, 0.996126, -0.0879197, -0.000136567, 0.0879199, 0.996126, 0.00467706, 0.0212759, -0.00208247)
+
+[node name="Coll_RIndex3" type="CollisionShape3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RIndex3/PhysicalBone3D" index="0"]
+transform = Transform3D(1, 1.86265e-09, 1.39698e-09, -3.14321e-09, 1, 1.49012e-07, -3.25963e-09, -1.49012e-07, 1, -0.00149465, -1.60933e-05, 0.000415653)
+shape = SubResource("CapsuleShape3D_yk7mc")
+
+[node name="Attach_RMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="6"]
+transform = Transform3D(-0.183224, -0.981807, -0.0498327, 0.982849, -0.18187, -0.0305124, 0.020894, -0.0545687, 0.99829, -0.0388824, 0.11405, 0.00878787)
+bone_name = "finger_middle.R.003"
+bone_idx = 52
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RMiddle3" index="0"]
+transform = Transform3D(0.999997, 0.00127389, 2.466e-05, -0.00126679, 0.996126, -0.0879197, -0.000136566, 0.0879199, 0.996127, 0.000684857, 0.021342, -0.000322521)
+
+[node name="Coll_RMiddle3" type="CollisionShape3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RMiddle3/PhysicalBone3D" index="0"]
+transform = Transform3D(1, 1.92085e-09, 1.39698e-09, -3.14321e-09, 1, 1.56462e-07, -4.19095e-09, -1.63913e-07, 1, -0.00149357, -0.000790477, 0.000513792)
+shape = SubResource("CapsuleShape3D_yk7mc")
+
+[node name="Attach_RRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="7"]
+transform = Transform3D(0.214636, -0.976425, 0.0229194, 0.973224, 0.215791, 0.0791857, -0.0822648, 0.00530944, 0.996597, -0.031738, 0.114837, -0.0168895)
+bone_name = "finger_ring.R.003"
+bone_idx = 57
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RRing3" index="0"]
+transform = Transform3D(0.999998, 0.00096726, 4.12827e-05, -0.000966217, 0.999792, -0.0203663, -6.09783e-05, 0.0203665, 0.999792, -0.000697017, 0.0127765, -0.000402629)
+
+[node name="Coll_RRing3" type="CollisionShape3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RRing3/PhysicalBone3D" index="0"]
+transform = Transform3D(1, 1.93904e-09, 1.39698e-09, -3.29419e-09, 1, 1.49477e-07, -3.25963e-09, -1.48779e-07, 0.999999, -0.00149763, 0.00334793, 0.000428587)
+shape = SubResource("CapsuleShape3D_yk7mc")
+
+[node name="Attach_RPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="8"]
+transform = Transform3D(0.529073, -0.841916, 0.106112, 0.789562, 0.534233, 0.301971, -0.310923, -0.075983, 0.947393, -0.01889, 0.105491, -0.0444027)
+bone_name = "finger_pinky.R.003"
+bone_idx = 62
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RPinky3" index="0"]
+transform = Transform3D(0.999998, 0.000464767, 2.36444e-05, -0.000465002, 0.99591, 0.0903362, 1.84341e-05, -0.0903358, 0.99591, -0.00165141, 0.0132909, 0.0010422)
+
+[node name="Coll_RPinky3" type="CollisionShape3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RPinky3/PhysicalBone3D" index="0"]
+transform = Transform3D(1, 1.97906e-09, 9.31323e-10, -3.25963e-09, 1, 1.49012e-07, -2.79397e-09, -1.49012e-07, 1, -0.00149739, -0.00438082, -0.00104444)
+shape = SubResource("CapsuleShape3D_yk7mc")
+
+[node name="Attach_RThumb3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach" index="9"]
+transform = Transform3D(0.408071, -0.766138, -0.496499, 0.650539, 0.625578, -0.43064, 0.640529, -0.14726, 0.753682, -0.0397778, 0.0423156, 0.0280225)
+bone_name = "finger_thumb.R.003"
+bone_idx = 68
+use_external_skeleton = true
+external_skeleton = NodePath("../../../../../../../..")
+
+[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RThumb3" index="0"]
+transform = Transform3D(0.999998, 0.000464766, 2.36486e-05, -0.000465002, 0.99591, 0.0903362, 1.84334e-05, -0.0903355, 0.99591, 0.00582886, 0.0140021, -0.00317568)
+
+[node name="Coll_RThumb3" type="CollisionShape3D" parent="Armature/Skeleton3D/RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Attach_RThumb3/PhysicalBone3D" index="0"]
+transform = Transform3D(1, 1.74623e-09, 9.31323e-10, -3.84171e-09, 1, 8.9407e-08, -2.32831e-09, -1.19209e-07, 1, -0.00149739, -0.00442576, -0.00104097)
+shape = SubResource("CapsuleShape3D_yk7mc")
+
+[node name="IK_RUpperArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="11"]
 transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
 root_bone = &"upper_arm.R"
 tip_bone = &"upper_arm.R.IKtip"
 override_tip_basis = false
-target_node = NodePath("../Target_RUpperArm")
+target_node = NodePath("../RCollar_Attach/Target_RUpperArm")
 
-[node name="IK_RLowerArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="16"]
+[node name="IK_RLowerArm" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="12"]
 transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
 root_bone = &"lower_arm.R"
 tip_bone = &"lower_arm.R.IKtip"
 override_tip_basis = false
-target_node = NodePath("../Target_RUpperArm/Target_RLowerArm")
+target_node = NodePath("../RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm")
 
-[node name="IK_RHand" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="17"]
+[node name="IK_RHand" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="13"]
 transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14262e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
 root_bone = &"hand.R"
 tip_bone = &"hand.R.IKtip"
 override_tip_basis = false
-target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand")
+target_node = NodePath("../RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand")
 
-[node name="Attach_RIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="18"]
-transform = Transform3D(0.00088968, -0.980581, 0.196113, 0.99999, -5.13224e-07, -0.00453893, 0.00445096, 0.196115, 0.980571, -0.752856, 1.59905, 0.0535793)
-bone_name = "finger_index.R.003"
-bone_idx = 47
-
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_RIndex3" index="0"]
-transform = Transform3D(0.999997, 0.00127389, 2.46596e-05, -0.00126679, 0.996126, -0.0879197, -0.000136567, 0.0879199, 0.996126, 0.00467706, 0.0212759, -0.00208247)
-
-[node name="Coll_RIndex3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_RIndex3/PhysicalBone3D" index="0"]
-transform = Transform3D(1, 1.86265e-09, 1.39698e-09, -3.14321e-09, 1, 1.49012e-07, -3.25963e-09, -1.49012e-07, 1, -0.00149465, -1.60933e-05, 0.000415653)
-shape = SubResource("CapsuleShape3D_yk7mc")
-
-[node name="IK_RIndex3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="19"]
+[node name="IK_RIndex3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="14"]
 transform = Transform3D(0.000890151, -0.980581, 0.196113, 0.999989, -4.09522e-08, -0.00453882, 0.00445075, 0.196115, 0.98057, -0.781851, 1.60091, 0.0581122)
 root_bone = &"finger_index.R.001"
 tip_bone = &"finger_index.R.IKtip"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RIndex3")
+target_node = NodePath("../RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Target_RIndex3")
 
-[node name="Attach_RMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="20"]
-transform = Transform3D(0.000171948, -0.999279, 0.0379718, 0.99999, -4.5175e-07, -0.004539, 0.00453581, 0.0379721, 0.999269, -0.772085, 1.59905, 0.0264629)
-bone_name = "finger_middle.R.003"
-bone_idx = 52
-
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_RMiddle3" index="0"]
-transform = Transform3D(0.999997, 0.00127389, 2.466e-05, -0.00126679, 0.996126, -0.0879197, -0.000136566, 0.0879199, 0.996127, 0.000684857, 0.021342, -0.000322521)
-
-[node name="Coll_RMiddle3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_RMiddle3/PhysicalBone3D" index="0"]
-transform = Transform3D(1, 1.92085e-09, 1.39698e-09, -3.14321e-09, 1, 1.56462e-07, -4.19095e-09, -1.63913e-07, 1, -0.00149357, -0.000790477, 0.000513792)
-shape = SubResource("CapsuleShape3D_yk7mc")
-
-[node name="IK_RMiddle3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="21"]
+[node name="IK_RMiddle3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="15"]
 transform = Transform3D(0.000172428, -0.999279, 0.037972, 0.999989, 7.14846e-09, -0.00453881, 0.00453561, 0.0379722, 0.999268, -0.798931, 1.59745, 0.0289509)
 root_bone = &"finger_middle.R.001"
 tip_bone = &"finger_middle.R.IKtip"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RMiddle3")
+target_node = NodePath("../RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Target_RMiddle3")
 
-[node name="Attach_RRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="22"]
-transform = Transform3D(-0.000110171, -0.999707, -0.0242084, 0.99999, -3.09083e-07, -0.00453932, 0.00453806, -0.0242087, 0.999697, -0.766236, 1.59905, -0.00292472)
-bone_name = "finger_ring.R.003"
-bone_idx = 57
-
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_RRing3" index="0"]
-transform = Transform3D(0.999998, 0.00096726, 4.12827e-05, -0.000966217, 0.999792, -0.0203663, -6.09783e-05, 0.0203665, 0.999792, -0.000697017, 0.0127765, -0.000402629)
-
-[node name="Coll_RRing3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_RRing3/PhysicalBone3D" index="0"]
-transform = Transform3D(1, 1.93904e-09, 1.39698e-09, -3.29419e-09, 1, 1.49477e-07, -3.25963e-09, -1.48779e-07, 0.999999, -0.00149763, 0.00334793, 0.000428587)
-shape = SubResource("CapsuleShape3D_yk7mc")
-
-[node name="IK_RRing3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="23"]
+[node name="IK_RRing3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="16"]
 transform = Transform3D(-0.000109707, -0.999707, -0.0242082, 0.999989, 1.07141e-07, -0.00453911, 0.00453785, -0.0242086, 0.999696, -0.789275, 1.59745, -0.00257684)
 root_bone = &"finger_ring.R.001"
 tip_bone = &"finger_ring.R.IKtip"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RRing3")
+target_node = NodePath("../RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Target_RRing3")
 
-[node name="Attach_RPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="24"]
-transform = Transform3D(-0.00104553, -0.973124, -0.230282, 0.99999, -2.12865e-07, -0.00453942, 0.00441743, -0.230285, 0.973113, -0.746977, 1.59905, -0.0337389)
-bone_name = "finger_pinky.R.003"
-bone_idx = 62
-
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_RPinky3" index="0"]
-transform = Transform3D(0.999998, 0.000464767, 2.36444e-05, -0.000465002, 0.99591, 0.0903362, 1.84341e-05, -0.0903358, 0.99591, -0.00165141, 0.0132909, 0.0010422)
-
-[node name="Coll_RPinky3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_RPinky3/PhysicalBone3D" index="0"]
-transform = Transform3D(1, 1.97906e-09, 9.31323e-10, -3.25963e-09, 1, 1.49012e-07, -2.79397e-09, -1.49012e-07, 1, -0.00149739, -0.00438082, -0.00104444)
-shape = SubResource("CapsuleShape3D_yk7mc")
-
-[node name="IK_RPinky3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="25"]
+[node name="IK_RPinky3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="17"]
 transform = Transform3D(-0.00104507, -0.973124, -0.230282, 0.999989, 1.54297e-07, -0.00453912, 0.00441723, -0.230284, 0.973113, -0.764164, 1.59745, -0.0370951)
 root_bone = &"finger_pinky.R.001"
 tip_bone = &"finger_pinky.R.IKtip"
 override_tip_basis = false
 use_magnet = true
 magnet = Vector3(0, 10, 0)
-target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RPinky3")
+target_node = NodePath("../RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Target_RPinky3")
 
-[node name="Attach_RThumb3" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="26"]
-transform = Transform3D(0.00251321, -0.83262, 0.55384, 0.999989, -3.66184e-07, -0.00453813, 0.00377875, 0.553846, 0.832611, -0.681778, 1.59905, 0.0741219)
-bone_name = "finger_thumb.R.003"
-bone_idx = 68
-
-[node name="PhysicalBone3D" type="PhysicalBone3D" parent="Armature/Skeleton3D/Attach_RThumb3" index="0"]
-transform = Transform3D(0.999998, 0.000464766, 2.36486e-05, -0.000465002, 0.99591, 0.0903362, 1.84334e-05, -0.0903355, 0.99591, 0.00582886, 0.0140021, -0.00317568)
-
-[node name="Coll_RThumb3" type="CollisionShape3D" parent="Armature/Skeleton3D/Attach_RThumb3/PhysicalBone3D" index="0"]
-transform = Transform3D(1, 1.74623e-09, 9.31323e-10, -3.84171e-09, 1, 8.9407e-08, -2.32831e-09, -1.19209e-07, 1, -0.00149739, -0.00442576, -0.00104097)
-shape = SubResource("CapsuleShape3D_yk7mc")
-
-[node name="IK_RThumb3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="27"]
+[node name="IK_RThumb3" type="SkeletonIK3D" parent="Armature/Skeleton3D" index="18"]
 transform = Transform3D(0.00251378, -0.83262, 0.55384, 0.999989, -2.14343e-07, -0.00453874, 0.00377908, 0.553846, 0.832611, -0.699002, 1.60235, 0.0845145)
 root_bone = &"finger_thumb.R.001"
 tip_bone = &"finger_thumb.R.IKtip"
 override_tip_basis = false
 use_magnet = true
-target_node = NodePath("../Target_RUpperArm/Target_RLowerArm/Target_RHand/Target_RThumb3")
+target_node = NodePath("../RCollar_Attach/Target_RUpperArm/RUpperArm_Attach/Target_RLowerArm/RLowerArm_Attach/Target_RHand/RHand_Attach/Target_RThumb3")
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {
@@ -3441,5 +4140,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00193672, 0.999321, -0.124
 shape = SubResource("CapsuleShape3D_tcf3v")
 
 [node name="Guitar" parent="." index="3" instance=ExtResource("3_3isvk")]
-transform = Transform3D(0.07293, 0.0726992, -0.994684, -0.00177069, 0.997348, 0.0727641, 0.997335, -0.00354541, 0.0728654, -48.8153, 149.961, -43.0156)
+transform = Transform3D(0.072862, -0.00102869, -0.997342, 0.00361093, 0.999993, -0.000767623, 0.997335, -0.00354541, 0.0728653, -48.8153, 161.045, -43.0156)
 top_level = true

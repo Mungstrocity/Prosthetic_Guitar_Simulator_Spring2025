@@ -13,6 +13,7 @@ size = Vector3(1, 1, 9.78049)
 size = Vector3(1, 150, 9)
 
 [node name="Guitar" type="RigidBody3D"]
+freeze = true
 script = ExtResource("1_wfiyf")
 
 [node name="Guitar2" type="MeshInstance3D" parent="."]
@@ -883,6 +884,69 @@ transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.261799, -42.2967, 52.0199)
 
 [node name="Target_F20" type="Node3D" parent="Hover_Target_S1"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.261799, -43.4958, 53.6766)
+
+[node name="LowerArm_Target" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.9982, 50.9267, -111.174)
+
+[node name="Target_F1" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0, -5.73618, -3.4495)
+
+[node name="Target_F2" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.0653152, -9.1535, 1.69907)
+
+[node name="Target_F3" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.0653152, -11.9307, 6.08848)
+
+[node name="Target_F4" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.0653152, -14.8693, 10.2706)
+
+[node name="Target_F5" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.171356, -17.6716, 14.4695)
+
+[node name="Target_F6" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.171356, -20.0783, 18.1354)
+
+[node name="Target_F7" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.171356, -22.5352, 21.8746)
+
+[node name="Target_F8" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.171356, -24.7636, 25.1654)
+
+[node name="Target_F9" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.338062, -26.9999, 28.4309)
+
+[node name="Target_F10" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.412209, -28.9906, 31.3799)
+
+[node name="Target_F11" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.542542, -30.9069, 34.0964)
+
+[node name="Target_F12" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.420464, -32.6694, 36.9226)
+
+[node name="Target_F13" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.420464, -34.4218, 39.6351)
+
+[node name="Target_F14" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.420464, -35.89, 41.9397)
+
+[node name="Target_F15" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.420464, -37.2084, 44.1313)
+
+[node name="Target_F16" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.420464, -38.715, 46.3821)
+
+[node name="Target_F17" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.420464, -40.1442, 48.4957)
+
+[node name="Target_F18" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.420464, -41.2908, 50.3248)
+
+[node name="Target_F19" type="Node3D" parent="LowerArm_Target"]
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.261799, -42.2967, 52.0199)
+
+[node name="Target_F20" type="Node3D" parent="LowerArm_Target"]
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.261799, -43.4958, 53.6766)
 
 [node name="Pick_Target_S1" type="Node3D" parent="."]

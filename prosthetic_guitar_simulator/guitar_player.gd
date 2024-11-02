@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@export var player_move_speed = 5.0
+
 #main guitar player script.
 
 #read and parse the music xml file useing godot XML parser to get the number of total quarter note beats (inlcuding rests) in the song, tempo,
@@ -24,4 +26,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	pass
+
+func get_closest_fret_animation():
+	#get the base animation which is closest to the average note to be played
 	pass

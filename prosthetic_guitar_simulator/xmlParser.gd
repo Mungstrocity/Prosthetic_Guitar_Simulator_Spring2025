@@ -33,7 +33,7 @@ func parse_music_XML():
 				in_measure_scope = true
 				num_measures += 1
 				tempName = "-m" + str(num_measures-1) + "," + "+n" + str(0) + ",num_notes" #creates a node which keeps track of the number of notes per measure
-				songData[tempName] = num_notes #stores the number of notes in the previous measure
+				songData[tempName] = {"data":num_notes} #stores the number of notes in the previous measure
 				num_notes = 0 #should reset number of notes when in new measure
 			if node_name == "note":
 				in_note_scope = true
@@ -59,6 +59,6 @@ func parse_music_XML():
 				in_note_scope = false
 	#before exiting, return the number of measures and notes of the last measure as well by adding them to the dictionary.
 	tempName = "-m" + str(num_measures) + "," + "+n" + str(0) + ",num_notes" #creates a node which keeps track of the number of notes per measure
-	songData[tempName] = num_notes #stores the number of notes in the previous measure
-	songData["num_measures"] = num_measures
+	songData[tempName] = {"data":num_notes} #stores the number of notes in the previous measure
+	songData["num_measures"] = {"data":num_measures}
 	return songData

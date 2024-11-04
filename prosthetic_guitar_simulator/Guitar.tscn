@@ -950,7 +950,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.261799, -43.4958, 53.6766)
 
 [node name="LHand_Target" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.9982, 55.009, -107.312)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.9982, 58.246, -104.547)
 
 [node name="Target_F1" type="Node3D" parent="LHand_Target"]
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0, -5.73618, -3.4495)

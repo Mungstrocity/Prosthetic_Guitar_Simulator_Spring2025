@@ -1,4 +1,3 @@
-@tool
 extends ResourcePreloader
 
 #read and parse the music xml file useing godot XML parser to get the number of total quarter note beats (inlcuding rests) in the song, tempo,

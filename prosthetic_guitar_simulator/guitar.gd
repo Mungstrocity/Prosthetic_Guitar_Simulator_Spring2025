@@ -16,6 +16,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func get_guitar_target(target_path: NodePath):
+	var target = get_node(target_path)
+	return target
+	pass
+
 #function to get the average position of the notes that the player must play at the same time. useful for positioning the hand closest to notes
 func avg_note_position(note_positions: Array):
 	var avg_note_position = Vector3()

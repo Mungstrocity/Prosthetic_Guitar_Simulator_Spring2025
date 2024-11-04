@@ -41,7 +41,7 @@ func test_XML_parse(songData: Dictionary):
 				#print(songData[element]["dynamics"])
 				pass
 			if !element.contains("num_notes"):
-				print(element)
+				#print(element)
 				pass
 		if attributes || element.contains("attributes"):
 			attributes = true #check these until getting to the notes portion
@@ -77,13 +77,13 @@ func test_XML_parse(songData: Dictionary):
 				pass
 		if element.contains("chord"): #This should be checked for second when reading measures! will have the n# of the current note
 			#<chord/> element tells you that the current pitch is played at the same time as the previous pitch and that they will be sustained for the same amount of time
-			print(element)
+			#print(element)
 			pass
 		if element.contains("backup"): #This should be checked for first when reading measures! will have the same n# as the previous note
 			#<backup><duration>30240</duration><backup/> tells you how far back in the measure to backup, 
 			#and can be used for entering notes that will be played at the same time as other notes with different sustain lengths
 			#if there is a backup in the measure, there will also be a <voice>1</voice> or <voice>2</voice> element inside note which can help too
-			print(element)
+			#print(element)
 			pass
 		
 		if element.contains("ocatve"):

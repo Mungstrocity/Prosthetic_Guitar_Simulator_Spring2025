@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf5t0yyx36v6y"]
+[gd_scene load_steps=8 format=3 uid="uid://bf5t0yyx36v6y"]
 
+[ext_resource type="Script" path="res://main_3d_scene.gd" id="1_djhjo"]
 [ext_resource type="PackedScene" uid="uid://7r5362hu3fwq" path="res://GuitarPlayer.tscn" id="1_yy2rj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sth5g"]
@@ -20,6 +21,7 @@ material = SubResource("StandardMaterial3D_dqhyn")
 size = Vector3(150, 1, 150)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_djhjo")
 
 [node name="Ground" type="StaticBody3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
@@ -48,6 +50,15 @@ transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -4.964, 
 
 [node name="GuitarNeckCamera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 5.96047e-08, 0, 1, 0, -5.96047e-08, 0, 1, -0.9636, 178.611, 54)
+
+[node name="GuitarNeckCamera2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 5.96047e-08, -5.96047e-08, -4.37114e-08, 1, 2.6054e-15, -1, -4.37114e-08, 40.0364, 257.611, 0)
+
+[node name="GuitarNeckCamera3" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 5.96047e-08, -5.75737e-08, 0.258819, 0.965926, -1.54268e-08, -0.965926, 0.258819, 40.0364, 242.611, 24)
+
+[node name="GuitarNeckCamera4" type="Camera3D" parent="."]
+transform = Transform3D(1, 1.77636e-15, 5.96047e-08, -5.75737e-08, 0.258819, 0.965926, -1.54268e-08, -0.965926, 0.258819, 3.0364, 213.611, 24)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -3.09086e-08, 0.707107, -0.353553, 0.866025, 0.353553, -0.612373, -0.5, 0.612373, 0, 0, 0)

@@ -1,4 +1,4 @@
-extends Marker3D
+extends Node3D
 
 #target Node3D on the guitar frets, will be assigned by code dynamically based on avg note distance for played note
 var lower_arm_target: Node3D 
@@ -7,8 +7,12 @@ var lower_arm_target: Node3D
 
 func _process(delta: float) -> void:
 	#if ik finger target global pos is not equal to the finger target (within half a cm) on the guitar and it's distance is <= finger target distance move
-	if abs(global_position.distance_to(lower_arm_target.global_position)) >= 0.005 && abs(global_position.distance_to(lower_arm_target.global_position)) <= lower_arm_target_dist:
-		move_arm()
+	#if lower_arm_target != null && (global_position.distance_to(lower_arm_target.global_position)) >= 0.005 && abs(global_position.distance_to(lower_arm_target.global_position)) <= lower_arm_target_dist:
+		#move_arm()
+	pass
+
+func set_lower_arm_target(target: Node3D):
+	lower_arm_target = target
 
 func move_arm():
 	

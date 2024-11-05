@@ -7,13 +7,18 @@ var finger_target: Node3D
 # minimum allowable distance from the finger ik target to the guitar target.
 #@export var finger_target_dist: float = 0.0001 
 
+var finger_moving = false
+
 func _ready() -> void:
+	
 	pass
 
 func _process(delta: float) -> void:
 	#if ik finger target global pos is not equal to the finger target (within half a cm) on the guitar and it's distance is <= finger target distance move
-	if finger_target != null && (global_position.distance_to(finger_target.global_position)) != 0.0:
+	if finger_target != null && !finger_moving && (global_position.distance_to(finger_target.global_position)) != 0.0:
+		finger_moving = true # I thought maybe not working because it's calling move over and over again?
 		move_finger()
+		finger_moving = false
 	pass
 
 func set_finger_target(target: Node3D):

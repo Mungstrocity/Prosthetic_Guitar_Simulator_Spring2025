@@ -23,8 +23,8 @@ func _process(delta: float) -> void:
 		anim.play("guitarPoses/Larm_fret10")
 		if(!anim.is_playing()):
 			anim.stop()
-	if Input.is_action_pressed("fret15"):
-		anim.play("guitarPoses/Larm_fret15")
+	if Input.is_action_pressed("fret16"):
+		anim.play("guitarPoses/Larm_fret16")
 		if(!anim.is_playing()):
 			anim.stop()
 	if Input.is_action_pressed("fret20"):

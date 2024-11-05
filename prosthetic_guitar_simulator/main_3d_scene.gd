@@ -12,11 +12,16 @@ func _process(delta: float) -> void:
 
 func handle_cams():
 	var cameras = [
-		get_node("MainCamera"),
-		get_node("GuitarNeckCamera"),
-		get_node("GuitarNeckCamera2"),
-		get_node("GuitarNeckCamera3"),
-		get_node("GuitarNeckCamera4")
+		get_node("Cameras/MainCamera"),
+		get_node("Cameras/GuitarNeckCamera"),
+		get_node("Cameras/GuitarNeckCamera2"),
+		get_node("Cameras/GuitarNeckCamera3"),
+		get_node("Cameras/GuitarNeckCamera4"),
+		get_node("Cameras/GuitarNeckCamera5"),
+		get_node("Cameras/GuitarNeckCamera6"),
+		get_node("Cameras/GuitarNeckCamera7"),
+		get_node("Cameras/GuitarNeckCamera8"),
+		get_node("Cameras/FreeLookCam")
 	]
 	
 	if Input.is_action_just_pressed("cycleCam"):

@@ -27,21 +27,45 @@ func _ready() -> void:
 	left_middle_iktaret.set_finger_target(left_middle_gtaret)
 	left_ring_iktarget.set_finger_target(left_ring_gtarget)
 	left_pinky_iktarget.set_finger_target(left_pinky_gtarget)
+	
+	right_index_iktarget.set_finger_target(right_index_gtarget)
+	right_middle_iktaret.set_finger_target(right_middle_gtaret)
+	right_ring_iktarget.set_finger_target(right_ring_gtarget)
+	right_pinky_iktarget.set_finger_target(right_pinky_gtarget)
+	right_thumb_iktarget.set_finger_target(right_thumb_gtarget)
 	pass # Replace with function body.
 
-#@onready var left_lower_arm_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/Target_LLowerArm"
-#@onready var left_hand_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/Target_LHand"
+#left hand fingers
 @onready var left_index_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Target_LIndex3"
 @onready var left_middle_iktaret = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Target_LMiddle3"
 @onready var left_ring_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Target_LRing3"
 @onready var left_pinky_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Target_LPinky3"
 
-#@onready var left_lower_arm_gtarget = $"Guitar/LowerArm_Target/Target_F10"
-#@onready var left_hand_gtarget = $"Guitar/LHand_Target/Target_F10"
-@onready var left_index_gtarget = $"Guitar/Hover_Target_S6/Target_F10"
-@onready var left_middle_gtaret = $"Guitar/Hover_Target_S5/Target_F10"
-@onready var left_ring_gtarget = $Guitar/Hover_Target_S4/Target_F11
-@onready var left_pinky_gtarget = $Guitar/Hover_Target_S3/Target_F10
+#right hand fingers
+@onready var right_index_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RIndex3"
+@onready var right_middle_iktaret = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RMiddle3"
+@onready var right_ring_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RRing3"
+@onready var right_pinky_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RPinky3"
+@onready var right_thumb_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RThumb3"
+
+# hover default tester 1
+#@onready var left_index_gtarget = $"Guitar/LFingers/Hover_Target_S6/Target_F10"
+#@onready var left_middle_gtaret = $"Guitar/LFingers/Hover_Target_S5/Target_F10"
+#@onready var left_ring_gtarget = $Guitar/LFingers/Hover_Target_S4/Target_F11
+#@onready var left_pinky_gtarget = $Guitar/LFingers/Hover_Target_S3/Target_F11
+
+#no hover default 2
+@onready var left_index_gtarget = $"Guitar/LFingers/Target_S6/Target_F10"
+@onready var left_middle_gtaret = $"Guitar/LFingers/Target_S5/Target_F10"
+@onready var left_ring_gtarget = $"Guitar/LFingers/Target_S4/Target_F11"
+@onready var left_pinky_gtarget = $"Guitar/LFingers/Target_S3/Target_F11"
+
+# right hand strum fingers
+@onready var right_index_gtarget = $"Guitar/RFingers/Pick_Hover_Target_S2"
+@onready var right_middle_gtaret = $"Guitar/RFingers/Pick_Hover_Target_S3"
+@onready var right_ring_gtarget = $"Guitar/RFingers/Pick_Hover_Target_S4"
+@onready var right_pinky_gtarget = $"Guitar/RFingers/Pick_Hover_Target_S5"
+@onready var right_thumb_gtarget = $"Guitar/RFingers/Pick_Hover_Target_S1"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #so i think i am going to get the notes here, and send the notes to the fingers here as i step through the song.

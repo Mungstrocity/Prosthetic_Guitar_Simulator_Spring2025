@@ -1,16 +1,18 @@
 extends Node3D
 
+#script attached to the finger IK targets
+
 #target Node3D on the guitar frets, will be assigned by code dynamically during song based on distances from targets and other notes to play
 var finger_target: Node3D 
 # minimum allowable distance from the finger ik target to the guitar target.
-@export var finger_target_dist: float = 0.05 
+#@export var finger_target_dist: float = 0.0001 
 
 func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
 	#if ik finger target global pos is not equal to the finger target (within half a cm) on the guitar and it's distance is <= finger target distance move
-	if finger_target != null && (global_position.distance_to(finger_target.global_position)) > finger_target_dist:
+	if finger_target != null && (global_position.distance_to(finger_target.global_position)) != 0.0:
 		move_finger()
 	pass
 

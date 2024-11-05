@@ -7,7 +7,7 @@
 [sub_resource type="Theme" id="Theme_mab6c"]
 default_font_size = 50
 
-[node name="GUIControl" type="Control"]
+[node name="GUIControl" type="Control" groups=["GUI"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 func handle_cams():
 	var cameras = [
 		get_node("Cameras/MainCamera"),
+		get_node("Cameras/FreeLookCam"),
 		get_node("Cameras/GuitarNeckCamera"),
 		get_node("Cameras/GuitarNeckCamera2"),
 		get_node("Cameras/GuitarNeckCamera3"),
@@ -20,8 +21,7 @@ func handle_cams():
 		get_node("Cameras/GuitarNeckCamera5"),
 		get_node("Cameras/GuitarNeckCamera6"),
 		get_node("Cameras/GuitarNeckCamera7"),
-		get_node("Cameras/GuitarNeckCamera8"),
-		get_node("Cameras/FreeLookCam")
+		get_node("Cameras/GuitarNeckCamera8")
 	]
 	
 	if Input.is_action_just_pressed("cycleCam"):

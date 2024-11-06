@@ -1,12 +1,5 @@
 extends RigidBody3D
 
-#useful website to help with notes on a guitar. remember no fret has all the default notes 
-#(low6->E2 (means octave 2 with fret not held), A2, D3, G3, B3, E4) each fret towards
-#guitar base goes a half step higher in pitch, each fret towards the string tighteners goes a step lower.
-#fret 12 is an octave higher than default pitches. every 12 frets is similar
-#https://fretmap.app/scales/c-major-scale/position-5
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,10 +8,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-func get_guitar_target(target_path: NodePath):
-	var target: Node3D = get_node(target_path)
-	return target
 
 #function to get the average position of the notes that the player must play at the same time. useful for positioning the hand closest to notes
 func avg_note_position(note_positions: Array):
@@ -59,3 +48,52 @@ func get_all_children(node) -> Array:
 		else:
 			nodes.append(N)
 	return nodes
+
+#useful website to help with notes on a guitar. remember no fret has all the default notes 
+#(low6->E2 (means octave 2 with fret not held), A2, D3, G3, B3, E4) each fret towards
+#guitar base goes a half step higher in pitch, each fret towards the string tighteners goes a step lower.
+#fret 12 is an octave higher than default pitches. every 12 frets is similar
+#https://fretmap.app/scales/c-major-scale/position-5
+
+#function to return the list of possible target nodes based on the passed in note parameters
+#im thinking about doing a path finding algorithm or something to where you start with a note, then get all possible targets,
+#then if you have more notes you are playing at the same time, you would pass in the array of an array of the previous note's targets
+#then based on all the targets, you would find the most optimal targets to use with each other based on lowest minimal distances
+#simulated annealing basically. (I might have to change this slightly and just go with a biased selection becuase that might take too much time)
+func get_poss_gneck_targets(octave: int, pitch: String, alter: int, hover: bool):
+	match octave:
+		0: #Not playable on the guitar just play it on octave 2 and 3
+			pass
+		1: #Not playable on the guitar just play it on octave 2 and 3
+			#left off on string 3 FIXME
+			pass
+		2: # S6: E2-F0 to B2-F7, S5: A2-F0 to B2-F2
+			pass
+		3: # S6: C3-F8 to B3-F19, S5: C3-F3 to B3-F14 S4: D3-F0 to B3-F9
+			pass
+		4: # S6: C4-F20, S5: C4-F15 to F4-F20 S4: C4-F10 to A#4-F20
+			pass
+		5:
+			pass
+		6: #   S1: C6-F20
+			pass
+		_:
+			pass
+
+func get_guitar_pick_target(guitar_string: int, hover: bool, other_note_targets: Array):
+	match guitar_string:
+		1:
+			
+			pass
+		2:
+			pass
+		3:
+			pass
+		4:
+			pass
+		5:
+			pass
+		6:
+			pass
+		_:
+			pass

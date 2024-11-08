@@ -49,6 +49,11 @@ func get_all_children(node) -> Array:
 			nodes.append(N)
 	return nodes
 
+#function to emit sound when finger collisions happen in the proper spots
+func emit_sound():
+	
+	pass
+
 #useful website to help with notes on a guitar. remember no fret has all the default notes 
 #(low6->E2 (means octave 2 with fret not held), A2, D3, G3, B3, E4) each fret towards
 #guitar base goes a half step higher in pitch, each fret towards the string tighteners goes a step lower.

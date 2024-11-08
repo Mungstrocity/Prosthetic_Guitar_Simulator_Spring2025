@@ -48,122 +48,201 @@ albedo_color = Color(1, 1, 0.458824, 1)
 material = SubResource("StandardMaterial3D_0r1cl")
 
 [node name="Guitar" type="RigidBody3D" groups=["Guitar"]]
+collision_layer = 2
 freeze = true
 script = ExtResource("1_wfiyf")
 
-[node name="Guitar2" type="MeshInstance3D" parent="."]
+[node name="GuitarMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.11643, 8.81266, 3.55315, -6.48043, 4.70601, -5.98811, -6.94923, -0.436445, 7.17758, 0, 0, 0)
 mesh = ExtResource("1_0vqio")
 
-[node name="Strings" type="RigidBody3D" parent="."]
+[node name="Strings" type="Node3D" parent="."]
 
-[node name="6_E_StringCollider" type="CollisionShape3D" parent="Strings"]
+[node name="S6" type="AnimatableBody3D" parent="Strings"]
+collision_layer = 2
+
+[node name="S6" type="CollisionShape3D" parent="Strings/S6"]
 transform = Transform3D(0.499988, -0.00295375, 0.00186007, 0, 0.266438, 0.423097, -0.00349063, -0.423086, 0.266432, 52.522, 2.1738, -17)
 shape = SubResource("CylinderShape3D_bw1vs")
 
-[node name="5_A_StringCollider" type="CollisionShape3D" parent="Strings"]
+[node name="S5" type="AnimatableBody3D" parent="Strings"]
+collision_layer = 2
+
+[node name="S5" type="CollisionShape3D" parent="Strings/S5"]
 transform = Transform3D(0.499993, -0.00221532, 0.00139506, 0, 0.266438, 0.423097, -0.00261798, -0.423091, 0.266434, 52.522, 0.094857, -17)
 shape = SubResource("CylinderShape3D_bw1vs")
 
-[node name="4_D_StringCollider" type="CollisionShape3D" parent="Strings"]
+[node name="S4" type="AnimatableBody3D" parent="Strings"]
+collision_layer = 2
+
+[node name="S4" type="CollisionShape3D" parent="Strings/S4"]
 transform = Transform3D(0.499993, -0.00220798, 0.00140664, 0, 0.26865, 0.421696, -0.00261798, -0.42169, 0.268646, 52.522, -1.96622, -17)
 shape = SubResource("CylinderShape3D_bw1vs")
 
-[node name="3_G_StringCollider" type="CollisionShape3D" parent="Strings"]
+[node name="S3" type="AnimatableBody3D" parent="Strings"]
+collision_layer = 2
+
+[node name="S3" type="CollisionShape3D" parent="Strings/S3"]
 transform = Transform3D(0.499993, -0.00220059, 0.00141818, 0, 0.270854, 0.420283, -0.00261798, -0.420278, 0.27085, 52.522, -4.33705, -17)
 shape = SubResource("CylinderShape3D_bw1vs")
 
-[node name="5_B_StringCollider" type="CollisionShape3D" parent="Strings"]
+[node name="S2" type="AnimatableBody3D" parent="Strings"]
+collision_layer = 2
+
+[node name="S2" type="CollisionShape3D" parent="Strings/S2"]
 transform = Transform3D(0.499997, -0.00146375, 0.000950572, 0, 0.272319, 0.419335, -0.00174533, -0.419333, 0.272318, 52.522, -6.36238, -17)
 shape = SubResource("CylinderShape3D_bw1vs")
 
-[node name="1_E_StringCollider" type="CollisionShape3D" parent="Strings"]
+[node name="S1" type="AnimatableBody3D" parent="Strings"]
+collision_layer = 2
+
+[node name="S1" type="CollisionShape3D" parent="Strings/S1"]
 transform = Transform3D(0.499997, -0.00145876, 0.000958224, 0, 0.274511, 0.417904, -0.00174533, -0.417901, 0.27451, 52.522, -8.53067, -17)
 shape = SubResource("CylinderShape3D_bw1vs")
 
-[node name="Frets" type="RigidBody3D" parent="."]
+[node name="Frets" type="Node3D" parent="."]
 
-[node name="1_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F1" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F1" type="CollisionShape3D" parent="Frets/F1"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.5923, 55.9762, -108.686)
 shape = SubResource("BoxShape3D_po1i7")
 
-[node name="2_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F2" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F2" type="CollisionShape3D" parent="Frets/F2"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.5966, 52.6563, -103.438)
 shape = SubResource("BoxShape3D_c6qvn")
 
-[node name="3_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F3" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F3" type="CollisionShape3D" parent="Frets/F3"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.7829, 49.5393, -98.8126)
 shape = SubResource("BoxShape3D_kgijf")
 
-[node name="4_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F4" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F4" type="CollisionShape3D" parent="Frets/F4"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.7764, 46.8225, -94.4155)
 shape = SubResource("BoxShape3D_jg3k6")
 
-[node name="5_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F5" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F5" type="CollisionShape3D" parent="Frets/F5"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.975, 44.0875, -90.2455)
 shape = SubResource("BoxShape3D_4l2ls")
 
-[node name="6_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F6" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F6" type="CollisionShape3D" parent="Frets/F6"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.8569, 41.5004, -86.2536)
 shape = SubResource("BoxShape3D_giq0j")
 
-[node name="7_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F7" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F7" type="CollisionShape3D" parent="Frets/F7"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 51.9963, 38.9305, -82.6586)
 shape = SubResource("BoxShape3D_7jkdt")
 
-[node name="8_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F8" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F8" type="CollisionShape3D" parent="Frets/F8"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0418, 36.617, -79.0201)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="9_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F9" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F9" type="CollisionShape3D" parent="Frets/F9"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0469, 34.5067, -75.6301)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="10_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F10" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F10" type="CollisionShape3D" parent="Frets/F10"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0488, 32.6476, -72.5146)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="11_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F11" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F11" type="CollisionShape3D" parent="Frets/F11"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0551, 30.7667, -69.5206)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="12_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F12" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F12" type="CollisionShape3D" parent="Frets/F12"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.056, 28.8897, -66.6819)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="13_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F13" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F13" type="CollisionShape3D" parent="Frets/F13"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.057, 27.1925, -63.924)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="14_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F14" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F14" type="CollisionShape3D" parent="Frets/F14"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0601, 25.4984, -61.4962)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="15_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F15" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F15" type="CollisionShape3D" parent="Frets/F15"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0627, 24.1186, -59.1955)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="16_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F16" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F16" type="CollisionShape3D" parent="Frets/F16"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0624, 22.6262, -56.9735)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="17_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F17" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F17" type="CollisionShape3D" parent="Frets/F17"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0632, 21.2042, -54.8069)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="18_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F18" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F18" type="CollisionShape3D" parent="Frets/F18"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.065, 20.0052, -52.9783)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="19_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F19" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F19" type="CollisionShape3D" parent="Frets/F19"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0687, 18.8787, -51.0663)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="20_Fret" type="CollisionShape3D" parent="Frets"]
+[node name="F20" type="AnimatableBody3D" parent="Frets"]
+collision_layer = 2
+
+[node name="F20" type="CollisionShape3D" parent="Frets/F20"]
 transform = Transform3D(0.999182, -0.0217292, -0.0340923, 0.0404283, 0.537037, 0.842589, 0, -0.843279, 0.537476, 52.0665, 17.844, -49.4157)
 shape = SubResource("BoxShape3D_vc8fb")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="NeckCollider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.536004, 0.844216, 0, -0.844216, 0.536004, 51.1599, 20.8444, -54.1612)
 shape = SubResource("BoxShape3D_nyeet")
 
@@ -1854,3 +1933,4 @@ transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.261799, -43.4958, 53.6766)
 
 [node name="GuitarSounds" parent="." instance=ExtResource("3_6qsux")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.5512, 18.9916, -53.6905)

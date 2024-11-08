@@ -9668,7 +9668,7 @@ _data = {
 radius = 0.193648
 height = 1.90406
 
-[node name="playerModelRiggedforBlender" groups=["GuitarPlayer"] instance=ExtResource("1_21urw")]
+[node name="GuitarPlayer" groups=["GuitarPlayer"] instance=ExtResource("1_21urw")]
 transform = Transform3D(130, 0, 0, 0, 130, 0, 0, 0, 130, 0, -5.09527, 0)
 script = ExtResource("2_n1x2b")
 
@@ -9931,6 +9931,7 @@ external_skeleton = NodePath("../../../../..")
 
 [node name="LIndex3" type="PhysicalBone3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Attach_LIndex3" index="0"]
 transform = Transform3D(1, -7.68527e-06, 5.58794e-09, 7.68463e-06, 0.999999, -0.00169298, 4.19095e-09, 0.00169301, 0.999999, -0.00197458, 0.0181314, 1.3262e-05)
+collision_mask = 3
 joint_type = 3
 joint_offset = Transform3D(1, 0, 0, 0, 0.999997, 0, 0, 0, 0.999997, 0, 0, 0)
 joint_constraints/angular_limit_enabled = false

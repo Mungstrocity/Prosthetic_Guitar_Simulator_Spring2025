@@ -21,58 +21,20 @@ extends CharacterBody3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#left_lower_arm_iktarget.set_lower_arm_target(left_lower_arm_gtarget)
-	#left_hand_iktarget.set_hand_target(left_hand_gtarget)
-	left_index_iktarget.set_finger_target(left_index_gtarget)
-	left_middle_iktaret.set_finger_target(left_middle_gtaret)
-	left_ring_iktarget.set_finger_target(left_ring_gtarget)
-	left_pinky_iktarget.set_finger_target(left_pinky_gtarget)
-	
-	right_index_iktarget.set_finger_target(right_index_gtarget)
-	right_middle_iktaret.set_finger_target(right_middle_gtaret)
-	right_ring_iktarget.set_finger_target(right_ring_gtarget)
-	right_pinky_iktarget.set_finger_target(right_pinky_gtarget)
-	right_thumb_iktarget.set_finger_target(right_thumb_gtarget)
+	# Set left hand IK targets to corresponding guitar targets
+	get_left_ik_target(Finger.INDEX).set_finger_target(get_left_target(Finger.INDEX, 6, 10, true)) # example for string 6, fret 10
+	get_left_ik_target(Finger.MIDDLE).set_finger_target(get_left_target(Finger.MIDDLE, 5, 10, true)) # example for string 5, fret 10
+	get_left_ik_target(Finger.RING).set_finger_target(get_left_target(Finger.RING, 4, 11, true)) # example for string 4, fret 11
+	get_left_ik_target(Finger.PINKY).set_finger_target(get_left_target(Finger.PINKY, 3, 11, true)) # example for string 3, fret 11
+
+	# Set right hand IK targets to corresponding guitar targets (string only)
+	get_right_ik_target(Finger.INDEX).set_finger_target(get_right_target(Finger.INDEX, 5, true)) # example for string 5
+	get_right_ik_target(Finger.MIDDLE).set_finger_target(get_right_target(Finger.MIDDLE, 4, true)) # example for string 4
+	get_right_ik_target(Finger.RING).set_finger_target(get_right_target(Finger.RING, 3, true)) # example for string 3
+	get_right_ik_target(Finger.PINKY).set_finger_target(get_right_target(Finger.PINKY, 2, true)) # example for string 2
+	get_right_ik_target(Finger.THUMB).set_finger_target(get_right_target(Finger.THUMB, 6, true)) # example for string 6
 	pass # Replace with function body.
 
-#left hand fingers
-@onready var left_index_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Target_LIndex3"
-@onready var left_middle_iktaret = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Target_LMiddle3"
-@onready var left_ring_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Target_LRing3"
-@onready var left_pinky_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach/Target_LPinky3"
-
-#right hand fingers
-@onready var right_index_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RIndex3"
-@onready var right_middle_iktaret = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RMiddle3"
-@onready var right_ring_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RRing3"
-@onready var right_pinky_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RPinky3"
-@onready var right_thumb_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach/Target_RThumb3"
-
-# hover default tester 1
-#@onready var left_index_gtarget = $"Guitar/LFingers/Hover/S6/F10"
-#@onready var left_middle_gtaret = $"Guitar/LFingers/Hover/S5/F10"
-#@onready var left_ring_gtarget = $Guitar/LFingers/Hover/S4/F11
-#@onready var left_pinky_gtarget = $Guitar/LFingers/Hover/S3/F11
-
-#no hover default 2
-@onready var left_index_gtarget = $"Guitar/LFingers/Target/S6/F10"
-@onready var left_middle_gtaret = $"Guitar/LFingers/Target/S5/F10"
-@onready var left_ring_gtarget = $"Guitar/LFingers/Target/S4/F11"
-@onready var left_pinky_gtarget = $"Guitar/LFingers/Target/S3/F11"
-
-# right hand hover strum fingers
-#@onready var right_index_gtarget = $"Guitar/RFingers/Hover/S5"
-#@onready var right_middle_gtaret = $"Guitar/RFingers/Hover/S4"
-#@onready var right_ring_gtarget = $"Guitar/RFingers/Hover/S3"
-#@onready var right_pinky_gtarget = $"Guitar/RFingers/Hover/S2"
-#@onready var right_thumb_gtarget = $"Guitar/RFingers/Hover/S6"
-
-# right hand strum fingers
-@onready var right_index_gtarget = $"Guitar/RFingers/Target/S5"
-@onready var right_middle_gtaret = $"Guitar/RFingers/Target/S4"
-@onready var right_ring_gtarget = $"Guitar/RFingers/Target/S3"
-@onready var right_pinky_gtarget = $"Guitar/RFingers/Target/S2"
-@onready var right_thumb_gtarget = $"Guitar/RFingers/Target/S6"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #so i think i am going to get the notes here, and send the notes to the fingers here as i step through the song.
@@ -86,3 +48,31 @@ func _process(delta: float) -> void:
 func get_closest_fret_animation():
 	#get the base animation which is closest to the average note to be played
 	pass
+
+# Base paths for left and right hands
+@onready var left_finger_iktarget = $"Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach"
+@onready var right_finger_iktarget = $"Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach"
+
+@onready var left_finger_hover_gtarget = $"Guitar/LFingers/Hover"
+@onready var left_finger_target_gtarget = $"Guitar/LFingers/Target"
+
+@onready var right_finger_hover_gtarget = $"Guitar/RFingers/Hover"
+@onready var right_finger_target_gtarget = $"Guitar/RFingers/Target"
+
+# Constants for easy indexing
+enum Finger { INDEX, MIDDLE, RING, PINKY, THUMB }
+
+# Functions to get IK targets
+func get_left_ik_target(finger: Finger) -> Node:
+	return left_finger_iktarget.get_child(int(finger))
+
+func get_right_ik_target(finger: Finger) -> Node:
+	return right_finger_iktarget.get_child(int(finger))
+
+func get_left_target(finger: Finger, string_num: int, fret_num: int, hover: bool = false) -> Node:
+	var target_root =  left_finger_hover_gtarget if hover else left_finger_target_gtarget
+	return target_root.get_child(string_num - 1).get_child(fret_num - 1)
+
+func get_right_target(finger: Finger, string_num: int, hover: bool = false) -> Node:
+	var target_root =  right_finger_hover_gtarget if hover else right_finger_target_gtarget
+	return target_root.get_child(string_num - 1)

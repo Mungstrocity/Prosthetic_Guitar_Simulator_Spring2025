@@ -9845,7 +9845,7 @@ bones/84/rotation = Quaternion(-0.0885246, -1.70167e-09, -0.023519, 0.995796)
 surface_material_override/0 = SubResource("StandardMaterial3D_awhtr")
 
 [node name="LCollar_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.150366, 0.963925, 0.219635, -0.988576, -0.148929, -0.023182, 0.0103643, -0.220611, 0.975307, 0.0606577, 1.62592, 0.0764196)
+transform = Transform3D(-0.150366, 0.963925, 0.219634, -0.988576, -0.148929, -0.023182, 0.0103643, -0.220611, 0.975307, 0.0606577, 1.62592, 0.0764196)
 bone_name = "collar.L"
 bone_idx = 7
 use_external_skeleton = true
@@ -9856,7 +9856,7 @@ transform = Transform3D(0.190132, -108.167, 72.109, 129.998, -0.21521, -0.665577
 top_level = true
 
 [node name="LUpperArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach" index="1"]
-transform = Transform3D(0.980534, -0.191929, 0.0414246, 0.196341, 0.960301, -0.198166, -0.00174626, 0.202441, 0.979293, 0.0134842, 0.120483, -0.0554531)
+transform = Transform3D(0.980534, -0.191929, 0.0414246, 0.196341, 0.960301, -0.198166, -0.00174627, 0.202441, 0.979293, 0.0134841, 0.120483, -0.0554531)
 bone_name = "upper_arm.L"
 bone_idx = 8
 use_external_skeleton = true
@@ -9868,7 +9868,7 @@ top_level = true
 script = ExtResource("3_04qj1")
 
 [node name="LLowerArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach" index="1"]
-transform = Transform3D(0.997959, 0.0637117, -0.003353, -0.0637717, 0.994595, -0.0819419, -0.00188579, 0.0819888, 0.996632, 5.96046e-07, 0.306112, 1.13249e-06)
+transform = Transform3D(0.997959, 0.0637117, -0.00335299, -0.0637717, 0.994595, -0.081942, -0.00188578, 0.0819888, 0.996631, 8.34465e-07, 0.306112, 1.14739e-06)
 bone_name = "lower_arm.L"
 bone_idx = 9
 use_external_skeleton = true
@@ -9880,7 +9880,7 @@ top_level = true
 script = ExtResource("3_b24lq")
 
 [node name="LHand_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach" index="1"]
-transform = Transform3D(0.995144, 0.098296, -0.0039153, -0.0983064, 0.995153, -0.00270899, 0.00363003, 0.00308075, 0.999987, 1.43051e-06, 0.270566, 1.54972e-06)
+transform = Transform3D(0.995145, 0.098296, -0.00391531, -0.0983064, 0.995153, -0.00270899, 0.00363002, 0.00308074, 0.999987, 1.3113e-06, 0.270566, 1.57952e-06)
 bone_name = "hand.L"
 bone_idx = 10
 use_external_skeleton = true
@@ -9923,7 +9923,7 @@ transform = Transform3D(-6.29739, -32.2951, 125.766, 46.599, 116.965, 32.368, -1
 top_level = true
 
 [node name="Attach_LIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach" index="5"]
-transform = Transform3D(0.992034, -0.125714, -0.00916986, 0.123415, 0.983489, -0.132241, 0.0256436, 0.130051, 0.991176, -0.013468, 0.124731, 0.037323)
+transform = Transform3D(0.992034, -0.125714, -0.00916985, 0.123415, 0.983489, -0.132241, 0.0256436, 0.130051, 0.991176, -0.0134679, 0.124731, 0.0373229)
 bone_name = "finger_index.L.003"
 bone_idx = 14
 use_external_skeleton = true
@@ -9945,7 +9945,7 @@ transform = Transform3D(1, 5.82077e-11, 0, 0, 1, -1.49012e-08, -4.65661e-10, 1.4
 shape = SubResource("CapsuleShape3D_yk7mc")
 
 [node name="Attach_LMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach" index="6"]
-transform = Transform3D(0.992114, -0.12195, -0.0289522, 0.122698, 0.992107, 0.0255617, 0.0256067, -0.0289134, 0.999254, -0.0147547, 0.142076, 0.00899476)
+transform = Transform3D(0.992114, -0.12195, -0.0289522, 0.122698, 0.992107, 0.0255617, 0.0256067, -0.0289134, 0.999254, -0.0147544, 0.142076, 0.00899473)
 bone_name = "finger_middle.L.003"
 bone_idx = 19
 use_external_skeleton = true
@@ -9959,7 +9959,7 @@ transform = Transform3D(1, 5.82077e-11, 0, 5.82077e-11, 1, -3.35276e-08, -1.8626
 shape = SubResource("CapsuleShape3D_yk7mc")
 
 [node name="Attach_LRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach" index="7"]
-transform = Transform3D(0.992147, -0.119635, -0.036467, 0.122418, 0.988634, 0.0871752, 0.0256235, -0.0909545, 0.995524, -0.0129309, 0.134441, -0.0199226)
+transform = Transform3D(0.992147, -0.119635, -0.036467, 0.122418, 0.988634, 0.0871752, 0.0256235, -0.0909544, 0.995524, -0.0129308, 0.134441, -0.0199227)
 bone_name = "finger_ring.L.003"
 bone_idx = 24
 use_external_skeleton = true
@@ -9973,7 +9973,7 @@ transform = Transform3D(1, 9.45874e-11, 0, -2.18279e-11, 1, -1.30385e-08, 4.6566
 shape = SubResource("CapsuleShape3D_yk7mc")
 
 [node name="Attach_LPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach/LHand_Attach" index="8"]
-transform = Transform3D(0.992256, -0.108586, -0.0603063, 0.121499, 0.94939, 0.289616, 0.0258064, -0.294696, 0.95524, -0.0094353, 0.113435, -0.049367)
+transform = Transform3D(0.992256, -0.108586, -0.0603063, 0.121499, 0.94939, 0.289616, 0.0258064, -0.294696, 0.95524, -0.00943518, 0.113435, -0.049367)
 bone_name = "finger_pinky.L.003"
 bone_idx = 29
 use_external_skeleton = true
@@ -10069,7 +10069,7 @@ external_skeleton = NodePath("..")
 transform = Transform3D(0.988152, 0.119456, -0.0963952, -0.152185, 0.680398, -0.716867, -0.0200475, 0.723042, 0.690513, 0.0434508, 0.444009, 0.0211082)
 
 [node name="RUpperArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach" index="1"]
-transform = Transform3D(0.980534, 0.191929, -0.0414254, -0.196341, 0.960302, -0.198166, 0.00174706, 0.202442, 0.979293, -0.0142186, 0.115774, -0.0565262)
+transform = Transform3D(0.980534, 0.191929, -0.0414253, -0.196341, 0.960302, -0.198166, 0.00174706, 0.202442, 0.979293, -0.0142187, 0.115774, -0.0565262)
 bone_name = "upper_arm.R"
 bone_idx = 41
 use_external_skeleton = true
@@ -10079,7 +10079,7 @@ external_skeleton = NodePath("../..")
 transform = Transform3D(0.998761, -0.0151958, 0.047438, 0.0394535, 0.822688, -0.567121, -0.0304091, 0.568289, 0.822266, -0.012549, 0.599576, 0.0246727)
 
 [node name="RLowerArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach" index="1"]
-transform = Transform3D(0.997962, -0.0637117, 0.00335373, 0.0637719, 0.994595, -0.0819418, 0.00188505, 0.0819888, 0.99663, 4.76837e-07, 0.306112, -1.19209e-07)
+transform = Transform3D(0.997962, -0.0637117, 0.00335373, 0.063772, 0.994595, -0.0819418, 0.00188504, 0.0819888, 0.996631, 5.96046e-07, 0.306112, -1.63913e-07)
 bone_name = "lower_arm.R"
 bone_idx = 42
 use_external_skeleton = true
@@ -10089,7 +10089,7 @@ external_skeleton = NodePath("../../..")
 transform = Transform3D(0.998759, -0.0151958, 0.047438, 0.0394534, 0.822688, -0.567121, -0.030409, 0.568289, 0.822266, 0.00218356, 0.372359, -0.00583276)
 
 [node name="RHand_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach" index="1"]
-transform = Transform3D(0.99515, -0.0982959, 0.0039153, 0.0983069, 0.995152, -0.00270897, -0.00363003, 0.00308074, 0.999988, 0, 0.270564, -1.19209e-07)
+transform = Transform3D(0.99515, -0.0982959, 0.0039153, 0.0983069, 0.995151, -0.00270899, -0.00363003, 0.00308074, 0.999988, -1.19209e-07, 0.270564, -1.19209e-07)
 bone_name = "hand.R"
 bone_idx = 43
 use_external_skeleton = true
@@ -10131,7 +10131,7 @@ script = ExtResource("3_muvgc")
 mesh = SubResource("SphereMesh_i05a0")
 
 [node name="Attach_RIndex3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach" index="5"]
-transform = Transform3D(0.992023, 0.125716, 0.00916988, -0.123414, 0.983505, -0.13224, -0.0256433, 0.130054, 0.991175, 0.0134678, 0.12473, 0.0373234)
+transform = Transform3D(0.992023, 0.125716, 0.00916987, -0.123414, 0.983505, -0.13224, -0.0256433, 0.130054, 0.991175, 0.0134679, 0.12473, 0.0373234)
 bone_name = "finger_index.R.003"
 bone_idx = 47
 use_external_skeleton = true
@@ -10145,7 +10145,7 @@ transform = Transform3D(1, 1.86265e-09, 1.39698e-09, -3.14321e-09, 1, 1.49012e-0
 shape = SubResource("CapsuleShape3D_yk7mc")
 
 [node name="Attach_RMiddle3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach" index="6"]
-transform = Transform3D(0.992113, 0.121951, 0.0289523, -0.122697, 0.992115, 0.0255623, -0.0256066, -0.0289131, 0.999254, 0.0147545, 0.142076, 0.00899491)
+transform = Transform3D(0.992113, 0.121951, 0.0289523, -0.122697, 0.992115, 0.0255623, -0.0256066, -0.0289131, 0.999254, 0.0147547, 0.142076, 0.00899494)
 bone_name = "finger_middle.R.003"
 bone_idx = 52
 use_external_skeleton = true
@@ -10159,7 +10159,7 @@ transform = Transform3D(1, 1.92085e-09, 1.39698e-09, -3.14321e-09, 1, 1.56462e-0
 shape = SubResource("CapsuleShape3D_yk7mc")
 
 [node name="Attach_RRing3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach" index="7"]
-transform = Transform3D(0.992147, 0.119636, 0.0364668, -0.122418, 0.988643, 0.0871755, -0.0256232, -0.0909551, 0.995525, 0.0129311, 0.134441, -0.0199227)
+transform = Transform3D(0.992147, 0.119636, 0.0364668, -0.122418, 0.988643, 0.0871755, -0.0256232, -0.0909551, 0.995525, 0.0129313, 0.134441, -0.0199227)
 bone_name = "finger_ring.R.003"
 bone_idx = 57
 use_external_skeleton = true
@@ -10173,7 +10173,7 @@ transform = Transform3D(1, 1.93904e-09, 1.39698e-09, -3.29419e-09, 1, 1.49477e-0
 shape = SubResource("CapsuleShape3D_yk7mc")
 
 [node name="Attach_RPinky3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach" index="8"]
-transform = Transform3D(0.992256, 0.108587, 0.060306, -0.121499, 0.9494, 0.289615, -0.0258061, -0.2947, 0.955241, 0.0094353, 0.113435, -0.0493668)
+transform = Transform3D(0.992256, 0.108587, 0.060306, -0.121499, 0.9494, 0.289615, -0.0258061, -0.2947, 0.955241, 0.00943542, 0.113435, -0.0493668)
 bone_name = "finger_pinky.R.003"
 bone_idx = 62
 use_external_skeleton = true
@@ -10187,7 +10187,7 @@ transform = Transform3D(1, 1.97906e-09, 9.31323e-10, -3.25963e-09, 1, 1.49012e-0
 shape = SubResource("CapsuleShape3D_yk7mc")
 
 [node name="Attach_RThumb3" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHand_Attach" index="9"]
-transform = Transform3D(0.991802, 0.121488, -0.0396005, -0.125064, 0.859372, -0.495822, -0.0262052, 0.49671, 0.86752, 0.00567853, 0.0556183, 0.062561)
+transform = Transform3D(0.991802, 0.121488, -0.0396006, -0.125064, 0.859371, -0.495821, -0.0262052, 0.49671, 0.86752, 0.00567853, 0.0556184, 0.062561)
 bone_name = "finger_thumb.R.003"
 bone_idx = 68
 use_external_skeleton = true

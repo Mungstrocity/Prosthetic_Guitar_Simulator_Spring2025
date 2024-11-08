@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://byglbal6b0b55"]
+
+[ext_resource type="AudioStream" uid="uid://chif60u8y64ol" path="res://Assets/Sounds/GuitarNotes/C/C6_120bpm.mp3" id="1_ulp15"]
+[ext_resource type="AudioStream" uid="uid://sgqk3rjqru3a" path="res://Assets/Sounds/GuitarNotes/B/B5_120bpm.mp3" id="2_elm7t"]
+[ext_resource type="Script" path="res://note_player.gd" id="4_g0ot0"]
+[ext_resource type="AudioStream" path="res://Assets/Sounds/GuitarNotes/C/" id="5_obmdi"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_80hc4"]
+resource_name = "GuitarSounds"
+clip_count = 2
+clip_0/name = &"C6"
+clip_0/stream = ExtResource("1_ulp15")
+clip_0/auto_advance = 0
+clip_1/name = &"B5"
+clip_1/stream = ExtResource("2_elm7t")
+clip_1/auto_advance = 0
+
+[node name="GuitarSounds" type="Node3D"]
+script = ExtResource("4_g0ot0")
+
+[node name="SoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamInteractive_80hc4")
+
+[node name="C6" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_obmdi")

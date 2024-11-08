@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://3m6qonxfwunt"]
+[gd_scene load_steps=18 format=3 uid="uid://3m6qonxfwunt"]
 
 [ext_resource type="ArrayMesh" uid="uid://c0wedv0q44ook" path="res://Assets/Models/Guitar2.obj" id="1_0vqio"]
 [ext_resource type="Script" path="res://guitar.gd" id="1_wfiyf"]
+[ext_resource type="PackedScene" uid="uid://byglbal6b0b55" path="res://GuitarSounds.tscn" id="3_6qsux"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bw1vs"]
 height = 463.305
@@ -1851,3 +1852,5 @@ transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 
 
 [node name="Target_F20" type="Node3D" parent="LHand"]
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 0.261799, -43.4958, 53.6766)
+
+[node name="GuitarSounds" parent="." instance=ExtResource("3_6qsux")]

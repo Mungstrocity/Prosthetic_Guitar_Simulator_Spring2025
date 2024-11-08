@@ -60,24 +60,77 @@ func get_all_children(node) -> Array:
 #then if you have more notes you are playing at the same time, you would pass in the array of an array of the previous note's targets
 #then based on all the targets, you would find the most optimal targets to use with each other based on lowest minimal distances
 #simulated annealing basically. (I might have to change this slightly and just go with a biased selection becuase that might take too much time)
-func get_poss_gneck_targets(octave: int, pitch: String, alter: int, hover: bool):
+func get_poss_gneck_targets(hover: bool, octave: int = 3, pitch: String = "C", alter: int = 0):
 	match octave:
-		0: #Not playable on the guitar just play it on octave 2 and 3
+		2: #  S6: E2-F0 to B2-F7
+			# S5: A2-F0 to B2-F2
+			match pitch:
+				"C":
+					match alter:
+						-1: # flat pitch alter
+							
+							pass
+						1: # sharp pitch alter
+							
+							pass
+						_: #handles no alter, or other unimplemented alters like natural alter or double alters (aka: just play regular pitch)
+							
+							pass
+					pass
+				"D":
+					
+					pass
+				"E":
+					
+					pass
+				"F":
+					
+					pass
+				"G":
+					
+					pass
+				"A":
+					
+					pass
+				"B":
+					
+					pass
+				_:
+					#Shouldn't get here error
+					assert(false, "Error: Note Pitch Not Available.")
+					pass
 			pass
-		1: #Not playable on the guitar just play it on octave 2 and 3
-			#left off on string 3 FIXME
+		3: #  S6: C3-F8 to B3-F19
+			# S5: C3-F3 to B3-F14 
+			# S4: D3-F0 to B3-F9 
+			# S3: G3-F0 to B3-F4 
+			# S2: B3-F0
+			
 			pass
-		2: # S6: E2-F0 to B2-F7, S5: A2-F0 to B2-F2
+		4: #  S6: C4-F20, 
+			# S5: C4-F15 to F4-F20 
+			# S4: C4-F10 to A#4-F20 
+			# S3: C4-F5 to B4-F16 
+			# S2: C4-F1 to B4-F12 
+			# S1: E4-F0 to B4-F7
+			
 			pass
-		3: # S6: C3-F8 to B3-F19, S5: C3-F3 to B3-F14 S4: D3-F0 to B3-F9
+		5: #  S3: C5-F17 to D#5-F20 
+			# S2: C5-F13 to G5-F20 
+			# S1: C5-F8 to B5-F19
+			
 			pass
-		4: # S6: C4-F20, S5: C4-F15 to F4-F20 S4: C4-F10 to A#4-F20
-			pass
-		5:
-			pass
-		6: #   S1: C6-F20
+		6: #  S1: C6-F20
+			
 			pass
 		_:
+			#any other octaves are not playable on the guitar so if uplayable higher pick highest notes possible, else lowest possible.
+			if(octave >= 6): #play on highest possible ocatve on the guitar
+				
+				pass
+			elif(octave <= 2): #play on lowest possible ocatve on guitar
+				
+				pass
 			pass
 
 func get_guitar_pick_target(guitar_string: int, hover: bool, other_note_targets: Array):

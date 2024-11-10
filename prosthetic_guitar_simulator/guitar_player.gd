@@ -35,29 +35,19 @@ func _ready() -> void:
 	get_right_ik_target(Finger.THUMB).set_finger_target(get_right_target(Finger.THUMB, 6, true)) # example for string 6
 	
 	# Connect signals for each string and fret collider to their respective handlers
-	#for i in righthand_string_colliders.size():
-		#righthand_string_colliders[i].connect("body_shape_entered", _on_right_finger_strum.bind(righthand_string_colliders[i]))
-
-	#for i in lefthand_string_colliders.size():
-		#lefthand_string_colliders[i].connect("body_shape_entered", _on_left_finger_press.bind(lefthand_string_colliders[i]))
-		#lefthand_string_colliders[i].connect("body_shape_exited", _on_left_finger_release.bind(lefthand_string_colliders[i]))
-	
-	#for i in fret_colliders.size():
-		#fret_colliders[i].connect("body_shape_entered", _on_fret_collison.bind(fret_colliders[i]))
-		#fret_colliders[i].connect("body_shape_exited", _on_fret_release.bind(fret_colliders[i]))
-
-func _process(delta: float) -> void:
 	for i in righthand_string_colliders.size():
-		if righthand_string_colliders[i].has_overlapping_bodies():
-			right_finger_strum(righthand_string_colliders[i].get_overlapping_bodies(), righthand_string_colliders[i].name)
+		righthand_string_colliders[i].connect("body_shape_entered", _on_right_finger_strum.bind(righthand_string_colliders[i]))
 
 	for i in lefthand_string_colliders.size():
-		if lefthand_string_colliders[i].has_overlapping_bodies():
-			left_finger_press_update(lefthand_string_colliders[i].get_overlapping_bodies(), lefthand_string_colliders[i].name)
+		lefthand_string_colliders[i].connect("body_shape_entered", _on_left_finger_press.bind(lefthand_string_colliders[i]))
+		lefthand_string_colliders[i].connect("body_shape_exited", _on_left_finger_release.bind(lefthand_string_colliders[i]))
 	
 	for i in fret_colliders.size():
-		if fret_colliders[i].has_overlapping_bodies():
-			fret_collison_update(fret_colliders[i].get_overlapping_bodies(), fret_colliders[i].name)
+		fret_colliders[i].connect("body_shape_entered", _on_fret_collison.bind(fret_colliders[i]))
+		fret_colliders[i].connect("body_shape_exited", _on_fret_release.bind(fret_colliders[i]))
+
+func _process(delta: float) -> void:
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #so i think i am going to get the notes here, and send the notes to the fingers here as i step through the song.
@@ -121,7 +111,7 @@ func _on_right_finger_strum(_body_rid: RID, _finger_collider_node: Node3D, _body
 	print(string_collider_node.name)
 	print(_finger_collider_node.name)
 	for finger in lhand_dict.keys():
-		if lhand_dict[finger]["string"] == string_collider_node.name && lhand_dict[finger].has("fret"):
+		if lhand_dict[finger]["string"] == string_collider_node && lhand_dict[finger].has("fret"):
 			#the note will be modified before play based on the left hand
 			guitar_sounds.play_note(string_collider_node.name, lhand_dict[finger]["fret"].name)
 			return
@@ -160,49 +150,3 @@ func _on_fret_release(_body_rid: RID, finger_collider_node: Node3D, _body_shape_
 		if lhand_dict[finger_collider_node].is_empty(): #check if it's the last one
 			lhand_dict.erase(finger_collider_node)
 	return 
-
-#non signal version (hopefully this one works...)
-func right_finger_strum(collision_bodies: Array, string_collider_name):
-	print("got right finger signal!")
-	print(string_collider_name)
-	print(collision_bodies)
-	for i in collision_bodies.size():
-		if !lhand_dict.has(collision_bodies[i]): #add the string strum if it's currently active
-			lhand_dict[collision_bodies[i]] = string_collider_name
-	for key in lhand_dict.keys(): 
-		if !collision_bodies.has(key): #remove it if its not active anymore
-			lhand_dict.erase(key)
-	for finger in lhand_dict.keys(): #if it's active, play it
-		if lhand_dict[finger]["string"] == string_collider_name && lhand_dict[finger].has("fret"):
-			#the note will be modified before play based on the left hand
-			guitar_sounds.play_note(string_collider_name, lhand_dict[finger]["fret"].name)
-			return
-	#if you got through and there wasn't a left hand string that matched, play basic note
-	guitar_sounds.play_note(string_collider_name, "")
-	return
-	
-func left_finger_press_update(collision_bodies: Array, string_collider_name):
-	print("got left finger press signal!")
-	print(string_collider_name)
-	print(collision_bodies)
-	for i in collision_bodies.size():
-		if !lhand_dict.has(collision_bodies[i]):
-			lhand_dict[collision_bodies[i]] = {}
-			lhand_dict[collision_bodies[i]]["string"] = string_collider_name
-	for key in lhand_dict.keys():
-		if !collision_bodies.has(key):
-			lhand_dict.erase(key)
-	return
-	
-func fret_collison_update(collision_bodies: Array, fret_collider_name):
-	print("got fret press signal!")
-	print(fret_collider_name)
-	print(collision_bodies)
-	for i in collision_bodies.size():
-		if !lhand_dict.has(collision_bodies[i]):
-			lhand_dict[collision_bodies[i]] = {}
-			lhand_dict[collision_bodies[i]]["fret"] = fret_collider_name
-	for key in lhand_dict.keys():
-		if !collision_bodies.has(key):
-			lhand_dict.erase(key)
-	return

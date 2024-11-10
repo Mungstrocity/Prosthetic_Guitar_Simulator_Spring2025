@@ -23,11 +23,11 @@ height = 0.005
 radius = 0.00314435
 height = 0.0292078
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_drtmx"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ps2c"]
 albedo_color = Color(0.129412, 0.235294, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3r2mw"]
-material = SubResource("StandardMaterial3D_drtmx")
+material = SubResource("StandardMaterial3D_4ps2c")
 radius = 0.001
 height = 0.01
 
@@ -36,8 +36,8 @@ radius = 0.00314435
 height = 0.043889
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v5q3p"]
-radius = 0.00314435
-height = 0.0481114
+radius = 0.0060636
+height = 0.0501202
 
 [sub_resource type="Animation" id="Animation_y3l5f"]
 length = 0.001
@@ -10156,14 +10156,13 @@ target_node = NodePath("../RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHan
 script = ExtResource("6_eqk8p")
 
 [node name="LAIndex" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="19"]
-transform = Transform3D(0.000890417, 0.980564, -0.196113, -0.999991, -1.28183e-06, -0.00453938, -0.00445105, 0.196111, 0.980569, 0.860996, 1.59905, 0.0535815)
+transform = Transform3D(0.000890417, 0.980564, -0.196113, -0.999991, -1.28181e-06, -0.00453938, -0.00445105, 0.196111, 0.980569, 0.860996, 1.59905, 0.0535815)
 bone_name = "finger_index.L.003"
 bone_idx = 14
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/LAIndex" index="0"]
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/LAIndex" index="0"]
 transform = Transform3D(1, -4.65661e-10, -2.79397e-09, -1.16415e-10, 1, -7.45058e-08, -2.79397e-09, 8.9407e-08, 1, -0.00197446, 0.0174568, 3.89516e-05)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_LMiddle3" type="CollisionShape3D" parent="Armature/Skeleton3D/LAIndex/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 5.82077e-11, 0, 5.82077e-11, 1, -3.35276e-08, -1.86265e-09, 1.49012e-08, 1, 0.00300968, -0.0050329, -1.1921e-05)
@@ -10174,14 +10173,13 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="LAMiddle" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="20"]
-transform = Transform3D(0.000172721, 0.99927, -0.0379722, -0.999981, -1.07149e-06, -0.00453955, -0.00453584, 0.0379712, 0.999267, 0.880224, 1.59905, 0.0264654)
+transform = Transform3D(0.000172722, 0.99927, -0.0379721, -0.999981, -1.07018e-06, -0.00453955, -0.00453584, 0.0379712, 0.999267, 0.880224, 1.59905, 0.0264654)
 bone_name = "finger_middle.L.003"
 bone_idx = 19
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/LAMiddle" index="0"]
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/LAMiddle" index="0"]
 transform = Transform3D(1, -4.51109e-10, -2.32831e-09, -1.01863e-10, 1, -3.35276e-08, -1.39698e-09, 7.82311e-08, 1, -0.0019747, 0.0174568, 3.89367e-05)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_LMiddle3" type="CollisionShape3D" parent="Armature/Skeleton3D/LAMiddle/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 5.82077e-11, 0, 5.82077e-11, 1, -3.35276e-08, -1.86265e-09, 1.49012e-08, 1, 0.00300968, -0.0050329, -1.1921e-05)
@@ -10192,14 +10190,13 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="LARing" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="21"]
-transform = Transform3D(-0.000109575, 0.999697, 0.0242084, -0.99998, -1.08532e-06, -0.00453969, -0.00453785, -0.0242085, 0.999693, 0.874374, 1.59905, -0.0029219)
+transform = Transform3D(-0.000109575, 0.999697, 0.0242084, -0.99998, -1.0853e-06, -0.00453969, -0.00453785, -0.0242085, 0.999693, 0.874374, 1.59905, -0.0029219)
 bone_name = "finger_ring.L.003"
 bone_idx = 24
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/LARing" index="0"]
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/LARing" index="0"]
 transform = Transform3D(0.999999, -4.1473e-10, -1.39698e-09, -1.01863e-10, 1, -2.98023e-08, -2.32831e-09, 7.63685e-08, 1, 0.00174701, 0.012122, -0.00011532)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_LRing3" type="CollisionShape3D" parent="Armature/Skeleton3D/LARing/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 9.45874e-11, 0, -2.18279e-11, 1, -1.30385e-08, 4.65661e-10, 1.49012e-08, 1, -3.6478e-05, -0.00637841, -5.14538e-05)
@@ -10210,14 +10207,13 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="LAPinky" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="22"]
-transform = Transform3D(-0.00104482, 0.973112, 0.230282, -0.999981, -7.77371e-07, -0.00453985, -0.00441718, -0.230281, 0.97311, 0.855115, 1.59905, -0.033736)
+transform = Transform3D(-0.00104482, 0.973112, 0.230282, -0.999981, -7.77356e-07, -0.00453985, -0.00441718, -0.230281, 0.97311, 0.855115, 1.59905, -0.033736)
 bone_name = "finger_pinky.L.003"
 bone_idx = 29
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/LAPinky" index="0"]
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/LAPinky" index="0"]
 transform = Transform3D(0.999998, 0.000437451, 2.11126e-05, -0.000437448, 0.995346, 0.096366, 2.11382e-05, -0.0963657, 0.995345, 0.00468183, 0.00845665, -0.000969306)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_LPinky3" type="CollisionShape3D" parent="Armature/Skeleton3D/LAPinky/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 1.86265e-09, 9.31323e-10, -2.32831e-09, 1, 1.49012e-07, -2.79397e-09, -5.96046e-08, 1, -0.00148904, -0.00864038, 0.00112037)
@@ -10228,14 +10224,13 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RAIndex" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="23"]
-transform = Transform3D(0.000889587, -0.98058, 0.196113, 0.999988, -4.31843e-07, -0.00453891, 0.00445098, 0.196114, 0.980569, -0.752856, 1.59905, 0.0535789)
+transform = Transform3D(0.000889587, -0.98058, 0.196113, 0.999988, -4.31901e-07, -0.00453891, 0.00445098, 0.196114, 0.980569, -0.752856, 1.59905, 0.0535789)
 bone_name = "finger_index.R.003"
 bone_idx = 47
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/RAIndex" index="0"]
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/RAIndex" index="0"]
 transform = Transform3D(0.999997, 0.00127389, 2.46591e-05, -0.00126679, 0.996126, -0.0879197, -0.000136567, 0.0879199, 0.996126, 0.0046702, 0.0158221, -0.00256384)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_RIndex3" type="CollisionShape3D" parent="Armature/Skeleton3D/RAIndex/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 1.86265e-09, 1.39698e-09, -3.14321e-09, 1, 1.49012e-07, -3.25963e-09, -1.49012e-07, 1, -0.00149465, -0.0026971, 0.000415653)
@@ -10246,14 +10241,13 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RAMiddle" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="24"]
-transform = Transform3D(0.000171856, -0.999278, 0.0379717, 0.999988, -3.65661e-07, -0.00453896, 0.00453583, 0.0379721, 0.999267, -0.772084, 1.59905, 0.0264626)
+transform = Transform3D(0.000171855, -0.999278, 0.0379717, 0.999988, -3.66446e-07, -0.00453896, 0.00453583, 0.0379721, 0.999267, -0.772084, 1.59905, 0.0264626)
 bone_name = "finger_middle.R.003"
 bone_idx = 52
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/RAMiddle" index="0"]
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/RAMiddle" index="0"]
 transform = Transform3D(0.999997, 0.00127389, 2.466e-05, -0.00126679, 0.996126, -0.0879197, -0.000136566, 0.0879199, 0.996127, 0.000676168, 0.0145478, -0.000922187)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_RMiddle3" type="CollisionShape3D" parent="Armature/Skeleton3D/RAMiddle/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 1.92085e-09, 1.39698e-09, -3.14321e-09, 1, 1.56462e-07, -4.19095e-09, -1.63913e-07, 1, -0.00149357, -0.000790477, 0.000513792)
@@ -10264,14 +10258,13 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RARing" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="25"]
-transform = Transform3D(-0.000110266, -0.999706, -0.0242084, 0.999988, -2.2832e-07, -0.00453928, 0.00453807, -0.0242086, 0.999694, -0.766235, 1.59905, -0.00292497)
+transform = Transform3D(-0.000110266, -0.999706, -0.0242084, 0.999988, -2.28341e-07, -0.00453928, 0.00453807, -0.0242086, 0.999694, -0.766235, 1.59905, -0.00292497)
 bone_name = "finger_ring.R.003"
 bone_idx = 57
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/RARing" index="0"]
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/RARing" index="0"]
 transform = Transform3D(0.999998, 0.00096726, 4.12827e-05, -0.000966217, 0.999792, -0.0203663, -6.09783e-05, 0.0203665, 0.999792, -0.00070255, 0.007057, -0.000519139)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_RRing3" type="CollisionShape3D" parent="Armature/Skeleton3D/RARing/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 1.93904e-09, 1.39698e-09, -3.29419e-09, 1, 1.49477e-07, -3.25963e-09, -1.48779e-07, 0.999999, -0.00149763, 0.000433485, 0.000428587)
@@ -10282,14 +10275,13 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RAPinky" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="26"]
-transform = Transform3D(-0.00104562, -0.973123, -0.230282, 0.999988, -1.4645e-07, -0.00453936, 0.00441745, -0.230284, 0.973111, -0.746976, 1.59905, -0.0337391)
+transform = Transform3D(-0.00104562, -0.973123, -0.230282, 0.999988, -1.46494e-07, -0.00453936, 0.00441745, -0.230284, 0.973111, -0.746976, 1.59905, -0.0337391)
 bone_name = "finger_pinky.R.003"
 bone_idx = 62
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/RAPinky" index="0"]
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/RAPinky" index="0"]
 transform = Transform3D(0.999998, 0.000464767, 2.36444e-05, -0.000465002, 0.99591, 0.0903362, 1.84341e-05, -0.0903358, 0.99591, -0.00165392, 0.00791814, 0.00152955)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_RPinky3" type="CollisionShape3D" parent="Armature/Skeleton3D/RAPinky/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 1.97906e-09, 9.31323e-10, -3.25963e-09, 1, 1.49012e-07, -2.79397e-09, -1.49012e-07, 1, -0.00149739, -0.00701171, -0.00104444)
@@ -10300,14 +10292,13 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RAThumb" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="27"]
-transform = Transform3D(0.00251317, -0.832619, 0.553839, 0.999987, -3.88944e-07, -0.00453817, 0.00377865, 0.553845, 0.832609, -0.681778, 1.59905, 0.0741215)
+transform = Transform3D(0.00251317, -0.832619, 0.553839, 0.999987, -3.88885e-07, -0.00453817, 0.00377865, 0.553845, 0.832608, -0.681778, 1.59905, 0.0741215)
 bone_name = "finger_thumb.R.003"
 bone_idx = 68
 
-[node name="PhysicalBone3D" type="RigidBody3D" parent="Armature/Skeleton3D/RAThumb" index="0"]
-transform = Transform3D(0.999998, 0.000464766, 2.36486e-05, -0.000465002, 0.99591, 0.0903362, 1.84334e-05, -0.0903355, 0.99591, 0.0058256, 0.00701312, -0.00254173)
+[node name="PhysicalBone3D" type="CharacterBody3D" parent="Armature/Skeleton3D/RAThumb" index="0"]
+transform = Transform3D(0.999998, 0.000464766, 2.36486e-05, -0.000465002, 0.99591, 0.0903362, 1.84332e-05, -0.0903355, 0.99591, 0.00582588, 0.00747949, 0.00202006)
 collision_mask = 3
-freeze = true
 
 [node name="Coll_RThumb3" type="CollisionShape3D" parent="Armature/Skeleton3D/RAThumb/PhysicalBone3D" index="0"]
 transform = Transform3D(1, 1.74623e-09, 9.31323e-10, -3.84171e-09, 1, 8.9407e-08, -2.32831e-09, -1.19209e-07, 1, -0.00149739, -0.00068638, -0.00104097)

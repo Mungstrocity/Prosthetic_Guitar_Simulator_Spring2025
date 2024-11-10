@@ -15,11 +15,18 @@ run/main_scene="res://gui_control.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [global_group]
 
 Guitar="Guitar Group"
 GuitarPlayer="Guitar Player Group"
 GUI=""
+RStringColliders=""
+LStringColliders=""
+FretColliders=""
 
 [input]
 

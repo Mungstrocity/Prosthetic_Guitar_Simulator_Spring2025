@@ -1853,38 +1853,38 @@ mesh = SubResource("SphereMesh_kj28g")
 [node name="Hover" type="Node3D" parent="RFingers"]
 
 [node name="S1" type="Node3D" parent="RFingers/Hover"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.1764, 0.41574, -30.4053)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.3283, 0.41574, -30.4053)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Hover/S1"]
 mesh = SubResource("BoxMesh_pu4im")
 
 [node name="S2" type="Node3D" parent="RFingers/Hover"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.1764, 1.74248, -29.4637)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.3283, 1.74248, -29.4637)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Hover/S2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284077, 0)
 mesh = SubResource("BoxMesh_pu4im")
 
 [node name="S3" type="Node3D" parent="RFingers/Hover"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.1764, 4.67829, -30.7371)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.3283, 4.67829, -30.7371)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Hover/S3"]
 mesh = SubResource("BoxMesh_pu4im")
 
 [node name="S4" type="Node3D" parent="RFingers/Hover"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.1764, 7.06425, -31.1674)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.3283, 7.06425, -31.1674)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Hover/S4"]
 mesh = SubResource("BoxMesh_pu4im")
 
 [node name="S5" type="Node3D" parent="RFingers/Hover"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.1764, 9.57573, -31.9776)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.3283, 9.57573, -31.9776)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Hover/S5"]
 mesh = SubResource("BoxMesh_pu4im")
 
 [node name="S6" type="Node3D" parent="RFingers/Hover"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.1764, 10.9046, -30.7054)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.3283, 10.9046, -30.7054)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Hover/S6"]
 mesh = SubResource("BoxMesh_pu4im")

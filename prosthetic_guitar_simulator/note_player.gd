@@ -8,7 +8,9 @@ extends Node
 
 @onready var string_players = $"./Strings".get_children()
 
-# I think i am going to have to pivot to not using collisions because they are not seeming to work right.
+func _ready() -> void:
+	for string in string_players:
+		string.play()
 
 func play_note(string_name: String, fret_name: String):
 	# E2, A2, D3, G3, B3, E4
@@ -28,7 +30,7 @@ func play_note(string_name: String, fret_name: String):
 		for string in string_players:
 			if string.name == string_name: #compare the audiostreamplayer's name to the string collider's name
 				#string["parameters/switch_to_clip"] = modified_note_dict[string.name][fret_name]
-				string.play()
+				#string.play()
 				string.get_stream_playback().switch_to_clip_by_name(modified_note_dict[string.name][fret_name])
 				return
 		
@@ -36,7 +38,7 @@ func play_note(string_name: String, fret_name: String):
 		for string in string_players:
 			if string.name == string_name: #compare the audiostreamplayer's name to the string collider's name
 				#string["parameters/switch_to_clip"] = basic_note_dict[string.name]
-				string.play()
+				#string.play()
 				string.get_stream_playback().switch_to_clip_by_name(basic_note_dict[string.name])
 				return
 	#Shouldn't get here error

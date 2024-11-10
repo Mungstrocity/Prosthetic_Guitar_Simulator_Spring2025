@@ -36,7 +36,7 @@ func _ready() -> void:
 	
 	# Connect signals for each string and fret collider to their respective handlers
 	for i in righthand_string_colliders.size():
-		righthand_string_colliders[i].connect("body_shape_entered", _on_right_finger_strum.bind(righthand_string_colliders[i]))
+		righthand_string_colliders[i].connect("body_shape_entered", _on_right_finger_pick.bind(righthand_string_colliders[i]))
 
 	for i in lefthand_string_colliders.size():
 		lefthand_string_colliders[i].connect("body_shape_entered", _on_left_finger_press.bind(lefthand_string_colliders[i]))
@@ -71,13 +71,13 @@ func get_closest_fret_animation():
 @onready var right_finger_target_gtarget = $"Guitar/RFingers/Target"
 
 # Constants for easy indexing
-enum Finger { INDEX, MIDDLE, RING, PINKY, THUMB }
+enum Finger { THUMB, INDEX, MIDDLE, RING, PINKY }
 
 # Functions to get IK finger targets
-func get_left_ik_target(finger: Finger) -> Node:
+func get_left_ik_target(finger) -> Node:
 	return left_finger_iktarget.get_child(int(finger))
 
-func get_right_ik_target(finger: Finger) -> Node:
+func get_right_ik_target(finger) -> Node:
 	return right_finger_iktarget.get_child(int(finger))
 
 #functions to get the guitar finger targets
@@ -105,48 +105,59 @@ func avg_note_position(note_positions: Array):
 #define dicts to keep finger: string (or fret) pairs for right hand checks
 var lhand_dict = {}
 
-#signals version, doesn't seem to work. I think godot 4 is bugged for some reason.
-func _on_right_finger_strum(_body_rid: RID, _finger_collider_node: Node3D, _body_shape_index: int, _local_shape_index: int, string_collider_node):
-	print("got right finger signal!")
-	print(string_collider_node.name)
-	print(_finger_collider_node.name)
+func _on_right_finger_pick(_body_rid: RID, _finger_collider_node: Node3D, _body_shape_index: int, _local_shape_index: int, string_collider_node):
+	#print("got right finger signal!")
+	#print(string_collider_node.name)
+	#print(_finger_collider_node.name)
 	for finger in lhand_dict.keys():
-		if lhand_dict[finger]["string"] == string_collider_node && lhand_dict[finger].has("fret"):
+		#if !lhand_dict[finger].has("string"):
+			#continue
+		if !(lhand_dict[finger].has("string") && lhand_dict[finger].has("fret")):
+			print("Issue here, not deleting correctly! probly")
+			continue #the finger doesn't have a string or fret collision, shouldn't be needed tho because it removes uncoliding fingers.
+		if lhand_dict[finger]["string"] == string_collider_node.name && lhand_dict[finger].has("fret"):
+			#Also check if the fret is a higher number in the case of the same string being pressed down with two fingers! FIXME
 			#the note will be modified before play based on the left hand
-			guitar_sounds.play_note(string_collider_node.name, lhand_dict[finger]["fret"].name)
+			guitar_sounds.play_note(string_collider_node.name, lhand_dict[finger]["fret"])
 			return
 	#if you got through and there wasn't a left hand string that matched, play basic note
 	guitar_sounds.play_note(string_collider_node.name, "")
 	return
 	
 func _on_left_finger_press(_body_rid: RID, finger_collider_node: Node3D, _body_shape_index: int, _local_shape_index: int, string_collider_node):
-	print("got left finger press signal!")
+	print("\ngot left string press signal!")
 	print(string_collider_node.name)
 	print(finger_collider_node.name)
-	lhand_dict[finger_collider_node] = {}
-	lhand_dict[finger_collider_node]["string"] = string_collider_node
+	if !lhand_dict.has(finger_collider_node.name):
+		lhand_dict[finger_collider_node.name] = {}
+	lhand_dict[finger_collider_node.name]["string"] = string_collider_node.name
 	return
 	
 func _on_left_finger_release(_body_rid: RID, finger_collider_node: Node3D, _body_shape_index: int, _local_shape_index: int, _string_collider_node):
-	print("got left finger release signal!")
-	if lhand_dict.has(finger_collider_node):
-		lhand_dict[finger_collider_node].erase("string")
-		if lhand_dict[finger_collider_node].is_empty(): #check if it's the last one
-			lhand_dict.erase(finger_collider_node)
+	print("\ngot left string release signal!")
+	if(lhand_dict.has(finger_collider_node.name)):
+		lhand_dict[finger_collider_node.name].erase("string")
+		if lhand_dict[finger_collider_node.name].is_empty(): #check if it's the last one
+			lhand_dict.erase(finger_collider_node.name)
+	else:
+		print("no node left in dict")
 	return 
 	
 func _on_fret_collison(_body_rid: RID, finger_collider_node: Node3D, _body_shape_index: int, _local_shape_index: int, fret_collider_node):
-	print("got fret press signal!")
+	print("\ngot fret press signal!")
 	print(fret_collider_node.name)
 	print(finger_collider_node.name)
-	lhand_dict[finger_collider_node] = {}
-	lhand_dict[finger_collider_node]["fret"] = fret_collider_node
+	if !lhand_dict.has(finger_collider_node.name):
+		lhand_dict[finger_collider_node.name] = {}
+	lhand_dict[finger_collider_node.name]["fret"] = fret_collider_node.name
 	return
 	
 func _on_fret_release(_body_rid: RID, finger_collider_node: Node3D, _body_shape_index: int, _local_shape_index: int, _fret_collider_node):
-	print("got fret finger release signal!")
-	if lhand_dict.has(finger_collider_node):
-		lhand_dict[finger_collider_node].erase("fret")
-		if lhand_dict[finger_collider_node].is_empty(): #check if it's the last one
-			lhand_dict.erase(finger_collider_node)
+	print("\ngot fret release signal!")
+	if(lhand_dict.has(finger_collider_node.name)):
+		lhand_dict[finger_collider_node.name].erase("fret")
+		if lhand_dict[finger_collider_node.name].is_empty(): #check if it's the last one
+			lhand_dict.erase(finger_collider_node.name)
+	else:
+		print("no node left in dict")
 	return 

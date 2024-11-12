@@ -110,13 +110,53 @@ func _on_right_finger_pick(_body_rid: RID, _finger_collider_node: Node3D, _body_
 	#print(string_collider_node.name)
 	#print(_finger_collider_node.name)
 	for finger in lhand_dict.keys():
-		#if !lhand_dict[finger].has("string"):
-			#continue
+		#check for errors where the finger has only a fret or only a string etc...
 		if !(lhand_dict[finger].has("string") && lhand_dict[finger].has("fret")):
-			print("Issue here, not deleting correctly! probly")
+			if !(lhand_dict[finger].has("string")):
+				push_warning(str("Finger: ", finger, " Doesn't have a stored string but is still in the lhand_dict!"))
+			if !(lhand_dict[finger].has("fret")):
+				push_warning(str("Finger: ", finger, " Doesn't have a stored fret but is still in the lhand_dict!"))
 			continue #the finger doesn't have a string or fret collision, shouldn't be needed tho because it removes uncoliding fingers.
+		
+		#check for modified notes with the left fingers
 		if lhand_dict[finger]["string"] == string_collider_node.name && lhand_dict[finger].has("fret"):
-			#Also check if the fret is a higher number in the case of the same string being pressed down with two fingers! FIXME
+			
+			#Also check if the fret is a higher number in the case of the same string being pressed down with two fingers!
+			var finger_string_dict = {} #check dict
+			var finger_press_collision = false
+			for finger_ in lhand_dict.keys():
+				if !lhand_dict[finger_].has("string"):
+					#check to make sure it has string element, it should but due to collisions buggin out it might not
+					push_warning("Skipping collision check due to no string element in dictionary.")
+					continue #if not, jump to the next finger, effectively ignoring bugged one
+				if finger_string_dict.has(lhand_dict[finger_]["string"]): #means there is two left hand fingers pressing the same string
+					#do check to find which fret is greater on the string, and the greater one, put in the dict
+					finger_press_collision = true
+					var present_finger = finger_string_dict[lhand_dict[finger_]["string"]] #returns the finger in the check dictionary
+					var checking_finger = finger_ #returns the finger we are iterating through
+					print("present_finger" + present_finger)
+					print("checking_finger" + checking_finger)
+					# now check which one is a greater fret value to keep
+					if present_finger < checking_finger:
+						# checking finger fret value is a larger fret so replace present finger
+						finger_string_dict[lhand_dict[finger_]["string"]] = checking_finger
+				else: # populate the check dictionary when no collision is detected
+					#puts the string as the key, and the finger_ as the value
+					finger_string_dict[lhand_dict[finger_]["string"]] = finger_
+			
+			if finger_press_collision:
+				#see which fingers collided, and which ones are still in the check dict,
+				#if the finger value is not still in the check dict, don't play the note
+				var string_key = finger_string_dict.find_key(str(finger))
+				print(string_key)
+				if (string_key != null): #key is found in the check dict for the associated finger value
+					#play note
+					print(finger_string_dict)
+					guitar_sounds.play_note(string_collider_node.name, lhand_dict[finger_string_dict[string_key]]["fret"]) #play the highest note finger in the string
+					return
+				else:
+					#don't play note because it is lower fret than another and was overwritten and continue looping through other fingers
+					continue
 			#the note will be modified before play based on the left hand
 			guitar_sounds.play_note(string_collider_node.name, lhand_dict[finger]["fret"])
 			return
@@ -139,8 +179,6 @@ func _on_left_finger_release(_body_rid: RID, finger_collider_node: Node3D, _body
 		lhand_dict[finger_collider_node.name].erase("string")
 		if lhand_dict[finger_collider_node.name].is_empty(): #check if it's the last one
 			lhand_dict.erase(finger_collider_node.name)
-	else:
-		print("no node left in dict")
 	return 
 	
 func _on_fret_collison(_body_rid: RID, finger_collider_node: Node3D, _body_shape_index: int, _local_shape_index: int, fret_collider_node):
@@ -158,6 +196,4 @@ func _on_fret_release(_body_rid: RID, finger_collider_node: Node3D, _body_shape_
 		lhand_dict[finger_collider_node.name].erase("fret")
 		if lhand_dict[finger_collider_node.name].is_empty(): #check if it's the last one
 			lhand_dict.erase(finger_collider_node.name)
-	else:
-		print("no node left in dict")
 	return 

@@ -77,36 +77,36 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_released("fretpress1"):
 		if fret_presses[0] == false:
 			fret_presses[0] = true
-			gp.get_left_ik_target(gp.Finger.INDEX).set_finger_target(gp.get_left_target(gp.Finger.INDEX, 6, 10, false)) # example for string 6, fret 10
+			gp.get_left_ik_target(gp.Finger.INDEX).set_finger_target(gp.get_left_target(gp.Finger.INDEX, 5, 10, false)) # example for string 6, fret 10
 		else:
 			fret_presses[0] = false
-			gp.get_left_ik_target(gp.Finger.INDEX).set_finger_target(gp.get_left_target(gp.Finger.INDEX, 6, 10, true)) # example for string 6, fret 10
+			gp.get_left_ik_target(gp.Finger.INDEX).set_finger_target(gp.get_left_target(gp.Finger.INDEX, 5, 10, true)) # example for string 6, fret 10
 
 		pass
 	if Input.is_action_just_released("fretpress2"):
 		if fret_presses[1] == false:
 			fret_presses[1] = true
-			gp.get_left_ik_target(gp.Finger.MIDDLE).set_finger_target(gp.get_left_target(gp.Finger.MIDDLE, 5, 10, false)) # example for string 5, fret 10
+			gp.get_left_ik_target(gp.Finger.MIDDLE).set_finger_target(gp.get_left_target(gp.Finger.MIDDLE, 5, 11, false)) # example for string 5, fret 10
 		else:
 			fret_presses[1] = false
-			gp.get_left_ik_target(gp.Finger.MIDDLE).set_finger_target(gp.get_left_target(gp.Finger.MIDDLE, 5, 10, true)) # example for string 5, fret 10
+			gp.get_left_ik_target(gp.Finger.MIDDLE).set_finger_target(gp.get_left_target(gp.Finger.MIDDLE, 5, 11, true)) # example for string 5, fret 10
 
 		pass
 	if Input.is_action_just_released("fretpress3"):
 		if fret_presses[2] == false:
 			fret_presses[2] = true
-			gp.get_left_ik_target(gp.Finger.RING).set_finger_target(gp.get_left_target(gp.Finger.RING, 4, 11, false)) # example for string 4, fret 11
+			gp.get_left_ik_target(gp.Finger.RING).set_finger_target(gp.get_left_target(gp.Finger.RING, 2, 11, false)) # example for string 4, fret 11
 		else:
 			fret_presses[2] = false
-			gp.get_left_ik_target(gp.Finger.RING).set_finger_target(gp.get_left_target(gp.Finger.RING, 4, 11, true)) # example for string 4, fret 11
+			gp.get_left_ik_target(gp.Finger.RING).set_finger_target(gp.get_left_target(gp.Finger.RING, 2, 11, true)) # example for string 4, fret 11
 		pass
 	if Input.is_action_just_released("fretpress4"):
 		if fret_presses[3] == false:
 			fret_presses[3] = true
-			gp.get_left_ik_target(gp.Finger.PINKY).set_finger_target(gp.get_left_target(gp.Finger.PINKY, 3, 11, false)) # example for string 3, fret 11		
+			gp.get_left_ik_target(gp.Finger.PINKY).set_finger_target(gp.get_left_target(gp.Finger.PINKY, 1, 11, false)) # example for string 3, fret 11		
 		else:
 			fret_presses[3] = false
-			gp.get_left_ik_target(gp.Finger.PINKY).set_finger_target(gp.get_left_target(gp.Finger.PINKY, 3, 11, true)) # example for string 3, fret 11		
+			gp.get_left_ik_target(gp.Finger.PINKY).set_finger_target(gp.get_left_target(gp.Finger.PINKY, 1, 11, true)) # example for string 3, fret 11		
 		pass
 	if Input.is_action_just_pressed("strum_up"):
 		for finger in 5:

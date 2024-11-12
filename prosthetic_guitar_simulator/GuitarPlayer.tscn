@@ -20,8 +20,8 @@ radius = 0.005
 height = 0.005
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e4ynj"]
-radius = 0.00435812
-height = 0.0292078
+radius = 0.00243193
+height = 0.034847
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ps2c"]
 albedo_color = Color(0.129412, 0.235294, 1, 1)
@@ -10212,7 +10212,7 @@ transform = Transform3D(0.999998, 0.000437451, 2.11126e-05, -0.000437448, 0.9953
 collision_mask = 3
 
 [node name="Coll_LPinky3" type="CollisionShape3D" parent="Armature/Skeleton3D/LAPinky/LPinky" index="0"]
-transform = Transform3D(1, 1.86265e-09, 9.31323e-10, -2.32831e-09, 1, 1.49012e-07, -2.79397e-09, -5.96046e-08, 1, -0.00148904, -0.00581655, 0.00112037)
+transform = Transform3D(1, 1.86265e-09, 9.31323e-10, -2.32831e-09, 1, 1.49012e-07, -2.79397e-09, -5.96046e-08, 1, -0.00450794, -0.00581655, 0.00112037)
 shape = SubResource("CapsuleShape3D_e4ynj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/LAPinky/LPinky/Coll_LPinky3" index="0"]

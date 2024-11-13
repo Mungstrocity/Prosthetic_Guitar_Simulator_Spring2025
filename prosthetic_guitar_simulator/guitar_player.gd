@@ -102,6 +102,38 @@ func avg_note_position(note_positions: Array):
 		avg_note_position += note_position
 	return avg_note_position
 
+#there will be an analyzer function for chosing fingers for each beat (multi note and single note ones) which is described below
+#analyze the next notes to see how many notes need to be played at the same time
+#make a target grouping for all notes to be played at the same time
+#start with the lowest pitch note (of the notes about to be played at the same time in one beat) 
+#check the finger - note count weight dict to see if from previous notes in the measure it's not one of the 
+#higher weights for a finger in this measure,
+#and if so, see if another finger can play that note by checking num notes played at once, else if another can't, assign the target anyways
+#check it's note count (which represents the weighting of preference to move that finger or not, 
+#the higher the note count in the measure, the lower the preference to move that finger from it's position, 
+#and the more priority is given to moving higher pitch fingers if it's possible to still play all the other notes without moving) 
+#in the measure passed in from the measure analyzer and if it's greater than 1, 
+#assign a chosen finger to the measure analyzer dict to associate it with the weight, usually index finger since it's the lowest note, 
+#and get all possible positions of it down the neck. 
+#Then move to the next finger middle and choose the next lowest note (if there is one available to be played at the same time), 
+#and pick all the positions down the neck for the next note 
+#with the condition that they can only be higher or the same fret as the index frets with a max spacing down the neck of 2 additonal frets. 
+#Then do the same for the next fingers. then once all the fingers have all those possible postions, find the fingering group with 
+#the minimal total distance between it's average note, and the previous played average note (or fret1 if first note)
+#also note (3 fret spacing max) and return that array or dict of the chosen fingering for that multi-note. 
+#return it in a dict of stringnum?: fretnum?
+# or even better just return a dict with the finger number as the key, then the target string number and fret number as another dict inside.
+
+func select_finger_targets():
+	pass
+
+
+#i don't think i have time to implement this right now.
+#But there is also a measure analyzer dict which will count the number of note occurances during the measure, 
+#and it will try to map the same fingers to the same notes over and over based on number of reocurrances 
+#and if it's a higher or lower pitch (for choosing right finger to play it) while spreading out the burden of other frets 
+#to other fingers
+
 #define dicts to keep finger: string (or fret) pairs for right hand checks
 var lhand_dict = {}
 

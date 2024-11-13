@@ -6,67 +6,41 @@ extends Node3D
 #fret 12 is an octave higher than default pitches. every 12 frets is similar
 #https://fretmap.app/scales/c-major-scale/position-5
 
-#maybe i'll select the next notes based on which selection of notes gets a minimal total distance from each other, 
-#then i will get the average note for that selection, and choose the note which has the lowest distance on this average note 
-#to the previously found and played average note
-
-
-#there will be an analyzer function for chosing fingers for each beat (multi note and single note ones) which is described below
-#analyze the next notes to see how many notes need to be played at the same time
-#make a target grouping for all notes to be played at the same time
-#start with the lowest pitch note (of the notes about to be played at the same time in one beat) 
-#check the finger - note count weight dict to see if from previous notes in the measure it's not one of the 
-#higher weights for a finger in this measure,
-#and if so, see if another finger can play that note by checking num notes played at once, else if another can't, assign the target anyways
-#check it's note count (which represents the weighting of preference to move that finger or not, 
-#the higher the note count in the measure, the lower the preference to move that finger from it's position, 
-#and the more priority is given to moving higher pitch fingers if it's possible to still play all the other notes without moving) 
-#in the measure passed in from the measure analyzer and if it's greater than 1, 
-#assign a chosen finger to the measure analyzer dict to associate it with the weight, usually index finger since it's the lowest note, 
-#and get all possible positions of it down the neck. 
-#Then move to the next finger middle and choose the next lowest note (if there is one available to be played at the same time), 
-#and pick all the positions down the neck for the next note 
-#with the condition that they can only be higher or the same fret as the index frets with a max spacing down the neck of 2 additonal frets. 
-#Then do the same for the next fingers. then once all the fingers have all those possible postions, find the fingering group with 
-#the minimal total distance between it's average note, and the previous played average note (or fret1 if first note)
-#also note (3 fret spacing max) and return that array or dict of the chosen fingering for that multi-note. 
-#return it in a dict of stringnum?: fretnum?
-# or even better just return a dict with the finger number as the key, then the target string number and fret number as another dict inside.
-
-#But there is also a measure analyzer dict which will count the number of note occurances during the measure, 
-#and it will try to map the same fingers to the same notes over and over based on number of reocurrances 
-#and if it's a higher or lower pitch (for choosing right finger to play it) while spreading out the burden of other frets 
-#to other fingers
-
-#(maybe pass in a finger type as well since not all fingers can play all strings 
-#(how i have it set up right now anyways) Then based on that finger type, return the possible positions in an dict for that finger)
-
 #function to return the list of possible target nodes based on the passed in note parameters
 #im thinking about doing a path finding algorithm or something to where you start with a note, then get all possible targets,
 #then if you have more notes you are playing at the same time, you would pass in the array of an array of the previous note's targets
 #then based on all the targets, you would find the most optimal targets to use with each other based on lowest minimal distances
 #simulated annealing basically. (I might have to change this slightly and just go with a biased selection becuase that might take too much time)
+
+#maybe i'll select the next notes based on which selection of notes gets a minimal total distance from each other, 
+#then i will get the average note for that selection, and choose the note which has the lowest distance on this average note 
+#to the previously found and played average note
+
+#(maybe pass in a finger type as well since not all fingers can play all strings 
+#(how i have it set up right now anyways) Then based on that finger type, return the possible positions in an dict for that finger)
+
+#get an array of all possible positions in the guitar for that pitch and octave on the guitar
 func get_left_finger_targets(hover: bool, octave: int = 3, pitch: String = "C", alter: int = 0):
 	match octave:
 		2: #  S6: E2-F0 to B2-F7
 			# S5: A2-F0 to B2-F2
 			match pitch:
-				"C":
+				"C": #not a note on guitar
 					match alter:
 						-1: # flat pitch alter
 							
 							pass
-						1: # sharp pitch alter
+						1: # sharp pitch alter C#2
 							
 							pass
-						_: #handles no alter, or other unimplemented alters like natural alter or double alters (aka: just play regular pitch)
+						_: # C2 handles no alter, or other unimplemented alters like natural alter or double alters (aka: just play regular pitch)
 							
 							pass
 					pass
-				"D":
+				"D": #not a note on guitar
 					
 					pass
-				"E":
+				"E": #E2 first note on guitar
 					
 					pass
 				"F":

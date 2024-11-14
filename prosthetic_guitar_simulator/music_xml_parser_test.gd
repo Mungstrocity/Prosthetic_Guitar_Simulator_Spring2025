@@ -3,8 +3,8 @@ extends Node
 
 func test_XML_parse(songData: Dictionary):
 	print("\n\n**********TEST***********\n")
-	#print("Song Data Elements: ")
-	#print(songData.keys())
+	print("Song Data Elements: ")
+	print(songData.keys())
 
 	#if songData["m1,n0,beat-unit"].has("data"):
 		#print(songData["m1,n0,beat-unit"]["data"])

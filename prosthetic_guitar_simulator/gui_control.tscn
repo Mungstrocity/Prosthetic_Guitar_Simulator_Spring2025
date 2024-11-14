@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://ci2d7gqy3mylm"]
+[gd_scene load_steps=3 format=3 uid="uid://ci2d7gqy3mylm"]
 
 [ext_resource type="Script" path="res://gui_control.gd" id="1_5spaj"]
-[ext_resource type="Script" path="res://xmlParser.gd" id="1_ok27w"]
-[ext_resource type="Script" path="res://music_xml_parser_test.gd" id="3_vxy5p"]
 
 [sub_resource type="Theme" id="Theme_mab6c"]
 default_font_size = 50
@@ -59,11 +57,5 @@ offset_bottom = 218.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Click to Start!"
-
-[node name="MusicXMLParser" type="ResourcePreloader" parent="."]
-script = ExtResource("1_ok27w")
-
-[node name="MusicXMLParserTest" type="Node" parent="MusicXMLParser"]
-script = ExtResource("3_vxy5p")
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

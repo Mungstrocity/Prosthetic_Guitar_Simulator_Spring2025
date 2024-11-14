@@ -16,8 +16,6 @@ extends Node3D
 #the only notes that need to be looked ahead at are probably checking for chords, eighths or quicker until you get to really fast tempos)
 
 #audio could use the output midi file instead of generated music worst case. but it would be piano music...
-#
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -125,6 +123,8 @@ func avg_note_position(note_positions: Array):
 # or even better just return a dict with the finger number as the key, then the target string number and fret number as another dict inside.
 
 func select_finger_targets():
+	#Lowest_note_left_finger_targets_dict = guitar.get_left_finger_targets(hover: bool, octave: int = 3, pitch: String = "C", alter: int = 0)
+	
 	pass
 
 

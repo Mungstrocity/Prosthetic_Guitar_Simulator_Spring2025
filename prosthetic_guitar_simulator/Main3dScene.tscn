@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf5t0yyx36v6y"]
+[gd_scene load_steps=11 format=3 uid="uid://bf5t0yyx36v6y"]
 
 [ext_resource type="Script" path="res://main_3d_scene.gd" id="1_djhjo"]
 [ext_resource type="PackedScene" uid="uid://7r5362hu3fwq" path="res://GuitarPlayer.tscn" id="1_yy2rj"]
 [ext_resource type="Script" path="res://addons/freeLookCam/free_look_camera.gd" id="2_hbmck"]
+[ext_resource type="Script" path="res://xmlParser.gd" id="4_og4og"]
+[ext_resource type="Script" path="res://music_xml_parser_test.gd" id="5_8lype"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sth5g"]
 size = Vector3(128, 1, 128)
@@ -145,3 +147,9 @@ omni_attenuation = 0.1
 
 [node name="GuitarPlayer" parent="." instance=ExtResource("1_yy2rj")]
 collision_layer = 3
+
+[node name="MusicXMLParser" type="ResourcePreloader" parent="."]
+script = ExtResource("4_og4og")
+
+[node name="MusicXMLParserTest" type="Node" parent="MusicXMLParser"]
+script = ExtResource("5_8lype")

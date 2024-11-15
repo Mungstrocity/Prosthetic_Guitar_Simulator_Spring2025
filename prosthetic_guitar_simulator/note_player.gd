@@ -6,11 +6,26 @@ extends Node
 #interactive stream player:
 #https://docs.godotengine.org/en/stable/classes/class_audiostreaminteractive.html
 
+
+
 @onready var string_players = $"./Strings".get_children()
 
 func _ready() -> void:
 	for string in string_players:
 		string.play()
+
+#dynamics attribute in music xml is in decimal percentage values from 0.0 to 100.0
+#roughly x<40% is piano, 40%<x<50% is mp, 50%<x<60% is mf, and 60%<x is forte
+#if anything, i'll probably do soft, medium, and loud.
+#change the bus master audio volume to 0dB soft, 5dB medium, and 10dB loud.
+func change_volume(dynamic: float, string: int):
+	if dynamic < 40.0: #quiet (piano)
+		string_players[string-1].volume_db = 0
+	if dynamic >= 40.0 && dynamic <= 60.0: #medium (mezzo)
+		string_players[string-1].volume_db = 5
+	if dynamic > 60.0: #loud (forte)
+		string_players[string-1].volume_db = 10
+	pass
 
 func play_note(string_name: String, fret_name: String):
 	# E2, A2, D3, G3, B3, E4

@@ -27,38 +27,47 @@ func test_XML_parse(songData: Dictionary):
 	#print(songData["-m16,+n0,num_notes"])
 	
 	#measure booleans
-	var attributes = false #if attributes are detected
-	var direction = false #if direction elements are detected
+	var attributes = false #if attributes are detected in the measure
+	var direction = false #if direction elements are detected in the measure
+	var current_measure_number = 0 #measure number currently on starting at 1
+	var current_dynamics = 75.0 #default to forte (loud)
+	var current_divisions_per_unit = 10080 #use a default value
+	
+	#the array that holds measures and those measures hold an array of note beats (which can contain multiple notes at once in an embedded array of the individual notes sorted by 
+	#lowest to highest note) and each note array contains a dictionary which has it's pitch, octave, alter, dynamics, and duration in seconds because of function (sustain length)
+	#NOTE measures in the array are numbered starting at 0, but everywhere else they start at 1
+	var song_info = [] #ex: song_info[measure_num][ordered_note_beat_num][low_high_ordered_notes][note_info_dict]
+	var ordered_note_beat_array = []
+	var low_high_ordered_notes = []
+	var note_info_dict = {}
+	
+	#var multi_notes_in_measure = false
 	for element in songData.keys():
 		
 		#all elements that are measure and note specific should be extracted here in order.
-		if element.contains("measure"): #start of a new measure
+		if element.contains("measure"): #start of a new measure so add it to the array
+			current_measure_number += 1
+			song_info.append(ordered_note_beat_array) #to access this measure array do song_info[measure_number - 1]
 			pass
-		if element.contains("note"): #NOTE it will also access num_notes!
+		if element.contains("note") && !element.contains("num_notes"): #NOTE it will also access num_notes!
 			attributes = false #don't enter attributes checker again for this measure
 			direction = false #same as above
 			if !songData[element].is_empty() && songData[element].has("dynamics"): #check for dynamics in the note attributes
 				#print(songData[element]["dynamics"])
 				pass
-			if !element.contains("num_notes"):
-				#print(element)
+			#print(element)
 				pass
 		if attributes || element.contains("attributes"):
 			attributes = true #check these until getting to the notes portion
 			if element.contains("divisions"): #divisions per note_type
-				#TODO
-				pass
-			#attributes -> key elements
-			if element.contains("fifths"): #don't need rn
-				pass
-			if element.contains("mode"): # "major" or "minor" scale not really needed i don't think
+				current_divisions_per_unit = songData[element] #set division resolution if it changes
 				pass
 			#attributes -> time signature elements ex: 3:4 time 3 is beats, 4 is beat-type
-			if element.contains("beats"): 
-				#TODO
+			if element.contains("beats"): #num of beats per measure
+				#TODO #need to know this one for num of beat counts (if playing multiple notes at once)
 				pass
-			if element.contains("beat-type"):
-				#TODO
+			if element.contains("beat-type"): #if 4, quarter note is base beat (if 60bpm, 60 quarter notes per min), if 8, half note is base beat (if 60bpm 60 half notes per min), if 2, half note is base beat etc.
+				#TODO #don't think i need to know this becuase beat is transformed into seconds duration.
 				pass
 			#attributes -> clef elements
 			if element.contains("sign"): # the clef that the measure is in ex: "F" aka bass clef or "G" aka treble cleff

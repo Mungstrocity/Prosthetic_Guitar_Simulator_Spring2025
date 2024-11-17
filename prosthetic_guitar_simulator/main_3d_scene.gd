@@ -246,6 +246,12 @@ func process_song_data(songData: Dictionary):
 #now with the processed song data, play the song by controlling the guitar player
 func play_song(song_array: Array):
 	print(song_array)
+	var num_measures = song_array.size()
+	for measure in num_measures:
+		var num_beats = song_array[measure].size()
+		for beat in num_beats:
+			var num_notes = song_array[measure][beat].size()
+			
 	pass
 	
 #inside attributes, divisions tells you how many divisions there are in a basic beat unit (ex: quarter note divisions for 4:4 time)

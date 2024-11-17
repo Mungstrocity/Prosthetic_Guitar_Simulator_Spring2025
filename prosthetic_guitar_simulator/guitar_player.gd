@@ -20,17 +20,17 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set left hand IK targets to corresponding guitar targets
-	get_left_ik_target(Finger.INDEX).set_finger_target(get_left_target(Finger.INDEX, 6, 10, true)) # example for string 6, fret 10
-	get_left_ik_target(Finger.MIDDLE).set_finger_target(get_left_target(Finger.MIDDLE, 5, 10, true)) # example for string 5, fret 10
-	get_left_ik_target(Finger.RING).set_finger_target(get_left_target(Finger.RING, 4, 11, true)) # example for string 4, fret 11
-	get_left_ik_target(Finger.PINKY).set_finger_target(get_left_target(Finger.PINKY, 3, 11, true)) # example for string 3, fret 11
+	get_left_ik_target(Finger.INDEX).set_finger_target(get_left_target( 6, 10, true)) # example for string 6, fret 10
+	get_left_ik_target(Finger.MIDDLE).set_finger_target(get_left_target(5, 10, true)) # example for string 5, fret 10
+	get_left_ik_target(Finger.RING).set_finger_target(get_left_target(4, 11, true)) # example for string 4, fret 11
+	get_left_ik_target(Finger.PINKY).set_finger_target(get_left_target(3, 11, true)) # example for string 3, fret 11
 
 	# Set right hand IK targets to corresponding guitar targets (string only)
-	get_right_ik_target(Finger.INDEX).set_finger_target(get_right_target(Finger.INDEX, 5, true)) # example for string 5
-	get_right_ik_target(Finger.MIDDLE).set_finger_target(get_right_target(Finger.MIDDLE, 4, true)) # example for string 4
-	get_right_ik_target(Finger.RING).set_finger_target(get_right_target(Finger.RING, 3, true)) # example for string 3
-	get_right_ik_target(Finger.PINKY).set_finger_target(get_right_target(Finger.PINKY, 2, true)) # example for string 2
-	get_right_ik_target(Finger.THUMB).set_finger_target(get_right_target(Finger.THUMB, 6, true)) # example for string 6
+	get_right_ik_target(Finger.INDEX).set_finger_target(get_right_target(5, true)) # example for string 5
+	get_right_ik_target(Finger.MIDDLE).set_finger_target(get_right_target(4, true)) # example for string 4
+	get_right_ik_target(Finger.RING).set_finger_target(get_right_target(3, true)) # example for string 3
+	get_right_ik_target(Finger.PINKY).set_finger_target(get_right_target(2, true)) # example for string 2
+	get_right_ik_target(Finger.THUMB).set_finger_target(get_right_target(6, true)) # example for string 6
 	
 	# Connect signals for each string and fret collider to their respective handlers
 	for i in righthand_string_colliders.size():
@@ -43,9 +43,6 @@ func _ready() -> void:
 	for i in fret_colliders.size():
 		fret_colliders[i].connect("body_shape_entered", _on_fret_collison.bind(fret_colliders[i]))
 		fret_colliders[i].connect("body_shape_exited", _on_fret_release.bind(fret_colliders[i]))
-
-func _process(delta: float) -> void:
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #so i think i am going to get the notes here, and send the notes to the fingers here as i step through the song.
@@ -79,11 +76,11 @@ func get_right_ik_target(finger) -> Node:
 	return right_finger_iktarget.get_child(int(finger))
 
 #functions to get the guitar finger targets
-func get_left_target(finger: Finger, string_num: int, fret_num: int, hover: bool = false) -> Node:
+func get_left_target(string_num: int, fret_num: int, hover: bool = false) -> Node:
 	var target_root =  left_finger_hover_gtarget if hover else left_finger_target_gtarget
 	return target_root.get_child(string_num - 1).get_child(fret_num - 1)
 
-func get_right_target(finger: Finger, string_num: int, hover: bool = false) -> Node:
+func get_right_target(string_num: int, hover: bool = false) -> Node:
 	var target_root =  right_finger_hover_gtarget if hover else right_finger_target_gtarget
 	return target_root.get_child(string_num - 1)
 
@@ -93,12 +90,19 @@ func get_right_target(finger: Finger, string_num: int, hover: bool = false) -> N
 @onready var righthand_string_colliders = guitar.get_child(1).get_child(0).get_children()
 @onready var fret_colliders = guitar.get_child(2).get_children()
 
-#function to get the average position of the notes that the player must play at the same time. useful for positioning the hand closest to notes
-func get_avg_note_position(note_positions: Array):
-	var avg_note_position = Vector3()
-	for note_position in note_positions:
-		avg_note_position += note_position
+#function to get the average position of the note 3D node targets that the player must play at the same time. useful for positioning the hand closest to notes
+func get_avg_note_position(note_positions: Array) -> Vector3:
+	var num_notes = note_positions.size()
+	if num_notes == 0:
+		return Vector3.ZERO  # Return a default position if no notes are provided
+
+	var avg_note_position = Vector3.ZERO
+	for note in note_positions:
+		avg_note_position += note.global_transform.origin  # Assuming `note` is a 3D node
+
+	avg_note_position /= float(num_notes)
 	return avg_note_position
+
 
 #there will be an analyzer function for chosing fingers for each beat (multi note and single note ones) which is described below
 #analyze the next notes to see how many notes need to be played at the same time

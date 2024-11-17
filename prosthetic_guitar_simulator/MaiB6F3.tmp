@@ -1,0 +1,155 @@
+[gd_scene load_steps=11 format=3 uid="uid://bf5t0yyx36v6y"]
+
+[ext_resource type="Script" path="res://main_3d_scene.gd" id="1_djhjo"]
+[ext_resource type="PackedScene" uid="uid://7r5362hu3fwq" path="res://GuitarPlayer.tscn" id="1_yy2rj"]
+[ext_resource type="Script" path="res://addons/freeLookCam/free_look_camera.gd" id="2_hbmck"]
+[ext_resource type="Script" path="res://xmlParser.gd" id="4_og4og"]
+[ext_resource type="Script" path="res://music_xml_parser_test.gd" id="5_8lype"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sth5g"]
+size = Vector3(128, 1, 128)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uxevq"]
+albedo_color = Color(0.52549, 0.988235, 0.619608, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ycdc"]
+material = SubResource("StandardMaterial3D_uxevq")
+size = Vector3(128, 1, 128)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqhyn"]
+albedo_color = Color(0.509804, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_w1wly"]
+material = SubResource("StandardMaterial3D_dqhyn")
+size = Vector3(150, 1, 150)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_djhjo")
+
+[node name="Cameras" type="Node3D" parent="."]
+
+[node name="MainCamera" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -4.964, 140.611, 243)
+
+[node name="GuitarNeckCamera" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, 5.96047e-08, 0, 1, 0, -5.96047e-08, 0, 1, -0.9636, 178.611, 54)
+
+[node name="GuitarNeckCamera2" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, -4.87044e-21, 5.96047e-08, -5.96047e-08, -4.37114e-08, 1, 2.6054e-15, -1, -4.37114e-08, 40.0364, 257.611, 0)
+
+[node name="GuitarNeckCamera3" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 2.22045e-14, 5.96047e-08, -5.75737e-08, 0.258819, 0.965926, -1.54268e-08, -0.965926, 0.258819, 40.0364, 242.611, 24)
+
+[node name="GuitarNeckCamera4" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 2.22045e-14, 5.96047e-08, -5.75737e-08, 0.258819, 0.965926, -1.54268e-08, -0.965926, 0.258819, 3.0364, 213.611, 24)
+
+[node name="GuitarNeckCamera5" type="Camera3D" parent="Cameras"]
+transform = Transform3D(-6.51421e-08, -0.5, 0.866025, -1.28189e-08, 0.866025, 0.5, -1, 2.14696e-08, -6.28241e-08, 73.0364, 224.611, 3)
+
+[node name="GuitarNeckCamera6" type="Camera3D" parent="Cameras"]
+transform = Transform3D(5.18687e-08, -0.707107, -0.707107, 1.44049e-07, 0.707107, -0.707107, 1, -6.5181e-08, 1.38534e-07, -28.9636, 156.611, 11)
+
+[node name="GuitarNeckCamera7" type="Camera3D" parent="Cameras"]
+transform = Transform3D(5.18687e-08, -0.707107, -0.707107, 1.44049e-07, 0.707107, -0.707107, 1, -6.5181e-08, 1.38534e-07, -3.41343, 172.446, 8.87505)
+
+[node name="GuitarNeckCamera8" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1.42368e-07, 0.72873, -0.684801, -5.63181e-08, 0.684801, 0.72873, 1, -6.5181e-08, 1.38534e-07, -19.6959, 178.695, 8.04411)
+
+[node name="FreeLookCam" type="Camera3D" parent="Cameras"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -4.964, 211.611, 52.6706)
+script = ExtResource("2_hbmck")
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Ground" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 238)
+collision_layer = 8
+collision_mask = 8
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.124023)
+shape = SubResource("BoxShape3D_sth5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Ground"]
+mesh = SubResource("BoxMesh_4ycdc")
+
+[node name="Background" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(3.82137e-14, -8.74228e-07, -20, -19.3185, 5.17638, -2.26267e-07, 5.17638, 19.3185, -8.44439e-07, 25, 1207, -618)
+collision_layer = 0
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.124023)
+shape = SubResource("BoxShape3D_sth5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Background"]
+mesh = SubResource("BoxMesh_w1wly")
+
+[node name="Background2" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(-5.17638, -19.3185, 1.68888e-06, -19.3185, 5.17638, -4.52534e-07, 7.64274e-14, -1.74846e-06, -20, 962, 1245, 553)
+collision_layer = 0
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Background2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.124023)
+shape = SubResource("BoxShape3D_sth5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Background2"]
+mesh = SubResource("BoxMesh_w1wly")
+
+[node name="Background3" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(5.17638, 19.3185, 2.97883e-08, -19.3185, 5.17638, -2.26267e-07, -2.26267e-07, 2.97889e-08, 20, -1005, 1342, 564)
+collision_layer = 0
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Background3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.124023)
+shape = SubResource("BoxShape3D_sth5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Background3"]
+mesh = SubResource("BoxMesh_w1wly")
+
+[node name="Background4" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(-4.17113e-14, -8.74228e-07, -20, 5.17638, -19.3185, 8.44439e-07, -19.3185, -5.17638, 2.26267e-07, 25, 1116, 527)
+collision_layer = 0
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Background4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.124023)
+shape = SubResource("BoxShape3D_sth5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Background4"]
+mesh = SubResource("BoxMesh_w1wly")
+
+[node name="Background5" type="StaticBody3D" parent="Walls"]
+transform = Transform3D(-4.52534e-07, -8.1465e-07, 20, -19.3185, 5.17638, -2.26267e-07, -5.17638, -19.3185, -9.04016e-07, 25, 965, 1098)
+collision_layer = 0
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Background5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.124023)
+shape = SubResource("BoxShape3D_sth5g")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Background5"]
+mesh = SubResource("BoxMesh_w1wly")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 417, 155)
+light_energy = 2.0
+omni_range = 4096.0
+omni_attenuation = 0.1
+
+[node name="GuitarPlayer" parent="." instance=ExtResource("1_yy2rj")]
+collision_layer = 3
+
+[node name="MusicXMLParser" type="ResourcePreloader" parent="."]
+script = ExtResource("4_og4og")
+
+[node name="MusicXMLParserTest" type="Node" parent="MusicXMLParser"]
+script = ExtResource("5_8lype")

@@ -94,7 +94,7 @@ func get_right_target(finger: Finger, string_num: int, hover: bool = false) -> N
 @onready var fret_colliders = guitar.get_child(2).get_children()
 
 #function to get the average position of the notes that the player must play at the same time. useful for positioning the hand closest to notes
-func avg_note_position(note_positions: Array):
+func get_avg_note_position(note_positions: Array):
 	var avg_note_position = Vector3()
 	for note_position in note_positions:
 		avg_note_position += note_position

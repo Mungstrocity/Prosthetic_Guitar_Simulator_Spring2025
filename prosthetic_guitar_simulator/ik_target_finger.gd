@@ -22,7 +22,7 @@ func set_finger_target(target: Node3D):
 	finger_target = target
 
 func move_finger():
-	var scaling_factor = 0.1 #scalar to how much you want the half way point to move upward in between movements.
+	#var scaling_factor = 0.1 #scalar to how much you want the half way point to move upward in between movements.
 	
 	var target_pos = finger_target.global_position
 	#var half_way = (global_position + finger_target.global_position) / 2

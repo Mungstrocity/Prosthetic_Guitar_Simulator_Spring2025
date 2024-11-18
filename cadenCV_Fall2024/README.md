@@ -1,5 +1,7 @@
 # cadenCV
 
+Run image_to_text.py to execute. Use command "python image_to_text.py image.jpeg"
+
 cadenCV is an optical music recognition system written in the Python programming language which reads sheet music and sequences a MIDI file for user playback.
 
 ![alt text](https://github.com/anyati/cadenCV/blob/master/resources/README/image1.jpg)

@@ -21,7 +21,7 @@ func _ready() -> void:
 	processed_song = process_song_data(songDict)
 	songDict.clear()
 	
-	play_song(processed_song)
+	#play_song(processed_song)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -255,8 +255,8 @@ func play_song(song_array: Array):
 		for beat in num_beats:
 			var note_array = song_array[measure][beat]
 			#returns an array of the chosen finger position dictionaries containing target info for each finger index to pinky in that order
-			var finger_targets = guitar_player.select_finger_targets(note_array)
-			var avg_fret = guitar_player.get_avg_fret_from_notes(finger_targets)
+			var selected_note_targets = guitar_player.select_finger_targets(note_array)
+			var avg_fret = guitar_player.get_avg_fret_from_notes(selected_note_targets)
 			if avg_fret == 0: #means don't worry about moving the hand from last time
 				pass
 			elif anim.animations.has(avg_fret):
@@ -266,10 +266,47 @@ func play_song(song_array: Array):
 				anim.play(anim.animations[avg_fret])
 			#get number of notes in chosen array and iterate through setting the fingers to hover over them if they are targets, 
 			#if the finger doesn't have a target, use a defualt target for the avg fret
-			guitar_player.get_left_ik_target(guitar_player.Finger.INDEX).set_finger_target(finger_targets["left-hover"]) 
+			#remember enum Finger { THUMB, INDEX, MIDDLE, RING, PINKY }
+			var num_notes_in_beat = selected_note_targets.size()
+			var left_targets = get_left_finger_notes(selected_note_targets)
+			var num_left_notes = left_targets.size()
+			for finger in 4: #Set left fingers first to hover only 4 fingers are set thumb is left out
+				if num_left_notes > finger: #set left finger targets for needed notes
+					guitar_player.get_left_ik_target(finger + 1).set_finger_target(left_targets[finger]["left-hover"]) #start with index finger
+				else: #else set a default note hover for uneeded notes so fingers don't break and look weird
+					guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, avg_fret, true)) #set unused left fingers to avg_fret and default string for that finger
+			if num_notes_in_beat < 6: #only have to set up hover targets if its not a full strum but picking
+				var used_strings = []
+				var unused_strings = []
+				for string in selected_note_targets.size():
+					used_strings.append(selected_note_targets[string]["string"])
+				for string in 6:
+					if !used_strings.has(string + 1):
+						unused_strings.append(string + 1)
+				for finger in 5: #Set right fingers first to hover all 5 fingers are set
+					if num_notes_in_beat > finger: #set right finger targets for needed notes
+						var selected_finger
+						if unused_strings.has(selected_note_targets["string"]): #FIXME This is a wrong check!!!
+							pass
+						guitar_player.get_left_ik_target(selected_finger).set_finger_target(selected_note_targets[finger]["left-hover"])
+					else: #else set a default note hover for uneeded notes so fingers don't break and look weird
+						guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, avg_fret, true)) #set unused left fingers to avg_fret and default string for that finger
+			#await get_tree().create_timer(0.1).timeout #let fingers and arm get to positions
+			
+			if num_notes_in_beat == 6:
+				#play a strum
+				guitar_player.get_right_ik_target(4).set_finger_target(guitar_player.get_right_target(1, false))
+				await get_tree().create_timer(0.1).timeout
+				guitar_player.get_right_ik_target(4).set_finger_target(guitar_player.get_right_target(1, true))
+				for finger in 5:
+					guitar_player.get_right_ik_target(4-finger).set_finger_target(guitar_player.get_right_target(2+(finger), false))
+					await get_tree().create_timer(0.1).timeout
+					guitar_player.get_right_ik_target(4-finger).set_finger_target(guitar_player.get_right_target(2+(finger), true))
+				pass
+			guitar_player.get_left_ik_target(guitar_player.Finger.INDEX).set_finger_target(selected_note_targets["left-hover"]) 
 
 			# Set right hand IK targets to corresponding guitar targets (string only)
-			guitar_player.get_right_ik_target(guitar_player.Finger.INDEX).set_finger_target(finger_targets["right-hover"]) 
+			guitar_player.get_right_ik_target(guitar_player.Finger.INDEX).set_finger_target(selected_note_targets["right-hover"]) 
 			
 			#then after proper delay, play the note by changing it to non-hover mode
 			#play
@@ -278,6 +315,16 @@ func play_song(song_array: Array):
 			#re-hover
 	pass
 	
+func get_left_finger_notes(chosen_targets):
+	var left_targets = []
+	for target in chosen_targets:
+		if chosen_targets[target]["fret"] == 0:
+			continue
+		else:
+			left_targets.append(chosen_targets[target])
+	return left_targets
+	
+
 #inside attributes, divisions tells you how many divisions there are in a basic beat unit (ex: quarter note divisions for 4:4 time)
 #then, duration data tells you how many divisions there are in the note (so how long to play it)
 #to get the length of a single division, take per-minute (bmp) in direction tag and do

@@ -107,7 +107,7 @@ func get_avg_fret_from_notes(chosen_notes_array):
 	var avg_fret = 0
 	var num_notes = chosen_notes_array.size()
 	for note in chosen_notes_array.size():
-		if chosen_notes_array[note]["fret"] == 0:
+		if chosen_notes_array[note]["fret"] == 0: #no left press required; open string
 			num_notes -= 1
 			continue #skip this and don't put it into the calculation
 		avg_fret += chosen_notes_array[note]["fret"]

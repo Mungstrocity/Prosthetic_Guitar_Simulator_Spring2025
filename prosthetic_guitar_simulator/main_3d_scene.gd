@@ -5,6 +5,9 @@ var processed_song
 
 #use for changing dynamics only (tempororary until implementing dynamics based on velocity of fingers)
 @onready var guitar_sounds_node = $"./GuitarPlayer/Guitar/GuitarSounds"
+@onready var guitar_player = $"./GuitarPlayer"
+@onready var guitar = $"./GuitarPlayer/Guitar"
+@onready var anim = $"./GuitarPlayer/AnimationPlayer"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -250,8 +253,29 @@ func play_song(song_array: Array):
 	for measure in num_measures:
 		var num_beats = song_array[measure].size()
 		for beat in num_beats:
-			var num_notes = song_array[measure][beat].size()
+			var note_array = song_array[measure][beat]
+			#returns an array of the chosen finger position dictionaries containing target info for each finger index to pinky in that order
+			var finger_targets = guitar_player.select_finger_targets(note_array)
+			var avg_fret = guitar_player.get_avg_fret_from_notes(finger_targets)
+			if avg_fret == 0: #means don't worry about moving the hand from last time
+				pass
+			elif anim.animations.has(avg_fret):
+				anim.play(anim.animations[avg_fret]) #select the ideal position for the beat for the left arm
+			else:
+				avg_fret -= 1 #get the next closest fret if there isn't a programmed arm location
+				anim.play(anim.animations[avg_fret])
+			#get number of notes in chosen array and iterate through setting the fingers to hover over them if they are targets, 
+			#if the finger doesn't have a target, use a defualt target for the avg fret
+			guitar_player.get_left_ik_target(guitar_player.Finger.INDEX).set_finger_target(finger_targets["left-hover"]) 
+
+			# Set right hand IK targets to corresponding guitar targets (string only)
+			guitar_player.get_right_ik_target(guitar_player.Finger.INDEX).set_finger_target(finger_targets["right-hover"]) 
 			
+			#then after proper delay, play the note by changing it to non-hover mode
+			#play
+			
+			#then set all back to hover mode
+			#re-hover
 	pass
 	
 #inside attributes, divisions tells you how many divisions there are in a basic beat unit (ex: quarter note divisions for 4:4 time)

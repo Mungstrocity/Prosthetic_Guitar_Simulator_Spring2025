@@ -1,9 +1,10 @@
-[gd_scene load_steps=48 format=3 uid="uid://7r5362hu3fwq"]
+[gd_scene load_steps=49 format=3 uid="uid://7r5362hu3fwq"]
 
 [ext_resource type="PackedScene" uid="uid://43m8er617sog" path="res://Assets/Models/playerModelRiggedforBlender.glb" id="1_21urw"]
 [ext_resource type="Script" path="res://guitar_player.gd" id="2_n1x2b"]
 [ext_resource type="PackedScene" uid="uid://3m6qonxfwunt" path="res://Guitar.tscn" id="3_3isvk"]
 [ext_resource type="Script" path="res://ik_target_finger.gd" id="3_muvgc"]
+[ext_resource type="Script" path="res://animation_player.gd" id="5_4w31n"]
 [ext_resource type="Script" path="res://ik.gd" id="6_eqk8p"]
 [ext_resource type="Script" path="res://animation_tester.gd" id="7_figpa"]
 
@@ -9907,7 +9908,7 @@ bones/84/rotation = Quaternion(-0.0885246, -1.70167e-09, -0.023519, 0.995796)
 surface_material_override/0 = SubResource("StandardMaterial3D_awhtr")
 
 [node name="LCollar_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="1"]
-transform = Transform3D(-0.150366, 0.963925, 0.219634, -0.988576, -0.148929, -0.023182, 0.0103643, -0.220611, 0.975307, 0.0606577, 1.62592, 0.0764196)
+transform = Transform3D(-0.150366, 0.963925, 0.219635, -0.988576, -0.148929, -0.023182, 0.0103643, -0.220611, 0.975307, 0.0606577, 1.62592, 0.0764196)
 bone_name = "collar.L"
 bone_idx = 7
 use_external_skeleton = true
@@ -9918,7 +9919,7 @@ transform = Transform3D(0.190132, -108.167, 72.109, 129.998, -0.21521, -0.665577
 top_level = true
 
 [node name="LUpperArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach" index="1"]
-transform = Transform3D(0.980534, -0.191929, 0.0414246, 0.196341, 0.960301, -0.198166, -0.00174627, 0.202441, 0.979293, 0.0134841, 0.120483, -0.0554531)
+transform = Transform3D(0.980534, -0.191929, 0.0414246, 0.196341, 0.960301, -0.198166, -0.00174626, 0.202441, 0.979293, 0.0134842, 0.120483, -0.0554531)
 bone_name = "upper_arm.L"
 bone_idx = 8
 use_external_skeleton = true
@@ -9930,7 +9931,7 @@ top_level = true
 script = SubResource("GDScript_hoka7")
 
 [node name="LLowerArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach" index="1"]
-transform = Transform3D(0.997959, 0.0637117, -0.00335299, -0.0637717, 0.994595, -0.081942, -0.00188578, 0.0819888, 0.996631, 8.34465e-07, 0.306112, 1.14739e-06)
+transform = Transform3D(0.997959, 0.0637117, -0.003353, -0.0637717, 0.994595, -0.0819419, -0.00188579, 0.0819888, 0.996632, 5.96046e-07, 0.306112, 1.13249e-06)
 bone_name = "lower_arm.L"
 bone_idx = 9
 use_external_skeleton = true
@@ -9942,7 +9943,7 @@ top_level = true
 script = SubResource("GDScript_3gyo8")
 
 [node name="LHand_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/LCollar_Attach/LUpperArm_Attach/LLowerArm_Attach" index="1"]
-transform = Transform3D(0.995145, 0.098296, -0.00391531, -0.0983064, 0.995153, -0.00270899, 0.00363002, 0.00308074, 0.999987, 1.3113e-06, 0.270566, 1.57952e-06)
+transform = Transform3D(0.995144, 0.098296, -0.0039153, -0.0983064, 0.995153, -0.00270899, 0.00363003, 0.00308075, 0.999987, 1.43051e-06, 0.270566, 1.54972e-06)
 bone_name = "hand.L"
 bone_idx = 10
 use_external_skeleton = true
@@ -10069,7 +10070,7 @@ external_skeleton = NodePath("..")
 transform = Transform3D(0.988152, 0.119456, -0.0963952, -0.152185, 0.680398, -0.716867, -0.0200475, 0.723042, 0.690513, 0.0434508, 0.444009, 0.0211082)
 
 [node name="RUpperArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach" index="1"]
-transform = Transform3D(0.980534, 0.191929, -0.0414253, -0.196341, 0.960302, -0.198166, 0.00174706, 0.202442, 0.979293, -0.0142187, 0.115774, -0.0565262)
+transform = Transform3D(0.980534, 0.191929, -0.0414254, -0.196341, 0.960302, -0.198166, 0.00174706, 0.202442, 0.979293, -0.0142186, 0.115774, -0.0565262)
 bone_name = "upper_arm.R"
 bone_idx = 41
 use_external_skeleton = true
@@ -10079,7 +10080,7 @@ external_skeleton = NodePath("../..")
 transform = Transform3D(0.998761, -0.0151958, 0.047438, 0.0394535, 0.822688, -0.567121, -0.0304091, 0.568289, 0.822266, -0.012549, 0.599576, 0.0246727)
 
 [node name="RLowerArm_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach" index="1"]
-transform = Transform3D(0.997962, -0.0637117, 0.00335373, 0.063772, 0.994595, -0.0819418, 0.00188504, 0.0819888, 0.996631, 5.96046e-07, 0.306112, -1.63913e-07)
+transform = Transform3D(0.997962, -0.0637117, 0.00335373, 0.063772, 0.994595, -0.0819418, 0.00188505, 0.0819889, 0.99663, 4.76837e-07, 0.306112, -1.19209e-07)
 bone_name = "lower_arm.R"
 bone_idx = 42
 use_external_skeleton = true
@@ -10089,7 +10090,7 @@ external_skeleton = NodePath("../../..")
 transform = Transform3D(0.998759, -0.0151958, 0.047438, 0.0394534, 0.822688, -0.567121, -0.030409, 0.568289, 0.822266, 0.00218356, 0.372359, -0.00583276)
 
 [node name="RHand_Attach" type="BoneAttachment3D" parent="Armature/Skeleton3D/RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach" index="1"]
-transform = Transform3D(0.99515, -0.0982959, 0.0039153, 0.0983069, 0.995151, -0.00270899, -0.00363003, 0.00308074, 0.999988, -1.19209e-07, 0.270564, -1.19209e-07)
+transform = Transform3D(0.99515, -0.0982959, 0.00391531, 0.0983069, 0.995151, -0.00270898, -0.00363005, 0.00308075, 0.999988, 0, 0.270564, -1.19209e-07)
 bone_name = "hand.R"
 bone_idx = 43
 use_external_skeleton = true
@@ -10202,7 +10203,7 @@ target_node = NodePath("../RCollar_Attach/RUpperArm_Attach/RLowerArm_Attach/RHan
 script = ExtResource("6_eqk8p")
 
 [node name="LAIndex" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="19"]
-transform = Transform3D(0.000890418, 0.980564, -0.196113, -0.999991, -1.27013e-06, -0.00453935, -0.00445104, 0.196111, 0.980569, 0.860996, 1.59905, 0.0535815)
+transform = Transform3D(0.000890417, 0.980564, -0.196113, -0.999991, -1.28181e-06, -0.00453938, -0.00445105, 0.196111, 0.980569, 0.860996, 1.59905, 0.0535815)
 bone_name = "finger_index.L.003"
 bone_idx = 14
 
@@ -10219,7 +10220,7 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="LAMiddle" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="20"]
-transform = Transform3D(0.000172745, 0.99927, -0.0379721, -0.999981, -1.03458e-06, -0.00453951, -0.00453583, 0.0379712, 0.999266, 0.880224, 1.59905, 0.0264654)
+transform = Transform3D(0.000172722, 0.99927, -0.0379721, -0.999981, -1.07018e-06, -0.00453955, -0.00453584, 0.0379712, 0.999267, 0.880224, 1.59905, 0.0264654)
 bone_name = "finger_middle.L.003"
 bone_idx = 19
 
@@ -10236,7 +10237,7 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="LARing" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="21"]
-transform = Transform3D(-0.000109567, 0.999697, 0.0242084, -0.99998, -1.07248e-06, -0.00453966, -0.00453784, -0.0242085, 0.999694, 0.874374, 1.59905, -0.00292193)
+transform = Transform3D(-0.000109575, 0.999697, 0.0242084, -0.99998, -1.0853e-06, -0.00453969, -0.00453785, -0.0242085, 0.999694, 0.874374, 1.59905, -0.0029219)
 bone_name = "finger_ring.L.003"
 bone_idx = 24
 
@@ -10253,7 +10254,7 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="LAPinky" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="22"]
-transform = Transform3D(-0.00104482, 0.973112, 0.230282, -0.999981, -7.86531e-07, -0.00453982, -0.00441717, -0.230281, 0.97311, 0.855115, 1.59905, -0.033736)
+transform = Transform3D(-0.00104482, 0.973112, 0.230282, -0.999981, -7.77356e-07, -0.00453985, -0.00441718, -0.230281, 0.97311, 0.855115, 1.59905, -0.033736)
 bone_name = "finger_pinky.L.003"
 bone_idx = 29
 
@@ -10270,7 +10271,7 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RAIndex" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="23"]
-transform = Transform3D(0.000889603, -0.98058, 0.196113, 0.999987, -4.02641e-07, -0.0045389, 0.00445098, 0.196115, 0.980569, -0.752856, 1.59905, 0.0535789)
+transform = Transform3D(0.000889587, -0.98058, 0.196113, 0.999988, -4.31901e-07, -0.00453891, 0.00445098, 0.196114, 0.980569, -0.752856, 1.59905, 0.0535789)
 bone_name = "finger_index.R.003"
 bone_idx = 47
 
@@ -10287,7 +10288,7 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RAMiddle" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="24"]
-transform = Transform3D(0.000171878, -0.999278, 0.0379717, 0.999988, -3.37692e-07, -0.00453895, 0.00453583, 0.0379721, 0.999267, -0.772084, 1.59905, 0.0264625)
+transform = Transform3D(0.000171855, -0.999278, 0.0379717, 0.999988, -3.66446e-07, -0.00453896, 0.00453583, 0.0379721, 0.999267, -0.772084, 1.59905, 0.0264626)
 bone_name = "finger_middle.R.003"
 bone_idx = 52
 
@@ -10304,7 +10305,7 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RARing" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="25"]
-transform = Transform3D(-0.000110265, -0.999706, -0.0242084, 0.999987, -2.20054e-07, -0.00453927, 0.00453807, -0.0242086, 0.999695, -0.766235, 1.59905, -0.00292498)
+transform = Transform3D(-0.000110266, -0.999706, -0.0242084, 0.999988, -2.28334e-07, -0.00453928, 0.00453807, -0.0242086, 0.999695, -0.766235, 1.59905, -0.00292497)
 bone_name = "finger_ring.R.003"
 bone_idx = 57
 
@@ -10321,7 +10322,7 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RAPinky" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="26"]
-transform = Transform3D(-0.00104562, -0.973122, -0.230282, 0.999988, -1.45104e-07, -0.00453935, 0.00441746, -0.230284, 0.973111, -0.746976, 1.59905, -0.0337391)
+transform = Transform3D(-0.00104562, -0.973123, -0.230282, 0.999988, -1.46494e-07, -0.00453936, 0.00441745, -0.230284, 0.973111, -0.746976, 1.59905, -0.0337391)
 bone_name = "finger_pinky.R.003"
 bone_idx = 62
 
@@ -10338,7 +10339,7 @@ transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.9
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="RAThumb" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="27"]
-transform = Transform3D(0.00251319, -0.832618, 0.553839, 0.999987, -3.93309e-07, -0.00453824, 0.0037787, 0.553844, 0.832608, -0.681778, 1.59905, 0.0741215)
+transform = Transform3D(0.00251317, -0.832619, 0.553839, 0.999988, -3.88827e-07, -0.00453817, 0.00377865, 0.553845, 0.832608, -0.681778, 1.59905, 0.0741215)
 bone_name = "finger_thumb.R.003"
 bone_idx = 68
 
@@ -10361,6 +10362,7 @@ libraries = {
 "guitarPoses": SubResource("AnimationLibrary_7xkdi")
 }
 blend_times = [&"RESET", &"guitarPoses/Larm_fret1", 0.5, &"RESET", &"guitarPoses/Larm_fret10", 0.5, &"RESET", &"guitarPoses/Larm_fret16", 0.5, &"RESET", &"guitarPoses/Larm_fret20", 0.5, &"RESET", &"guitarPoses/Larm_fret5", 0.5, &"RESET", &"guitarPoses/Rarm_pickPos1", 0.5, &"RESET", &"guitarPoses/Rarm_pickPos2", 0.5, &"RESET", &"wholebody_fret1", 0.5, &"RESET", &"wholebody_fret15", 0.5, &"RESET", &"wholebody_fret20", 0.5, &"RESET", &"wholebody_fret5", 0.5, &"RESET", &"wholebody_fret9", 0.5, &"guitarPoses/Larm_fret1", &"RESET", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret1", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret10", &"RESET", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret10", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret11", &"RESET", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret11", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret12", &"RESET", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret12", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret14", &"RESET", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret14", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret16", &"RESET", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret16", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret18", &"RESET", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret18", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret2", &"RESET", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret2", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret20", &"RESET", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret20", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret3", &"RESET", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret3", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret4", &"RESET", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret4", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret5", &"RESET", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret5", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret6", &"RESET", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret6", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret7", &"RESET", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret7", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret8", &"RESET", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret8", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Larm_fret9", &"RESET", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret11", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret12", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret14", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret18", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret2", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret3", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret4", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret6", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret7", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret8", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Larm_fret9", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Larm_fret9", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Rarm_pickPos1", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Rarm_pickPos1", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Rarm_pickPos1", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Rarm_pickPos1", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Rarm_pickPos1", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Rarm_pickPos1", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Rarm_pickPos1", &"guitarPoses/Rarm_pickPos2", 0.5, &"guitarPoses/Rarm_pickPos2", &"guitarPoses/Larm_fret1", 0.5, &"guitarPoses/Rarm_pickPos2", &"guitarPoses/Larm_fret10", 0.5, &"guitarPoses/Rarm_pickPos2", &"guitarPoses/Larm_fret16", 0.5, &"guitarPoses/Rarm_pickPos2", &"guitarPoses/Larm_fret20", 0.5, &"guitarPoses/Rarm_pickPos2", &"guitarPoses/Larm_fret5", 0.5, &"guitarPoses/Rarm_pickPos2", &"guitarPoses/Rarm_pickPos1", 0.5, &"guitarPoses/Rarm_pickPos2", &"guitarPoses/Rarm_pickPos2", 0.5]
+script = ExtResource("5_4w31n")
 
 [node name="AnimationTester" type="Node" parent="AnimationPlayer" index="0"]
 script = ExtResource("7_figpa")

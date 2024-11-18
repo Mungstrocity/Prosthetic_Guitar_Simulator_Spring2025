@@ -20,7 +20,7 @@ extends Node3D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Set left hand IK targets to corresponding guitar targets
-	get_left_ik_target(Finger.INDEX).set_finger_target(get_left_target( 6, 10, true)) # example for string 6, fret 10
+	get_left_ik_target(Finger.INDEX).set_finger_target(get_left_target(6, 10, true)) # example for string 6, fret 10
 	get_left_ik_target(Finger.MIDDLE).set_finger_target(get_left_target(5, 10, true)) # example for string 5, fret 10
 	get_left_ik_target(Finger.RING).set_finger_target(get_left_target(4, 11, true)) # example for string 4, fret 11
 	get_left_ik_target(Finger.PINKY).set_finger_target(get_left_target(3, 11, true)) # example for string 3, fret 11
@@ -102,7 +102,70 @@ func get_avg_note_position(note_positions: Array) -> Vector3:
 
 	avg_note_position /= float(num_notes)
 	return avg_note_position
+	
+func get_avg_fret_from_notes(chosen_notes_array):
+	var avg_fret = 0
+	var num_notes = chosen_notes_array.size()
+	for note in chosen_notes_array.size():
+		if chosen_notes_array[note]["fret"] == 0:
+			num_notes -= 1
+			continue #skip this and don't put it into the calculation
+		avg_fret += chosen_notes_array[note]["fret"]
+	if num_notes != 0:
+		avg_fret /= num_notes
+	else:
+		avg_fret = 0 #avg fret doesn't matter becauase no notes need the left hand
+	return avg_fret
 
+#array is of this type possible_positions[position][dict_key] inside the dict there are keys, string, fret. 
+#The right hand will use the string associated with the note
+#get an array of all possible positions in the guitar for that pitch and octave on the guitar
+const STRING_TUNINGS = [
+	{"string": 6, "note": "E", "octave": 2}, # E2
+	{"string": 5, "note": "A", "octave": 2}, # A2
+	{"string": 4, "note": "D", "octave": 3}, # D3
+	{"string": 3, "note": "G", "octave": 3}, # G3
+	{"string": 2, "note": "B", "octave": 3}, # B3
+	{"string": 1, "note": "E", "octave": 4}  # E4
+]
+
+const SEMITONES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
+# Convert a note (pitch, octave, alter) to a MIDI number
+func note_to_midi(pitch: String, octave: int, alter: int) -> int:
+	var base_index = SEMITONES.find(pitch)
+	if base_index == -1:
+		assert(false, "Invalid pitch: %s" % pitch)
+	return (octave + 1) * 12 + base_index + alter
+
+# Convert a MIDI number to a note (pitch, octave)
+func midi_to_note(midi: int) -> Dictionary:
+	var pitch = SEMITONES[midi % 12]
+	var octave = (midi / 12) - 1
+	return {"pitch": pitch, "octave": octave}
+
+# Generate all possible positions for a note
+func get_pos_finger_positions(octave: int, pitch: String, alter: int) -> Array:
+	var target_midi = note_to_midi(pitch, octave, alter)
+	var possible_positions = []
+
+	for tuning in STRING_TUNINGS:
+		var string_open_midi = note_to_midi(tuning["note"], tuning["octave"], 0)
+		var fret = target_midi - string_open_midi
+		if fret >= 0 && fret <= 20: # Assuming 20 frets
+			possible_positions.append({"string": tuning["string"], "fret": fret})
+	
+	return add_finger_targets_to_array(possible_positions)
+
+func add_finger_targets_to_array(possible_finger_positions):
+	for pos_position in possible_finger_positions.size():
+		var string = int(possible_finger_positions[pos_position]["string"])
+		var fret = int(possible_finger_positions[pos_position]["fret"])
+		possible_finger_positions[pos_position]["left-hover"] = get_left_target(string,fret,true)
+		possible_finger_positions[pos_position]["left"] = get_left_target(string,fret,false)
+		possible_finger_positions[pos_position]["right-hover"] = get_right_target(string,true)
+		possible_finger_positions[pos_position]["right"] = get_right_target(string, false)
+	return possible_finger_positions
 
 #there will be an analyzer function for chosing fingers for each beat (multi note and single note ones) which is described below
 #analyze the next notes to see how many notes need to be played at the same time
@@ -126,8 +189,20 @@ func get_avg_note_position(note_positions: Array) -> Vector3:
 #return it in a dict of stringnum?: fretnum?
 # or even better just return a dict with the finger number as the key, then the target string number and fret number as another dict inside.
 
-func select_finger_targets():
+func select_finger_targets(note_array):
+	var num_notes = note_array.size()
+	var previous_note_target
+	for note in num_notes:
+		if note.has("octave") && note.has("pitch"): #check to make sure it's a note and not a rest etc.
+			if note.has("alter"): #some notes don't have an alter element
+				pass
+			
+			pass
+		if note != 0: #at the end store the last note dict for use next if needed
+			previous_note_target = note_array[note]
+	
 	#Lowest_note_left_finger_targets_dict = guitar.get_left_finger_targets(hover: bool, octave: int = 3, pitch: String = "C", alter: int = 0)
+	#var possible_positions = get_pos_finger_positions(octave: int, pitch: String, alter: int) #gets all possible string fret comboes for a note also adds target nodes to the dictionaries
 	
 	pass
 

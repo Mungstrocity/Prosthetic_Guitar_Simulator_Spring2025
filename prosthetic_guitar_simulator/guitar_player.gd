@@ -189,6 +189,7 @@ func add_finger_targets_to_array(possible_finger_positions):
 #return it in a dict of stringnum?: fretnum?
 # or even better just return a dict with the finger number as the key, then the target string number and fret number as another dict inside.
 
+#pass in the array of possible note positions in a beat, and select the best note positions and return the array. 
 func select_finger_targets(note_array):
 	var num_notes = note_array.size()
 	var previous_note_target

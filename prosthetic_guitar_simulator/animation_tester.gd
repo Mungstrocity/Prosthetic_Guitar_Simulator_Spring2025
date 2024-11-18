@@ -126,7 +126,23 @@ func _process(delta: float) -> void:
 			gp.get_right_ik_target(4-finger).set_finger_target(gp.get_right_target(2+(finger), false))
 			await get_tree().create_timer(0.1).timeout
 			gp.get_right_ik_target(4-finger).set_finger_target(gp.get_right_target(2+(finger), true))
-		pass
+	if Input.is_action_just_pressed("q_strum_down"):
+		gp.get_right_ik_target(4).set_finger_target(gp.get_right_target(1, false))
+		await get_tree().create_timer(0.1).timeout
+		for finger in 5:
+			gp.get_right_ik_target(4-finger).set_finger_target(gp.get_right_target(2+(finger), false))
+		await get_tree().create_timer(0.1).timeout
+		for finger in 5:
+			gp.get_right_ik_target(4-finger).set_finger_target(gp.get_right_target(2+(finger), true))
+	if Input.is_action_just_pressed("q_strum_up"):
+		for finger in 5:
+			gp.get_right_ik_target(finger).set_finger_target(gp.get_right_target(6-(finger), false))
+		await get_tree().create_timer(0.1).timeout
+		#dont forget the final string!
+		gp.get_right_ik_target(4).set_finger_target(gp.get_right_target(1, false))
+		await get_tree().create_timer(0.1).timeout
+		for finger in 5:
+			gp.get_right_ik_target(finger).set_finger_target(gp.get_right_target(6-(finger), true))
 	if Input.is_action_just_pressed("print"):
 		print(printer)
 	pass

@@ -253,7 +253,16 @@ func play_song(song_array: Array):
 	for measure in num_measures:
 		var num_beats = song_array[measure].size()
 		for beat in num_beats:
+			
 			var note_array = song_array[measure][beat]
+			
+			#NOTE total play beat process will take about a 0.3 seconds delay minimum.
+			var min_play_duration = 100.0 #set minimum play duration between notes to a crazy value like 100.0 seconds
+			for note_beat in note_array.size(): #find the minimum play duration of a note in a note beat to find the time between this and the next note
+				if note_array[note_beat]["duration_sec"] < min_play_duration:
+					min_play_duration = note_array[note_beat]["duration_sec"] #set the new duration in seconds
+			min_play_duration -= 0.3 #subtract off the approximate bias from playing the notes
+					
 			#returns an array of the chosen finger position dictionaries containing target info for each finger index to pinky in that order
 			var selected_note_targets = guitar_player.select_finger_targets(note_array)
 			var avg_fret = guitar_player.get_avg_fret_from_notes(selected_note_targets)
@@ -270,49 +279,47 @@ func play_song(song_array: Array):
 			var num_notes_in_beat = selected_note_targets.size()
 			var left_targets = get_left_finger_notes(selected_note_targets)
 			var num_left_notes = left_targets.size()
-			for finger in 4: #Set left fingers first to hover only 4 fingers are set thumb is left out
+			for finger in 4: #Set left fingers first to press (no hover needed since right hand plays) only 4 fingers are set thumb is left out
 				if num_left_notes > finger: #set left finger targets for needed notes
-					guitar_player.get_left_ik_target(finger + 1).set_finger_target(left_targets[finger]["left-hover"]) #start with index finger
+					guitar_player.get_left_ik_target(finger + 1).set_finger_target(left_targets[finger]["left"]) #start with index finger
 				else: #else set a default note hover for uneeded notes so fingers don't break and look weird
-					guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, avg_fret, true)) #set unused left fingers to avg_fret and default string for that finger
+					guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, avg_fret, false)) #set unused left fingers to avg_fret and default string for that finger
 			if num_notes_in_beat < 6: #only have to set up hover targets if its not a full strum but picking
-				var used_strings = []
-				var unused_strings = []
-				for string in selected_note_targets.size():
-					used_strings.append(selected_note_targets[string]["string"])
-				for string in 6:
-					if !used_strings.has(string + 1):
-						unused_strings.append(string + 1)
 				for finger in 5: #Set right fingers first to hover all 5 fingers are set
 					if num_notes_in_beat > finger: #set right finger targets for needed notes
-						var selected_finger
-						if unused_strings.has(selected_note_targets["string"]): #FIXME This is a wrong check!!!
-							pass
-						guitar_player.get_left_ik_target(selected_finger).set_finger_target(selected_note_targets[finger]["left-hover"])
+						guitar_player.get_right_ik_target(finger).set_finger_target(selected_note_targets[finger]["right-hover"])
 					else: #else set a default note hover for uneeded notes so fingers don't break and look weird
-						guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, avg_fret, true)) #set unused left fingers to avg_fret and default string for that finger
-			#await get_tree().create_timer(0.1).timeout #let fingers and arm get to positions
+						guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-finger, true)) #set unused left fingers to avg_fret and default string for that finger
 			
-			if num_notes_in_beat == 6:
-				#play a strum
+			#takes about 0.1 seconds or more to set left targets and right hover targets
+			await get_tree().create_timer(0.1).timeout #let fingers and arm tween in 0.1 seconds to positions
+			
+			#takes ~0.2 seconds to play
+			if num_notes_in_beat < 6: #now play (this is picking version of right hand)
+				for finger in 5: #Set right fingers first to play all 5 fingers are set
+					if num_notes_in_beat > finger: #set right finger targets for needed notes
+						guitar_player.get_right_ik_target(finger).set_finger_target(selected_note_targets[finger]["left"])
+					else: #else set a default note hover for uneeded notes so fingers don't break and look weird (keep them hovering if not playing a note)
+						guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-finger, true)) #set unused left fingers to avg_fret and default string for that finger
+				await get_tree().create_timer(0.1).timeout #give fingers time to strike strings
+				for finger in 5: #Set right fingers back to hover
+					if num_notes_in_beat > finger: #set right finger targets for needed notes
+						guitar_player.get_right_ik_target(finger).set_finger_target(selected_note_targets[finger]["left-hover"])
+				await get_tree().create_timer(0.1).timeout #give fingers time to reset to hover
+			
+			#takes ~0.2 seconds to play
+			if num_notes_in_beat == 6: #if playing all strings!
+				#play a quick strum of all strings, takes ~0.2 seconds
+				for finger in 5:
+					guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-(finger), false))
+				await get_tree().create_timer(0.1).timeout
+				#dont forget the final string!
 				guitar_player.get_right_ik_target(4).set_finger_target(guitar_player.get_right_target(1, false))
 				await get_tree().create_timer(0.1).timeout
-				guitar_player.get_right_ik_target(4).set_finger_target(guitar_player.get_right_target(1, true))
 				for finger in 5:
-					guitar_player.get_right_ik_target(4-finger).set_finger_target(guitar_player.get_right_target(2+(finger), false))
-					await get_tree().create_timer(0.1).timeout
-					guitar_player.get_right_ik_target(4-finger).set_finger_target(guitar_player.get_right_target(2+(finger), true))
-				pass
-			guitar_player.get_left_ik_target(guitar_player.Finger.INDEX).set_finger_target(selected_note_targets["left-hover"]) 
-
-			# Set right hand IK targets to corresponding guitar targets (string only)
-			guitar_player.get_right_ik_target(guitar_player.Finger.INDEX).set_finger_target(selected_note_targets["right-hover"]) 
+					guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-(finger), true))
 			
-			#then after proper delay, play the note by changing it to non-hover mode
-			#play
-			
-			#then set all back to hover mode
-			#re-hover
+			await get_tree().create_timer(min_play_duration).timeout #wait until the next note should be played
 	pass
 	
 func get_left_finger_notes(chosen_targets):

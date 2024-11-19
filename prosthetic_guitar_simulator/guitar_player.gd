@@ -189,25 +189,61 @@ func add_finger_targets_to_array(possible_finger_positions):
 #return it in a dict of stringnum?: fretnum?
 # or even better just return a dict with the finger number as the key, then the target string number and fret number as another dict inside.
 
-#pass in the array of possible note positions in a beat, and select the best note positions and return the array. 
-func select_finger_targets(note_array):
+func select_finger_targets(note_array, prev_avg_fret: int = 10): #gets an array of the notes needed to be played in a beat
+	var available_fingers = { #dictionary to store which fingers are used or not
+		"INDEX": true,
+		"MIDDLE": true,
+		"RING": true,
+		"PINKY": true
+	}
 	var num_notes = note_array.size()
-	var previous_note_target
-	for note in num_notes:
-		if note.has("octave") && note.has("pitch"): #check to make sure it's a note and not a rest etc.
-			if note.has("alter"): #some notes don't have an alter element
+	var lowest_note_in_group #for checking to make sure all subsequent notes are no more than 2 frets higher than this and none lower to make sure hand can play
+	var num_possible_groups = 1
+	var groups = [] #array to store all the note groupings
+	var groups_valid = [] #stores booleans telling you if the group is a valid group or not
+	for group in num_possible_groups: #iterate at min 1 time, depending on what the value gets set to later
+		for note in num_notes:
+			var note_possible_positions
+			if note_array[note].has("octave") && note_array[note].has("step"): #check to make sure it's a note and not a rest etc.
+				if note_array[note].has("alter"): #some notes don't have an alter element
+					note_possible_positions = get_pos_finger_positions(note_array[note]["octave"], note_array[note]["step"], note_array[note]["alter"])
+				else: #no alter so just put 0
+					note_possible_positions = get_pos_finger_positions(note_array[note]["octave"], note_array[note]["step"], 0)
+			else:# note doesn't have octave or step, probably not a note, might be a rest etc.
+				push_warning("Warning: Note doesn't have an octave for choosing fingers. Might be a rest note?")
 				pass
-			
-			pass
-		if note != 0: #at the end store the last note dict for use next if needed
-			previous_note_target = note_array[note]
+			if note == 0: #first note, it's sorted so the first note is the lowest in the beat
+				num_possible_groups = note_possible_positions.size() #max number of groups can be the maxium number of lowest note positions
+				for grp in num_possible_groups:
+					groups_valid.append(true) #append the number of groups with true values as all groups start as valid groups.
+				lowest_note_in_group = note_possible_positions[group] #get the lowest note position info for the group that it is on.
+				groups.append([lowest_note_in_group])
+			else:
+				var found_pos = false
+				for pos in note_possible_positions.size():
+					if note_possible_positions[pos]["fret"] <= lowest_note_in_group["fret"] + 2 && note_possible_positions[pos]["fret"] >= lowest_note_in_group["fret"]:
+						groups[group].append(note_possible_positions[pos]) #append the note to the group
+						found_pos = true
+						break
+				if !found_pos: #if you didn't find a valid position for a note, then the group won't work. set the group to be invalid, then break from the inner loop.
+					groups_valid[group] = false
+					break #break out of the inner loop to process the next group
+	#might have to check for duplicate notes in group?
 	
-	#Lowest_note_left_finger_targets_dict = guitar.get_left_finger_targets(hover: bool, octave: int = 3, pitch: String = "C", alter: int = 0)
-	#var possible_positions = get_pos_finger_positions(octave: int, pitch: String, alter: int) #gets all possible string fret comboes for a note also adds target nodes to the dictionaries
-	
-	pass
-
-
+	#now see how many groups are left and choose which group is best one, and return it. use previous avg_fret if available else use default value 10
+	var closest_group_to_last_beat
+	var min_fret_dist = 20 #set to max
+	for group in groups.size():
+		if groups_valid[group] == true:
+			var dist = abs(prev_avg_fret - groups[group][0]["fret"])
+			if dist <= min_fret_dist: #get the lowest note in the group and compare it to last avg_fret to find min
+				closest_group_to_last_beat = groups[group]
+				min_fret_dist = dist
+				
+	if closest_group_to_last_beat == null:
+		push_warning("Warning: No Groups found, might need to expand finger mapping conditions.")
+		print(groups)
+	return closest_group_to_last_beat
 #i don't think i have time to implement this right now.
 #But there is also a measure analyzer dict which will count the number of note occurances during the measure, 
 #and it will try to map the same fingers to the same notes over and over based on number of reocurrances 

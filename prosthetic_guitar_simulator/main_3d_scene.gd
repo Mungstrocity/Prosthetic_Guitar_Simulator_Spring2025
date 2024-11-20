@@ -15,8 +15,8 @@ var preset_music_list = {
 	"load_silent": "res://Assets/InputFiles/silentAbridged.xml",
 	"load_fireEmblem": "res://Assets/InputFiles/fireEmblemTheme.xml",
 	"load_teapot": "res://Assets/InputFiles/teapot.xml",
-	"load_image": "res://Assets/InputFiles/image.xml",
-	"load_output": "res://Assets/InputFiles/output.xml"
+	"load_fur_elise": "res://Assets/InputFiles/22Fur_Elise_Slow_Tempo.xml",
+	"load_symphony22": "res://Assets/InputFiles/22Symphony.xml"
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -42,10 +42,10 @@ func _process(delta: float) -> void:
 		load_song(preset_music_list["load_fireEmblem"])
 	if Input.is_action_just_pressed("load_teapot"):
 		load_song(preset_music_list["load_teapot"])
-	if Input.is_action_just_pressed("load_image"): #no idea what this one is
-		load_song(preset_music_list["load_image"])
-	if Input.is_action_just_pressed("load_output"): #no idea this one either
-		load_song(preset_music_list["load_output"])
+	if Input.is_action_just_pressed("load_fur_elise"):
+		load_song(preset_music_list["load_fur_elise"])
+	if Input.is_action_just_pressed("load_symphony22"):
+		load_song(preset_music_list["load_symphony22"])
 
 func load_song(input_file_string):
 	if processed_song != null: #clear out old song
@@ -288,12 +288,12 @@ func play_song(song_array: Array):
 			for note_beat in note_array.size(): #find the minimum play duration of a note in a note beat to find the time between this and the next note
 				if note_array[note_beat]["duration_sec"] < min_play_duration:
 					min_play_duration = note_array[note_beat]["duration_sec"] #set the new duration in seconds
-			min_play_duration -= 0.4 #subtract off the approximate bias from playing the notes
+			min_play_duration -= 0.2 #subtract off the approximate bias from playing the notes
 					
 			#returns an array of the chosen finger position dictionaries containing target info for each finger index to pinky in that order
 			var selected_note_targets = guitar_player.select_finger_targets(note_array)
 			if selected_note_targets == null: #just a rest beat, so don't move hands but still wait the amount of time required.
-				await get_tree().create_timer(min_play_duration + 0.4).timeout #add .3 back since we didn't play anything this time
+				await get_tree().create_timer(min_play_duration + 0.2).timeout #add .3 back since we didn't play anything this time
 				continue #now go to next beat
 			var lowest_fret = guitar_player.get_lowest_fret_from_notes(selected_note_targets)
 			if lowest_fret == 0: #means don't worry about moving the hand from last time
@@ -322,7 +322,7 @@ func play_song(song_array: Array):
 					guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6, unused_finger_fret, true)) #set unused left fingers to lowest_fret and add two to get them out of the way and default string for that finger
 			
 			#takes about 0.1 seconds or more to set left hover targets
-			await get_tree().create_timer(0.1).timeout
+			await get_tree().create_timer(0.05).timeout
 			
 			for finger in 4: #Set left fingers now to press only 4 fingers are set thumb is left out
 				if num_left_notes > finger: #set left finger targets for needed notes
@@ -337,7 +337,7 @@ func play_song(song_array: Array):
 						guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-finger, true)) #set unused right fingers to default string for that finger
 			
 			#takes about 0.1 seconds or more to set left targets and right hover targets
-			await get_tree().create_timer(0.1).timeout #let fingers and arm tween in 0.1 seconds to positions
+			await get_tree().create_timer(0.05).timeout #let fingers and arm tween in 0.1 seconds to positions
 			
 			#takes ~0.2 seconds to play
 			if num_notes_in_beat < 6: #now play (this is picking version of right hand)
@@ -371,21 +371,21 @@ func play_song(song_array: Array):
 					else: #else set a default note hover for uneeded notes so fingers don't break and look weird (keep them hovering if not playing a note)
 						#guitar_player.get_right_ik_target(finger_num).set_finger_target(guitar_player.get_right_target(6-finger_num, true))
 						pass
-				await get_tree().create_timer(0.1).timeout #give fingers time to strike strings
+				await get_tree().create_timer(0.05).timeout #give fingers time to strike strings
 				for finger in 5: #Set right fingers back to hover
 					if num_notes_in_beat > finger: #set right finger targets for needed notes
 						guitar_player.get_right_ik_target(finger).set_finger_target(selected_note_targets[finger]["right-hover"])
-				await get_tree().create_timer(0.1).timeout #give fingers time to reset to hover
+				await get_tree().create_timer(0.05).timeout #give fingers time to reset to hover
 			
 			#takes ~0.2 seconds to play
 			if num_notes_in_beat == 6: #if playing all strings!
 				#play a quick strum of all strings, takes ~0.2 seconds
 				for finger in 5:
 					guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-(finger), false))
-				await get_tree().create_timer(0.1).timeout
+				await get_tree().create_timer(0.05).timeout
 				#dont forget the final string!
 				guitar_player.get_right_ik_target(4).set_finger_target(guitar_player.get_right_target(1, false))
-				await get_tree().create_timer(0.1).timeout
+				await get_tree().create_timer(0.05).timeout
 				for finger in 5:
 					guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-(finger), true))
 			

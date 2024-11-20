@@ -35,7 +35,8 @@ func move_finger():
 	#t.tween_property(self, 'global_position', half_way + (owner.basis.y * scaling_factor), 0.1) #basis.y is 1 meter vector, 0.1 is duration
 	#t.tween_property(self, 'global_position', half_way + (global_basis.z * scaling_factor), 0.1) #basis.z is 1 meter vector, 0.1 is duration
 	
-	t.tween_property(self, 'global_position', target_pos, 0.1)
+	#0.05 is the speed that fingers move to the target, they move their in 0.05 seconds, i find it looks a bit fast and that 0.1 is the smoothest, but 0.4 seconds is too long to have to wait.
+	t.tween_property(self, 'global_position', target_pos, 0.05)
 	
 func _on_tween_complete():
 	finger_moving = false

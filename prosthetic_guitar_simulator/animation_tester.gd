@@ -18,23 +18,23 @@ func _ready() -> void:
 var fret_presses = [false, false, false, false]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret1"):
+	if !Input.is_action_pressed("shift") && !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret1"):
 		anim.play("guitarPoses/Larm_fret1")
 		if(!anim.is_playing()):
 			anim.stop()
-	if !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret5"):
+	if !Input.is_action_pressed("shift") && !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret5"):
 		anim.play("guitarPoses/Larm_fret5")
 		if(!anim.is_playing()):
 			anim.stop()
-	if !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret10"):
+	if !Input.is_action_pressed("shift") && !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret10"):
 		anim.play("guitarPoses/Larm_fret10")
 		if(!anim.is_playing()):
 			anim.stop()
-	if !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret16"):
+	if !Input.is_action_pressed("shift") && !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret16"):
 		anim.play("guitarPoses/Larm_fret16")
 		if(!anim.is_playing()):
 			anim.stop()
-	if !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret20"):
+	if !Input.is_action_pressed("shift") && !Input.is_action_pressed("ctrl") && Input.is_action_pressed("fret20"):
 		anim.play("guitarPoses/Larm_fret20")	
 		if(!anim.is_playing()):
 			anim.stop()

@@ -13,11 +13,11 @@ extends ResourcePreloader
 
 #function to parse the musicXML based on the Godot XMLParser class
 #parses info into a dictionary songData{name, [{attributeName, attribute}, childName/leafData]}
-func parse_music_XML():
+func parse_music_XML(input_file_string):
 	var parser = XMLParser.new()
 	#song data should store 
 	var songData = {}
-	parser.open("res://Assets/InputFiles/input.xml")
+	parser.open(input_file_string)
 	var node_name = ""
 	var node_data
 	var num_measures = 0

@@ -227,7 +227,7 @@ func select_finger_targets(note_array, prev_avg_fret: int = 10): #gets an array 
 				push_warning("Warning: Note doesn't have an octave for choosing fingers. Might be a rest note?")
 				continue #still might be more notes in beat so keep checking
 			if note == 0: #first note, it's sorted so the first note is the lowest in the beat
-				if note_possible_positions == null:
+				if note_possible_positions == null || note_possible_positions.size() == 0:
 					break #no notes to play in beat, likey a rest beat
 				num_possible_groups = note_possible_positions.size() #max number of groups can be the maxium number of lowest note positions
 				for grp in num_possible_groups:

@@ -9,27 +9,50 @@ var processed_song
 @onready var guitar = $"./GuitarPlayer/Guitar"
 @onready var anim = $"./GuitarPlayer/AnimationPlayer"
 
+var preset_music_list = {
+	"load_input": "res://Assets/InputFiles/input.xml",
+	"load_mary": "res://Assets/InputFiles/mary.xml",
+	"load_silent": "res://Assets/InputFiles/silentAbridged.xml",
+	"load_fireEmblem": "res://Assets/InputFiles/fireEmblemTheme.xml",
+	"load_teapot": "res://Assets/InputFiles/teapot.xml",
+	"load_image": "res://Assets/InputFiles/image.xml",
+	"load_output": "res://Assets/InputFiles/output.xml"
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Extracts the songData into the form {element_name: [{attribute_name: attribute}, {data_name/child_name: data/child}]} 
 	#if it's the measures or notes scope, measures use the naming "m#,node_name" while if also in the note scope inside a measure, 
 	#the convention is "m#,n#,node_name"
 	
-	songDict = $MusicXMLParser.parse_music_XML()	
-	#$MusicXMLParser/MusicXMLParserTest.test_XML_parse(songData)
-	
-	processed_song = process_song_data(songDict)
-	songDict.clear()
-	
-	#await get_tree().create_timer(3).timeout #wait to play the song 3 seconds.
-	
-	#play_song(processed_song)
+	load_song(preset_music_list["load_input"]) #load default song 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	handle_cams()
-	if Input.is_action_just_pressed("play_song"):
+	if Input.is_action_just_pressed("play_song"): #plays the loaded song ctrl + p
 		play_song(processed_song)
+	if Input.is_action_just_pressed("load_input"):
+		load_song(preset_music_list["load_input"])
+	if Input.is_action_just_pressed("load_mary"):
+		load_song(preset_music_list["load_mary"])
+	if Input.is_action_just_pressed("load_silent"):
+		load_song(preset_music_list["load_silent"])
+	if Input.is_action_just_pressed("load_fireEmblem"):
+		load_song(preset_music_list["load_fireEmblem"])
+	if Input.is_action_just_pressed("load_teapot"):
+		load_song(preset_music_list["load_teapot"])
+	if Input.is_action_just_pressed("load_image"): #no idea what this one is
+		load_song(preset_music_list["load_image"])
+	if Input.is_action_just_pressed("load_output"): #no idea this one either
+		load_song(preset_music_list["load_output"])
+
+func load_song(input_file_string):
+	if processed_song != null: #clear out old song
+		processed_song.clear()
+	songDict = $MusicXMLParser.parse_music_XML(input_file_string)	
+	processed_song = process_song_data(songDict)
+	songDict.clear()
 
 func handle_cams():
 	var cameras = [

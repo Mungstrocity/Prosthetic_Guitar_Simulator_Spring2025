@@ -1858,7 +1858,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 
 mesh = SubResource("SphereMesh_kj28g")
 
 [node name="S2" type="Node3D" parent="RFingers/Target"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 52.449, 1.87361, -29.3969)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 52.449, 1.748, -29.3996)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Target/S2"]
 mesh = SubResource("SphereMesh_kj28g")
@@ -1896,14 +1896,14 @@ transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 
 mesh = SubResource("BoxMesh_pu4im")
 
 [node name="S2" type="Node3D" parent="RFingers/Hover"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.7334, 1.74248, -29.4637)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.7334, 1.36231, -29.4719)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Hover/S2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284077, 0)
 mesh = SubResource("BoxMesh_pu4im")
 
 [node name="S3" type="Node3D" parent="RFingers/Hover"]
-transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.7334, 3.91136, -30.1724)
+transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 55.3784, 3.69895, -30.177)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RFingers/Hover/S3"]
 mesh = SubResource("BoxMesh_pu4im")

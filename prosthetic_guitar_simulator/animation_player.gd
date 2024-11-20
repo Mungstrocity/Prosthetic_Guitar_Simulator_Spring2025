@@ -13,8 +13,12 @@ var animations = {
 	10: "guitarPoses/Larm_fret10",
 	11: "guitarPoses/Larm_fret11",
 	12: "guitarPoses/Larm_fret12",
+	13: "guitarPoses/Larm_fret13",
 	14: "guitarPoses/Larm_fret14",
+	15: "guitarPoses/Larm_fret15",
 	16: "guitarPoses/Larm_fret16",
+	17: "guitarPoses/Larm_fret17",
 	18: "guitarPoses/Larm_fret18",
+	19: "guitarPoses/Larm_fret19",
 	20: "guitarPoses/Larm_fret20"
 }

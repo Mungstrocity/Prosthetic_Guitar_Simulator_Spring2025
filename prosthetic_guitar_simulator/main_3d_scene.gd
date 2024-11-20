@@ -269,6 +269,9 @@ func play_song(song_array: Array):
 					
 			#returns an array of the chosen finger position dictionaries containing target info for each finger index to pinky in that order
 			var selected_note_targets = guitar_player.select_finger_targets(note_array)
+			if selected_note_targets == null: #just a rest beat, so don't move hands but still wait the amount of time required.
+				await get_tree().create_timer(min_play_duration + 0.3).timeout #add .3 back since we didn't play anything this time
+				continue #now go to next beat
 			var avg_fret = guitar_player.get_avg_fret_from_notes(selected_note_targets)
 			if avg_fret == 0: #means don't worry about moving the hand from last time
 				pass
@@ -289,7 +292,7 @@ func play_song(song_array: Array):
 				if num_left_notes > finger: #set left finger targets for needed notes
 					guitar_player.get_left_ik_target(finger + 1).set_finger_target(left_targets[finger]["left"]) #start with index finger
 				else: #else set a default note hover for uneeded notes so fingers don't break and look weird
-					guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, avg_fret, false)) #set unused left fingers to avg_fret and default string for that finger
+					guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, avg_fret, true)) #set unused left fingers to avg_fret and default string for that finger
 			if num_notes_in_beat < 6: #only have to set up hover targets if its not a full strum but picking
 				for finger in 5: #Set right fingers first to hover all 5 fingers are set
 					if num_notes_in_beat > finger: #set right finger targets for needed notes

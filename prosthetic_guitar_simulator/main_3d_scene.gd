@@ -265,22 +265,22 @@ func play_song(song_array: Array):
 			for note_beat in note_array.size(): #find the minimum play duration of a note in a note beat to find the time between this and the next note
 				if note_array[note_beat]["duration_sec"] < min_play_duration:
 					min_play_duration = note_array[note_beat]["duration_sec"] #set the new duration in seconds
-			min_play_duration -= 0.3 #subtract off the approximate bias from playing the notes
+			min_play_duration -= 0.4 #subtract off the approximate bias from playing the notes
 					
 			#returns an array of the chosen finger position dictionaries containing target info for each finger index to pinky in that order
 			var selected_note_targets = guitar_player.select_finger_targets(note_array)
 			if selected_note_targets == null: #just a rest beat, so don't move hands but still wait the amount of time required.
-				await get_tree().create_timer(min_play_duration + 0.3).timeout #add .3 back since we didn't play anything this time
+				await get_tree().create_timer(min_play_duration + 0.4).timeout #add .3 back since we didn't play anything this time
 				continue #now go to next beat
-			var avg_fret = guitar_player.get_avg_fret_from_notes(selected_note_targets)
-			if avg_fret == 0: #means don't worry about moving the hand from last time
+			var lowest_fret = guitar_player.get_lowest_fret_from_notes(selected_note_targets)
+			if lowest_fret == 0: #means don't worry about moving the hand from last time
 				pass
-			elif anim.animations.has(avg_fret):
-				anim.play(anim.animations[avg_fret]) #select the ideal position for the beat for the left arm
+			elif anim.animations.has(lowest_fret):
+				anim.play(anim.animations[lowest_fret]) #select the ideal position for the beat for the left arm
 				anim.play("guitarPoses/Rarm_pickPos1")
 			else:
-				avg_fret -= 1 #get the next closest fret if there isn't a programmed arm location
-				anim.play(anim.animations[avg_fret])
+				lowest_fret -= 1 #get the next closest fret if there isn't a programmed arm location
+				anim.play(anim.animations[lowest_fret])
 				anim.play("guitarPoses/Rarm_pickPos1")
 			#get number of notes in chosen array and iterate through setting the fingers to hover over them if they are targets, 
 			#if the finger doesn't have a target, use a defualt target for the avg fret
@@ -288,17 +288,30 @@ func play_song(song_array: Array):
 			var num_notes_in_beat = selected_note_targets.size()
 			var left_targets = get_left_finger_notes(selected_note_targets)
 			var num_left_notes = left_targets.size()
-			for finger in 4: #Set left fingers first to press (no hover needed since right hand plays) only 4 fingers are set thumb is left out
+			for finger in 4: #Set left fingers first to hover (no hover needed since right hand plays) only 4 fingers are set thumb is left out
+				if num_left_notes > finger: #set left finger targets for needed notes
+					guitar_player.get_left_ik_target(finger + 1).set_finger_target(left_targets[finger]["left-hover"]) #start with index finger
+				else: #else set a default note hover for uneeded notes so fingers don't break and look weird
+					var unused_finger_fret = lowest_fret + 1
+					if unused_finger_fret > 20:
+						unused_finger_fret -= 1
+					#guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, unused_finger_fret, true)) #set unused left fingers to lowest_fret and add two to get them out of the way and default string for that finger
+					guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6, unused_finger_fret, true)) #set unused left fingers to lowest_fret and add two to get them out of the way and default string for that finger
+			
+			#takes about 0.1 seconds or more to set left hover targets
+			await get_tree().create_timer(0.1).timeout
+			
+			for finger in 4: #Set left fingers now to press only 4 fingers are set thumb is left out
 				if num_left_notes > finger: #set left finger targets for needed notes
 					guitar_player.get_left_ik_target(finger + 1).set_finger_target(left_targets[finger]["left"]) #start with index finger
 				else: #else set a default note hover for uneeded notes so fingers don't break and look weird
-					guitar_player.get_left_ik_target(finger + 1).set_finger_target(guitar_player.get_left_target(6-finger, avg_fret, true)) #set unused left fingers to avg_fret and default string for that finger
+					var unused_finger_fret = lowest_fret + 1
 			if num_notes_in_beat < 6: #only have to set up hover targets if its not a full strum but picking
 				for finger in 5: #Set right fingers first to hover all 5 fingers are set
 					if num_notes_in_beat > finger: #set right finger targets for needed notes
 						guitar_player.get_right_ik_target(finger).set_finger_target(selected_note_targets[finger]["right-hover"])
 					else: #else set a default note hover for uneeded notes so fingers don't break and look weird
-						guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-finger, true)) #set unused left fingers to avg_fret and default string for that finger
+						guitar_player.get_right_ik_target(finger).set_finger_target(guitar_player.get_right_target(6-finger, true)) #set unused right fingers to default string for that finger
 			
 			#takes about 0.1 seconds or more to set left targets and right hover targets
 			await get_tree().create_timer(0.1).timeout #let fingers and arm tween in 0.1 seconds to positions

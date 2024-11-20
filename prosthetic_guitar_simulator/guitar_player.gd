@@ -116,6 +116,20 @@ func get_avg_fret_from_notes(chosen_notes_array):
 	else:
 		avg_fret = 0 #avg fret doesn't matter becauase no notes need the left hand
 	return avg_fret
+	
+func get_lowest_fret_from_notes(chosen_notes_array):
+	var lowest_fret = 0
+	var num_notes = chosen_notes_array.size()
+	for note in chosen_notes_array.size():
+		if chosen_notes_array[note]["fret"] == 0: #no left press required; open string
+			num_notes -= 1
+			continue #skip this and don't assign it
+		lowest_fret = chosen_notes_array[note]["fret"]
+		break #first one should be lowest fret so get out of here
+	if num_notes == 0: #counter for non-openstring notes, so if only open string notes
+		lowest_fret = 0 #lowest fret doesn't matter becauase no notes need the left hand
+	return lowest_fret
+	
 
 #array is of this type possible_positions[position][dict_key] inside the dict there are keys, string, fret. 
 #The right hand will use the string associated with the note

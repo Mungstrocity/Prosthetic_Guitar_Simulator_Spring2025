@@ -368,6 +368,7 @@ shape = SubResource("BoxShape3D_nyeet")
 [node name="LFingers" type="Node3D" parent="."]
 
 [node name="Target" type="Node3D" parent="LFingers"]
+visible = false
 
 [node name="S1" type="Node3D" parent="LFingers/Target"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.3485, 57.765, -105.238)
@@ -1850,6 +1851,7 @@ mesh = SubResource("BoxMesh_pu4im")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26652, -3.72849)
 
 [node name="Target" type="Node3D" parent="RFingers"]
+visible = false
 
 [node name="S1" type="Node3D" parent="RFingers/Target"]
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 52.449, 0.351495, -30.4189)
@@ -1888,6 +1890,7 @@ transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 
 mesh = SubResource("SphereMesh_kj28g")
 
 [node name="Hover" type="Node3D" parent="RFingers"]
+visible = false
 
 [node name="S1" type="Node3D" parent="RFingers/Hover"]
 transform = Transform3D(1, 0, 0, 0, 0.99977, -0.0214485, 0, 0.0214485, 0.99977, 54.7334, 0.41574, -30.4053)

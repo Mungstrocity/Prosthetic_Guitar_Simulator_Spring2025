@@ -72,7 +72,7 @@ height = 0.005
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e4ynj"]
 radius = 0.00243193
-height = 0.030059
+height = 0.00952904
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ps2c"]
 albedo_color = Color(0.129412, 0.235294, 1, 1)
@@ -11148,11 +11148,11 @@ transform = Transform3D(1, -3.49246e-10, -2.79397e-09, 0, 1, -8.9407e-08, -2.328
 collision_mask = 3
 
 [node name="Coll_LMiddle3" type="CollisionShape3D" parent="Armature/Skeleton3D/LAIndex/LIndex" index="0"]
-transform = Transform3D(1, 2.32831e-10, 3.36207e-07, 1.16415e-10, 1, -1.81198e-05, -1.86265e-09, 4.47035e-08, 0.999912, 0.00113881, -0.00503284, -1.19507e-05)
+transform = Transform3D(1, 2.32831e-10, 3.36207e-07, 1.16415e-10, 1, -1.81198e-05, -1.86265e-09, 4.47035e-08, 0.999912, 0.00113881, 0.00784112, -1.19502e-05)
 shape = SubResource("CapsuleShape3D_e4ynj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Armature/Skeleton3D/LAIndex/LIndex/Coll_LMiddle3" index="0"]
-transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.98023e-08, 1, -3.31718e-12, 0.00838779, 4.82806e-10)
+transform = Transform3D(1, -2.32831e-10, 0, 1.16415e-10, 1, -1.49012e-08, 0, 2.98023e-08, 1, -4.06978e-13, -0.000205168, 2.26716e-10)
 mesh = SubResource("CapsuleMesh_3r2mw")
 
 [node name="LAMiddle" type="BoneAttachment3D" parent="Armature/Skeleton3D" index="20"]

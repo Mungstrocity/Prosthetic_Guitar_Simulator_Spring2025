@@ -10,7 +10,7 @@ radius = 0.25
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pq8jt"]
 height = 153.446
-radius = 0.333806
+radius = 0.487694
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_po1i7"]
 size = Vector3(2.8291, 6.87445, 9.03185)
@@ -196,7 +196,7 @@ collision_layer = 2
 monitorable = false
 
 [node name="S6" type="CollisionShape3D" parent="Strings/L/S6"]
-transform = Transform3D(0.499988, -0.00295375, 0.00186007, 0, 0.266438, 0.423097, -0.00349063, -0.423086, 0.266432, 51.9431, 40.2381, -78.1652)
+transform = Transform3D(0.499988, -0.00295375, 0.00186007, 0, 0.266438, 0.423097, -0.00349063, -0.423086, 0.266432, 51.9785, 40.2381, -78.1654)
 shape = SubResource("CylinderShape3D_pq8jt")
 
 [node name="Frets" type="Node3D" parent="."]

@@ -10,13 +10,14 @@ var processed_song
 @onready var anim = $"./GuitarPlayer/AnimationPlayer"
 
 var preset_music_list = {
-	"load_input": "res://Assets/InputFiles/input.xml",
+	"load_input": "res://input.xml",
 	"load_mary": "res://Assets/InputFiles/mary.xml",
-	"load_silent": "res://Assets/InputFiles/silentAbridged.xml",
-	"load_fireEmblem": "res://Assets/InputFiles/fireEmblemTheme.xml",
 	"load_teapot": "res://Assets/InputFiles/teapot.xml",
-	"load_fur_elise": "res://Assets/InputFiles/22Fur_Elise_Slow_Tempo.xml",
-	"load_symphony22": "res://Assets/InputFiles/22Symphony.xml"
+	"load_silent": "res://Assets/InputFiles/silentAbridged.xml",
+	"load_wellerman": "res://Assets/InputFiles/The_Wellerman.xml",
+	"load_fur_elise": "res://Assets/InputFiles/Fr_EliseBetterAbr.xml",
+	"load_moonlight": "res://Assets/InputFiles/Moonlight_Sonata.xml",
+	"load_ave_maria": "res://Assets/InputFiles/Ave_Maria.xml"
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -38,14 +39,16 @@ func _process(delta: float) -> void:
 		load_song(preset_music_list["load_mary"])
 	if Input.is_action_just_pressed("load_silent"):
 		load_song(preset_music_list["load_silent"])
-	if Input.is_action_just_pressed("load_fireEmblem"):
-		load_song(preset_music_list["load_fireEmblem"])
+	#if Input.is_action_just_pressed("load_wellerman"):
+		#load_song(preset_music_list["load_wellerman"])
 	if Input.is_action_just_pressed("load_teapot"):
 		load_song(preset_music_list["load_teapot"])
-	if Input.is_action_just_pressed("load_fur_elise"):
-		load_song(preset_music_list["load_fur_elise"])
-	if Input.is_action_just_pressed("load_symphony22"):
-		load_song(preset_music_list["load_symphony22"])
+	#if Input.is_action_just_pressed("load_fur_elise"):
+		#load_song(preset_music_list["load_fur_elise"])
+	#if Input.is_action_just_pressed("load_moonlight"):
+		#load_song(preset_music_list["load_moonlight"])
+	if Input.is_action_just_pressed("load_ave_maria"):
+		load_song(preset_music_list["load_ave_maria"])
 
 func load_song(input_file_string):
 	if processed_song != null: #clear out old song
@@ -117,6 +120,11 @@ func process_song_data(songData: Dictionary):
 			if typeof(song_info[measure_number]) == TYPE_ARRAY && song_info[measure_number].size() > 0: #means there are note beats already in the measure
 				for note_beat_index in song_info[measure_number].size(): #iterate through note beats to get the position that the next beat should go for backups
 					var temp_note_in_beat = song_info[measure_number][note_beat_index].size() -1 #get last note in the beat
+					while !song_info[measure_number][note_beat_index][temp_note_in_beat].has("div_start_pos"): #last note doesn't have these, it should, so get rid of this note, and try again.
+						push_warning("Warning: Found a weird ghost note, Bug work around executing...")
+						song_info[measure_number][note_beat_index].remove_at(temp_note_in_beat) #remove the junk node
+						if temp_note_in_beat != 0:
+							temp_note_in_beat -= 1 #decrement to the previous index and try again
 					if current_division_pos == song_info[measure_number][note_beat_index][temp_note_in_beat]["div_start_pos"]: #place note beat on
 						#perfect match with division posistion
 						#append new note dict inside the current note beat
@@ -286,6 +294,9 @@ func play_song(song_array: Array):
 			#NOTE total play beat process will take about a 0.3 seconds delay minimum.
 			var min_play_duration = 100.0 #set minimum play duration between notes to a crazy value like 100.0 seconds
 			for note_beat in note_array.size(): #find the minimum play duration of a note in a note beat to find the time between this and the next note
+				if !note_array[note_beat].has("duration_sec"):
+					push_warning("Warning: Found a weird ghost note, need to fix in song-info parser...")
+					continue #skip this one a weird zero array
 				if note_array[note_beat]["duration_sec"] < min_play_duration:
 					min_play_duration = note_array[note_beat]["duration_sec"] #set the new duration in seconds
 			min_play_duration -= 0.2 #subtract off the approximate bias from playing the notes

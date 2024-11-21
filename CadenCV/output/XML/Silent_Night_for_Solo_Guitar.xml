@@ -16,21 +16,21 @@
     </scaling>
   </defaults>
   <part-list>
-    <score-part id="P487b695b49ed472b47e27d9c2d56a9be">
+    <score-part id="Pac1b2c8f1b812bc29cdfbc08ce51aed0">
       <part-name>Acoustic Guitar</part-name>
       <part-abbreviation>Ac Gtr</part-abbreviation>
-      <score-instrument id="I70418aaa59264771a114ea789476c3f6">
+      <score-instrument id="If1e08f646f378daeac6fbe111a027e1a">
         <instrument-name>Acoustic Guitar</instrument-name>
         <instrument-abbreviation>Ac Gtr</instrument-abbreviation>
       </score-instrument>
-      <midi-instrument id="I70418aaa59264771a114ea789476c3f6">
+      <midi-instrument id="If1e08f646f378daeac6fbe111a027e1a">
         <midi-channel>1</midi-channel>
         <midi-program>25</midi-program>
       </midi-instrument>
     </score-part>
   </part-list>
   <!--=========================== Part 1 ===========================-->
-  <part id="P487b695b49ed472b47e27d9c2d56a9be">
+  <part id="Pac1b2c8f1b812bc29cdfbc08ce51aed0">
     <!--========================= Measure 1 ==========================-->
     <measure implicit="no" number="1">
       <attributes>

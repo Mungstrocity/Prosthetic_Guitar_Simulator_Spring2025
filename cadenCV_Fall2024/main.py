@@ -508,8 +508,8 @@ def find_staffline_rows(img, line_width, line_spacing):
 
         row_black_pixel_histogram.append(num_black_pixels)
 
-    # plt.bar(np.arange(num_rows), row_black_pixel_histogram)
-    # plt.show()
+    #plt.bar(np.arange(num_rows), row_black_pixel_histogram)
+    #plt.show()
 
     all_staff_row_indices = []
     num_stafflines = 5
@@ -1037,9 +1037,18 @@ if __name__ == "__main__":
                 eighth_flag_indices.append(j)
 
             if (staff_primitives[j].getPrimitive() == "note"):
-                print(staff_primitives[j].getPitch(), end=", ")
-            else:
-                print(staff_primitives[j].getPrimitive(), end=", ")
+                # Collect detected notes with their positions
+                detected_notes_with_positions = []
+
+                for j in range(len(staff_primitives)):
+                    if staff_primitives[j].getPrimitive() == "note":
+                        x, y = staff_primitives[j].getBox().getCenter()  # Get the center of the bounding box
+                        pitch = staff_primitives[j].getPitch()  # Get the pitch of the note
+                        detected_notes_with_positions.append((pitch, int(x), int(y)))  # Append the note with position
+
+        # Output the list as a Python list
+        print(detected_notes_with_positions)  # This outputs a list like [("C4", 100, 150), ("D4", 120, 160)]
+
 
         print("\n")
 
@@ -1197,6 +1206,14 @@ if __name__ == "__main__":
                 bar = Bar()
         # Add final bar in staff
         staffs[i].addBar(bar)
+    
+    # Example: Output detected notes with their coordinates
+    for note in staff_primitives:
+        if note.getPrimitive() == "note":
+            pitch = note.getPitch()
+            x, y = note.getBox().getCenter()  # Get the center of the bounding box
+            print(f"{pitch},{int(x)},{int(y)}")  # Output note, x, y coordinates
+
 
     # -------------------------------------------------------------------------------
     # Sequence MIDI
@@ -1212,23 +1229,35 @@ if __name__ == "__main__":
     midi.addTrackName(track, time, "Track")
     midi.addTempo(track, time, 110)
 
-    def music():
+    notes_txt_path = "detected_notes.txt"
+    with open(notes_txt_path, "w") as notes_file:
         for i in range(len(staffs)):
-            print("==== Staff {} ====".format(i+1))
+            notes_file.write(f"==== Staff {i + 1} ====\n")
             bars = staffs[i].getBars()
             for j in range(len(bars)):
-                print("--- Bar {} ---".format(j + 1))
+                notes_file.write(f"--- Bar {j + 1} ---\n")
                 primitives = bars[j].getPrimitives()
                 for k in range(len(primitives)):
                     duration = primitives[k].getDuration()
-                    if (primitives[k].getPrimitive() == "note"):
+                    if primitives[k].getPrimitive() == "note":
                         pitch = pitch_to_MIDI[primitives[k].getPitch()]
                         midi.addNote(track, channel, pitch, time, duration, volume)
-                    print(primitives[k].getPrimitive())
-                    print(primitives[k].getPitch())
-                    print(primitives[k].getDuration())
-                    print("-----")
+                        x, y = primitives[k].getBox().getCenter()  # Get bounding box center
+                        print(f"{primitives[k].getPitch()},{int(x)},{int(y)}")  # Output note, x, y
+                        # Write note info to file
+                        note_data = f"{primitives[k].getPitch()},{int(x)},{int(y)}\n"
+                        notes_file.write(note_data)  # Write note data to the file
                     time += duration
+
+    print(f"Detected notes saved to {notes_txt_path}")
+
+    if sys.platform == "win32":
+        os.startfile(notes_txt_path)
+    elif sys.platform == "darwin":
+        subprocess.run(["open", notes_txt_path])
+    else:
+        subprocess.run(["xdg-open", notes_txt_path])
+
 
     # ------- Write to disk -------
     print("[INFO] Writing MIDI to disk")

@@ -52,8 +52,8 @@ try:
     print("Output from main.py:")
     print(result.stdout)
 
-    # Assuming main.py outputs detected notes as text
-    detected_notes = result.stdout.strip().split()
+    # Use the output directly as `detected_notes_with_positions` without parsing
+    detected_notes_with_positions = eval(result.stdout)  # Assuming `main.py` outputs a valid Python list
 except subprocess.CalledProcessError as e:
     print("Error occurred while executing main.py:")
     print(e.stderr)
@@ -63,30 +63,31 @@ finally:
     if os.path.exists(temp_file):
         os.remove(temp_file)
 
-# Save detected notes to a .txt file
-if detected_notes:
-    notes_txt_path = "detected_notes.txt"
-    with open(notes_txt_path, "w") as notes_file:
-        notes_file.write("\n".join(detected_notes))
-    print(f"Detected notes saved to {notes_txt_path}")
+# Overlay detected notes onto the original image
+#if detected_notes_with_positions:
+    #annotated_image = image.copy()
+    #font = cv2.FONT_HERSHEY_SIMPLEX
+    #font_scale = 0.6
+    #font_color = (0, 255, 255)  
+    #font_thickness = 1
 
-    # Open the .txt file (platform-specific)
-    if sys.platform == "win32":
-        os.startfile(notes_txt_path)
-    elif sys.platform == "darwin":
-        subprocess.run(["open", notes_txt_path])
-    else:
-        subprocess.run(["xdg-open", notes_txt_path])
-else:
-    print("No notes detected. No text file will be created.")
-    sys.exit(1)
+    #for note_name, x, y in detected_notes_with_positions:
+        #cv2.putText(annotated_image, note_name, (x, y), font, font_scale, font_color, font_thickness)
+
+    # Save the annotated image
+    #annotated_image_path = "annotated_image.png"
+    #cv2.imwrite(annotated_image_path, annotated_image)
+    #print(f"Annotated image saved to {annotated_image_path}")
+#else:
+    #print("No notes detected. No annotated image will be created.")
+    #sys.exit(1)
 
 # Convert detected notes to a MIDI file
 midi_file = MIDIFile(1)
 midi_file.addTempo(0, 0, 120)
 
 time = 0  # Start time
-for n in detected_notes:
+for n, _, _ in detected_notes_with_positions:
     try:
         # Convert symbolic note name to MIDI pitch
         midi_note = note.Note(n)

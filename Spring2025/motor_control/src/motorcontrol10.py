@@ -4,7 +4,7 @@ import time
 # Create a servo object
 kit = ServoKit(channels=16)
 
-motors = 10
+motors = 16
 angle = 0
 min = 0
 max = 180

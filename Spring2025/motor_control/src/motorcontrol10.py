@@ -4,11 +4,11 @@ import time
 # Create a servo object
 kit = ServoKit(channels=16)
 
-motors = 16
+motors = 2
 angle = 0
 min = 0
 max = 180
-increment = max
+increment = 5
 maxscale = 2
 delay = 1
 

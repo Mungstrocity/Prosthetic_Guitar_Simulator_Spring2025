@@ -11,3 +11,6 @@ CadenCV/__pycache__/
 # Godot 4+ specific ignores
 prosthetic_guitar_simulator/.godot/
 /android/
+
+#general python ignore stuff
+__pycache__/

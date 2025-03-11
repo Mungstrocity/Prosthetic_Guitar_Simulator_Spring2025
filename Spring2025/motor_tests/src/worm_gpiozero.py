@@ -77,12 +77,13 @@ try:
         state = "forward"
         
         while state == "forward":
-            while speed_loc < 1:
+            while speed_loc <= 1:
                 print(f'Speed: {speed_loc}')
                 motor_forward(speed_loc)  # Set speed
                 time.sleep(2)
                 speed_loc += 0.25
-
+                
+        # if speed_loc == 1:
             speed_loc = 0
             state = "backward"
         
@@ -92,9 +93,11 @@ try:
                 motor_backward(speed_loc)  # Set speed
                 time.sleep(2)
                 speed_loc += 0.25
-            
+                
+        # if speed_loc == 1:
             speed_loc = 0
             state = "forward"
+            
         
 
 

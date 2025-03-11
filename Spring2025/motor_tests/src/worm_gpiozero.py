@@ -10,7 +10,7 @@ ENA = 18  # Motor speed (PWM)
 ENC_A = 23  # Encoder A signal
 ENC_B = 24  # Encoder B signal
 
-FREQ = 5000  # PWM frequency
+FREQ = 1000  # PWM frequency
 
 # Initialize GPIO devices
 in1 = DigitalOutputDevice(IN1)
@@ -80,7 +80,7 @@ try:
             while speed_loc <= 1:
                 print(f'Speed: {speed_loc}')
                 motor_forward(speed_loc)  # Set speed
-                time.sleep(2)
+                time.sleep(0.5)
                 speed_loc += 0.25
                 
         # if speed_loc == 1:
@@ -91,7 +91,7 @@ try:
             while speed_loc < 1:
                 print(f'Speed: {speed_loc}')
                 motor_backward(speed_loc)  # Set speed
-                time.sleep(2)
+                time.sleep(0.5)
                 speed_loc += 0.25
                 
         # if speed_loc == 1:

@@ -51,7 +51,7 @@ try:
             ena.close()
             ena = PWMOutputDevice(ENA, frequency = freq)
             print(f'freq: {freq}')
-            motor_forward(0.25)
+            motor_backward(0.25)
             time.sleep(0.25)
 
     

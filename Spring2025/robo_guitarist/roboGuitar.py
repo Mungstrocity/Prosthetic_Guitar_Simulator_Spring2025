@@ -1,26 +1,15 @@
 import tkinter as tk
 from tkinter import messagebox
-
-
-state = "initial"
+from gui import gui_launch
 
 while True:
-    if state == "initial":
-        root = tk.Tk()
-        root.title("Robo Guitarist")
-        root.geometry("500x200")
+    state = gui_launch()
+    
+    # DO NOT MOVE THIS LINE
+    # shut down interrupt must be checked first on every pass
+    if state == "exit":
+        break
 
-        def on_button_click():
-            global state
-            state = "playing"
-            messagebox.showinfo("Info", "Playing the guitar!")
 
-        button = tk.Button(root, text="Play Guitar", command=on_button_click)
-        button.pack(pady=20)
 
-        root.mainloop()
-
-    elif state == "playing":
-        # Simulate playing the guitar
-        print("Playing the guitar...")
-        break  # Exit the loop after playing
+quit()

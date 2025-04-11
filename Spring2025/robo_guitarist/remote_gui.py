@@ -16,8 +16,8 @@ state_vars = {
     "active_button": None,
 }
 
-# Add a function to handle blocked input notification
-def notify_blocked_input():
+# Ensure button states are reset properly when inputs are blocked
+def notify_blocked_input(event=None):
     if state_vars["state"] == "random":
         messagebox.showinfo("Random Mode Active", "Inputs are blocked while in Random Mode. Exit Random Mode to continue.")
 
@@ -134,10 +134,8 @@ def gui_launch(random_flag, on_data_submit):
         button = tk.Button(button_frame, text=text, command=lambda i=i: on_button_click(i, button_widgets))
         button.grid(row=0, column=i, padx=5, pady=5, sticky="w")
         button_widgets[i] = button
-
-    # Bind buttons to notify_blocked_input
-    for button in button_widgets.values():
-        button.bind("<Button-1>", lambda event: notify_blocked_input())
+    
+    state_vars["button_widgets"] = button_widgets
 
     # Duration input
     tk.Label(button_frame, text="Duration (seconds):").grid(row=1, column=0, columnspan=2, pady=5, sticky="w")
@@ -145,8 +143,8 @@ def gui_launch(random_flag, on_data_submit):
     duration_entry = tk.Entry(button_frame, textvariable=duration_var)
     duration_entry.grid(row=1, column=2, columnspan=3, pady=5, padx=5, sticky="w")
 
-    # Bind duration entry to notify_blocked_input
-    duration_entry.bind("<FocusIn>", lambda event: notify_blocked_input())
+    submit_button = tk.Button(button_frame, text="Submit", command=lambda: submit_data())
+    submit_button.grid(row=1, column=5, columnspan=2, pady=5, padx=5, sticky="w")
 
     def submit_data():
         if state_vars["state"] == "random":
@@ -159,11 +157,9 @@ def gui_launch(random_flag, on_data_submit):
             # Invoke the callback with the current state, string number, and duration
             on_data_submit(state_vars["state"], state_vars["string_num"], state_vars["duration"])
 
-    tk.Button(button_frame, text="Submit", command=submit_data).grid(row=1, column=5, columnspan=2, pady=5, padx=5, sticky="w")
-
-    # Random mode toggle using a Button
     def toggle_random_mode():
         if state_vars["state"] == "ready":
+            # Entering random mode
             state_vars["state"] = "random"
             random_mode_button.config(
                 relief=tk.SUNKEN, 
@@ -171,20 +167,38 @@ def gui_launch(random_flag, on_data_submit):
                 bg="#990000", 
                 fg="white", 
                 font=("Helvetica", 10, "bold"),
-                activebackground="#990000",  # Disable hover logic
-                activeforeground="white"     # Disable hover logic
+                activebackground="#990000",
+                activeforeground="white"
             )
+            # Disable all input widgets
+            for button in button_widgets.values():
+                button.config(state=tk.DISABLED)
+            duration_entry.config(state=tk.DISABLED)
+            submit_button.config(state=tk.DISABLED)
+            
         elif state_vars["state"] == "random":
+            # Exiting random mode
             state_vars["state"] = "ready"
             random_mode_button.config(
                 relief=tk.RAISED, 
                 text="Random Mode (OFF)", 
-                bg="#f0f0f0",  # Platform-independent neutral color
+                bg="#f0f0f0",
                 fg="black", 
                 font=("Helvetica", 10, "normal"),
-                activebackground="#f0f0f0",  # Disable hover logic
-                activeforeground="black"     # Disable hover logic
+                activebackground="#f0f0f0",
+                activeforeground="black"
             )
+            # Enable all input widgets
+            for button in button_widgets.values():
+                button.config(state=tk.NORMAL)
+            duration_entry.config(state=tk.NORMAL)
+            submit_button.config(state=tk.NORMAL)
+            
+            # Reset any active button states
+            if state_vars["active_button"]:
+                state_vars["active_button"].config(relief=tk.RAISED)
+                state_vars["active_button"] = None
+            state_vars["selected_button"] = None
 
     random_mode_button = tk.Button(
         controls_frame,
@@ -212,3 +226,9 @@ def gui_launch(random_flag, on_data_submit):
     tk.Button(root, text="Exit", command=on_exit_click).place(relx=0.02, rely=0.95, anchor="sw")
 
     root.mainloop()
+    
+if __name__ == "__main__":
+    def dummy_on_data_submit(state, string_num, duration):
+        print(f"Data submitted: state={state}, string_num={string_num}, duration={duration}")
+
+    gui_launch(random_flag=False, on_data_submit=dummy_on_data_submit)

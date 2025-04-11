@@ -35,7 +35,7 @@ def handle_gui_data():
         print(f"roboGuitar, {state}, {string_num}")  # Debugging output
         state, angles = get_angles(string_num, 1)
         print(f"roboGuitar, {state}, {angles}")  # Debugging output
-        state = fret_note(angles, duration)
+        state = fret_note(angles, duration, finger=1)
         if pressure_v > voltage_cutoff: # basic interrupt for pressure
             print("Pressure exceeded. Exiting application.")
             sys.exit(0)
@@ -55,6 +55,19 @@ def handle_gui_data():
 @app.route('/handle_gui_data', methods=['GET'])
 def test_connection():
     return jsonify({"status": "Server is running"}), 200
+
+@app.route('/get_message', methods=['GET'])
+def get_message():
+    global random_flag
+    string_num = request.args.get('string_num', type=int)
+    duration = request.args.get('duration', type=float)
+
+    if string_num == 0:
+        message = f"Playing open for {duration} seconds"
+    else:
+        message = f"Playing string {string_num} on fret 1 for {duration} seconds"
+
+    return jsonify({"message": message})
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)

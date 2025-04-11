@@ -59,6 +59,29 @@ def test_server_connection():
     except requests.exceptions.RequestException as e:
         print(f"Error connecting to the server: {e}")
 
+# Add a function to fetch the message from the server
+def fetch_message_from_server(string_num, duration):
+    server_ip = "10.228.12.158"  # IP address of the server
+    server_url = f"http://{server_ip}:5000/get_message"
+
+    params = {
+        "string_num": string_num,
+        "duration": duration
+    }
+
+    try:
+        response = requests.get(server_url, params=params)
+        if response.status_code == 200:
+            message = response.json().get("message", "")
+            print(f"Message from server: {message}")
+            return message
+        else:
+            print(f"Failed to fetch message from server. Status code: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error connecting to the server: {e}")
+
+    return "Error fetching message from server"
+
 # Button control functions
 def on_button_click(button_id, button_widgets):
     global state_vars
@@ -154,6 +177,9 @@ def gui_launch(random_flag, on_data_submit):
         if state_vars["state"] == "get_angles":
             # Send data to the server
             send_data_to_server(state_vars["state"], state_vars["string_num"], state_vars["duration"])
+            # Fetch and display the message from the server
+            message = fetch_message_from_server(state_vars["string_num"], state_vars["duration"])
+            messagebox.showinfo("Server Message", message)
             # Invoke the callback with the current state, string number, and duration
             on_data_submit(state_vars["state"], state_vars["string_num"], state_vars["duration"])
 

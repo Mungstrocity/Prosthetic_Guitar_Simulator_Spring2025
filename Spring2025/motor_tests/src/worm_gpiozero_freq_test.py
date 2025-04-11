@@ -11,7 +11,7 @@ ENC_A = 23  # Encoder A signal
 ENC_B = 24  # Encoder B signal
 ENA = 18
 
-freq = 100  # PWM frequency
+freq = 1000  # PWM frequency
 
 # Initialize GPIO devices
 in1 = DigitalOutputDevice(IN1)
@@ -51,8 +51,8 @@ try:
             ena.close()
             ena = PWMOutputDevice(ENA, frequency = freq)
             print(f'freq: {freq}')
-            motor_backward(0.25)
-            time.sleep(0.25)
+            motor_backward(0.15)
+            time.sleep(0.15)
 
     
         

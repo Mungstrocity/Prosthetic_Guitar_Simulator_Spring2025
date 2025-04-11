@@ -15,3 +15,7 @@ prosthetic_guitar_simulator/.godot/
 #general python ignore stuff
 __pycache__/
 .venv/
+.history/
+
+#vscode stuff
+.vscode/

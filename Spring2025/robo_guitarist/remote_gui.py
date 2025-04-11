@@ -3,6 +3,7 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import os
 from tkinter.ttk import Combobox
+import requests
 
 BASE_DIR = os.path.dirname(__file__)
 
@@ -23,6 +24,40 @@ def notify_blocked_input():
 # Add a function to update the status label
 def update_status(fret, string, duration):
     status_text.set(f"Playing fret {fret} on string {string} for {duration:.1f} seconds")
+
+# Add a function to send data to the server
+def send_data_to_server(state, string_num, duration):
+    server_ip = "10.228.12.158"  # IP address of the server
+    server_url = f"http://{server_ip}:5000/handle_gui_data"
+
+    data = {
+        "state": state,
+        "string_num": string_num,
+        "duration": duration
+    }
+
+    try:
+        response = requests.post(server_url, json=data)
+        if response.status_code == 200:
+            print("Data sent successfully to the server.")
+        else:
+            print(f"Failed to send data to the server. Status code: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error connecting to the server: {e}")
+
+# Add a function to test server connection
+def test_server_connection():
+    server_ip = "10.228.12.158"  # IP address of the server
+    server_url = f"http://{server_ip}:5000/handle_gui_data"
+
+    try:
+        response = requests.get(server_url)
+        if response.status_code == 200:
+            print("Successfully connected to the server.")
+        else:
+            print(f"Server connection failed. Status code: {response.status_code}")
+    except requests.exceptions.RequestException as e:
+        print(f"Error connecting to the server: {e}")
 
 # Button control functions
 def on_button_click(button_id, button_widgets):
@@ -63,6 +98,9 @@ def on_duration_submit(duration_var):
 def gui_launch(random_flag, on_data_submit):
     global state_vars
     state_vars["state"] = "ready" if not random_flag else "random"
+
+    # Test server connection
+    test_server_connection()
 
     root = tk.Tk()
     root.title("Robo Guitarist")
@@ -116,6 +154,8 @@ def gui_launch(random_flag, on_data_submit):
             return
         on_duration_submit(duration_var)
         if state_vars["state"] == "get_angles":
+            # Send data to the server
+            send_data_to_server(state_vars["state"], state_vars["string_num"], state_vars["duration"])
             # Invoke the callback with the current state, string number, and duration
             on_data_submit(state_vars["state"], state_vars["string_num"], state_vars["duration"])
 

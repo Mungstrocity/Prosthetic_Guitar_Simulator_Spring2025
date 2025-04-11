@@ -1,10 +1,13 @@
+from i2c_shared import shared_i2c
 from adafruit_servokit import ServoKit
-from gpiozero import PWMOutputDevice, DigitalOutputDevice
-import time
-import time
+from adafruit_ads1x15.ads1115 import ADS1115
 
 NEUTRAL = [180, 180, 180, 0]
 current_angles = [0,0,0,0]
+
+# Use the shared I2C bus
+ads = ADS1115(shared_i2c)
+kit = ServoKit(channels=16, i2c=shared_i2c)
 
 def fret_note(angles, duration, finger):
     """
@@ -60,7 +63,6 @@ def servo_motor_control(servos, servo_angles):
         angles (list): A list of angles for each servo motor.
     """
     # Code to control the servo motors
-    kit = ServoKit(channels=16)
     
     for i in range(len(servos)):
         kit.servo[servos[i]].angle = servo_angles[i]
@@ -129,6 +131,5 @@ def worm_motor_control(prox_motor, prox_angle):
     # ena.value = 0  # Disable motor
     speed = 0
     print(f"worm_motor_control,{prox_motor},{prox_angle},{speed},{count},{count_ref_current}")
-        
-        
-            
+
+

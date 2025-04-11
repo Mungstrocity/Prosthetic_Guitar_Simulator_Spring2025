@@ -4,10 +4,10 @@ import time
 # Create a servo object
 kit = ServoKit(channels=16)
 
-motors = 2
+motors = 3
 angle = 0
 min = 0
-max = 180
+max = 80
 increment = 5
 maxscale = 2
 delay = 1
@@ -18,8 +18,8 @@ try:
             for i in range(motors):
                 kit.servo[i].angle = angle
             time.sleep(delay)
-            if angle + increment >= 180:
-                angle = 180
+            if angle + increment >= max:
+                angle = max
                 time.sleep(maxscale * delay)
             else:
                 angle += increment

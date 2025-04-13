@@ -22,8 +22,8 @@ def notify_blocked_input(event=None):
         messagebox.showinfo("Random Mode Active", "Inputs are blocked while in Random Mode. Exit Random Mode to continue.")
 
 # Add a function to update the status label
-def update_status(fret, string, duration):
-    status_text.set(f"Playing fret {fret} on string {string} for {duration:.1f} seconds")
+def update_status(message):
+    status_text.set(message)
 
 # Add a function to send data to the server
 def send_data_to_server(state, string_num, duration):
@@ -104,7 +104,7 @@ def on_duration_submit(duration_var):
         duration_value = float(duration_var.get())
         if duration_value > 0 and state_vars["selected_button"] is not None:
             state_vars["string_num"], state_vars["duration"] = state_vars["selected_button"], duration_value
-            update_status("fret 1", state_vars["string_num"], state_vars["duration"])
+            update_status(f"Playing fret 1 on string {state_vars['string_num']} for {state_vars['duration']:.1f} seconds")
             if state_vars["active_button"]:
                 state_vars["active_button"].config(relief=tk.RAISED)
                 state_vars["active_button"] = None
@@ -177,9 +177,9 @@ def gui_launch(random_flag, on_data_submit):
         if state_vars["state"] == "get_angles":
             # Send data to the server
             send_data_to_server(state_vars["state"], state_vars["string_num"], state_vars["duration"])
-            # Fetch and display the message from the server
-            message = fetch_message_from_server(state_vars["string_num"], state_vars["duration"])
-            messagebox.showinfo("Server Message", message)
+            # Fetch and update status from server
+            status_message = fetch_message_from_server(state_vars["string_num"], state_vars["duration"])
+            update_status(status_message)
             # Invoke the callback with the current state, string number, and duration
             on_data_submit(state_vars["state"], state_vars["string_num"], state_vars["duration"])
 

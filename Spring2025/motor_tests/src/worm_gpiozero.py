@@ -5,14 +5,30 @@ import threading
 from queue import Queue
 
 # Define GPIO Pins (BCM mode)
-IN1 = 17  # Motor direction
-IN2 = 27  # Motor direction
-ENA = 18  # Motor speed (PWM)
+IN1 = 17  # Motor direction. Physical pin 11
+IN2 = 27  # Motor direction. Physical pin 13
+ENA = 18  # Motor speed (PWM) Physical pin 12
 
-ENC_A = 23  # Encoder A signal
-ENC_B = 24  # Encoder B signal
+ENC_A = 23  # Encoder A signal. Physical pin 16
+ENC_B = 24  # Encoder B signal. Physical pin 18
 
 FREQ = 1000  # PWM frequency
+# Optimal frequency is 1 kHz or 2 kHz for this motor
+
+# MOTOR TO DRIVER BOARD CONNECTIONS
+# M1 and M1 : Out1 and Out2 on Driver board
+# GND : GND on Driver board NOT ON RASPBERRY PI
+# VCC : VCC on Driver board NOT ON RASPBERRY PI
+
+# PI TO DRIVER BOARD CONNECTIONS
+# IN1 and IN2 : IN1 and IN2 on Driver board
+# ENA : ENA on Driver board
+
+# MOTOR TO PI CONNECTIONS
+# A and B : ENC_A and ENC_B on Rasbperry Pi
+# When connected, a green LED will light solid on the motor on the side opposite
+# the wire connections. This indicates that the motor is receiving power.
+
 
 # Initialize GPIO devices
 in1 = DigitalOutputDevice(IN1)

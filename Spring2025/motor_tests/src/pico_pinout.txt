@@ -1,0 +1,26 @@
+************************   USB IS ON TOP  ***********************
+
+    [   Left Side   ]                        [   Right Side   ]
+------------------------                  -----------------------
+Pin 1 : GPIO 0       GP0         |        VBUS           : Pin 40
+Pin 2 : GPIO 1       GP1         |        VSYS           : Pin 39
+Pin 3 : GND                      |        GND            : Pin 38
+Pin 4 : GPIO 2       GP2         |        3V3 EN         : Pin 37
+Pin 5 : GPIO 3       GP3         |        3V3 OUT        : Pin 36
+Pin 6 : GPIO 4       GP4         |        ADC_VREF       : Pin 35
+Pin 7 : GPIO 5       GP5         |        GPIO 28        : Pin 34
+Pin 8 : GND                      |        GND            : Pin 33
+Pin 9 : GPIO 6       GP6         |        GPIO 27        : Pin 32
+Pin10 : GPIO 7       GP7         |        GPIO 26        : Pin 31
+Pin11 : GPIO 8       GP8         |        RUN            : Pin 30
+Pin12 : GPIO 9       GP9         |        GPIO 22        : Pin 29
+Pin13 : GND                      |        GND            : Pin 28
+Pin14 : GPIO 10      GP10        |        GPIO 21        : Pin 27
+Pin15 : GPIO 11      GP11        |        GPIO 20        : Pin 26
+Pin16 : GPIO 12      GP12        |        GPIO 19        : Pin 25
+Pin17 : GPIO 13      GP13        |        GPIO 18        : Pin 24
+Pin18 : GND                      |        GND            : Pin 23
+Pin19 : GPIO 14      GP14        |        GPIO 17        : Pin 22
+Pin20 : GPIO 15      GP15        |        GPIO 16        : Pin 21
+
+     (Bottom center: DEBUG header — SWCLK, GND, SWDIO)

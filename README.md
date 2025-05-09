@@ -225,6 +225,7 @@ Prosthetic_Guitar_Simulator_Spring2025/
 │   
 └── SPRING2025/
     ├──SolidWorks.zip
+    ├──Teams Extract - Biomimetic Guitar.zip
     │
     ├── motor_tests/
     │   └── src/

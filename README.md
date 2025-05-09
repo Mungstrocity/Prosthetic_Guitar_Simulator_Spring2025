@@ -224,6 +224,8 @@ Prosthetic_Guitar_Simulator_Spring2025/
 │       └── Sample_KeySig.yaml
 │   
 └── SPRING2025/
+    ├──SolidWorks.zip
+    │
     ├── motor_tests/
     │   └── src/
     │       ├── cont_motor.py

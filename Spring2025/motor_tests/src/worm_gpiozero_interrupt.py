@@ -1,3 +1,39 @@
+"""
+Worm Gear Motor Control with Interrupt-Based Encoder Feedback
+
+This script provides control for a DC motor with worm gear and implements
+interrupt-based encoder feedback. It monitors encoder signals using GPIO interrupts,
+logs encoder data to a CSV file, and controls motor direction and speed using PWM.
+
+Hardware Configuration:
+    Raspberry Pi to Motor Driver:
+    - GPIO 17 (BCM) / Pin 11: IN1 - Direction control
+    - GPIO 27 (BCM) / Pin 13: IN2 - Direction control
+    - GPIO 18 (BCM) / Pin 12: ENA - PWM speed control
+
+    Motor Encoder to Raspberry Pi:
+    - GPIO 23 (BCM) / Pin 16: Encoder channel A
+    - GPIO 24 (BCM) / Pin 18: Encoder channel B
+
+Features:
+    - PWM motor speed control at 1 kHz frequency
+    - Interrupt-based encoder position tracking
+    - Forward/backward direction control with increasing speed
+    - Multi-threaded operation for simultaneous control and monitoring
+    - CSV logging of encoder data with timestamps
+    - Encoder transition validation
+
+Usage:
+    Run this script to start motor control that alternates between forward and
+    backward rotation at varying speeds while monitoring and logging encoder data.
+    Press Ctrl+C to stop the motor and clean up.
+
+Data Logging:
+    Encoder data is logged to a CSV file with the following columns:
+    - Timestamp: ISO format timestamp when the encoder state changed
+    - Encoder State: The current state of both encoder channels [A, B]
+    - Count: Cumulative count of valid encoder transitions
+"""
 # filepath: /home/teambig/capstone/Prosthetic_Guitar_Simulator_Spring2025/Spring2025/motor_tests/src/worm_gpiozero_interrupt.py
 from gpiozero import PWMOutputDevice, DigitalOutputDevice, DigitalInputDevice
 import time

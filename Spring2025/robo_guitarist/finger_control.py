@@ -1,6 +1,16 @@
+"""
+Motor control module for robotic guitarist fingers.
+
+This module provides low-level control of motors for the robotic guitarist's fingers,
+including servo motors for medial, distal, and abduction joints, and worm gear
+motors for proximal joints. It handles motor assignments, angle calculations, and
+timed movements to fret notes on the guitar.
+"""
+
 from i2c_shared import shared_i2c
 from adafruit_servokit import ServoKit
 from adafruit_ads1x15.ads1115 import ADS1115
+import time  # Adding missing import
 
 NEUTRAL = [180, 180, 180, 0]
 current_angles = [0,0,0,0]

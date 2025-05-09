@@ -1,5 +1,6 @@
 from gpiozero import DigitalInputDevice
 import time
+"""Attempt to read motor signals on raspberry pi GPIO pins."""
 
 # Pin configuration
 MOTOR_SIGNAL_PIN_1 = 23  # GPIO pin for motor signal 1

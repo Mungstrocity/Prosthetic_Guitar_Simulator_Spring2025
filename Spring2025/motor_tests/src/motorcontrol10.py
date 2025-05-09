@@ -1,3 +1,26 @@
+"""
+Servo Motor Sweep Control
+
+This script controls multiple servo motors by sweeping them between minimum and 
+maximum angle positions in synchronization. All servos move to the same angle 
+simultaneously, with configurable speed and range parameters.
+
+Parameters:
+    - motors: Number of servo motors to control (default: 3)
+    - min: Minimum angle in degrees (default: 0)
+    - max: Maximum angle in degrees (default: 80)
+    - increment: Angle change per step in degrees (default: 5)
+    - maxscale: Multiplier for delay time at extremes (default: 2)
+    - delay: Base delay between angle changes in seconds (default: 1)
+
+Requirements:
+    - adafruit_servokit library
+    - Servo motors connected to channels 0, 1, 2 on a servo controller
+
+Usage:
+    Run the script to start the servo sweep.
+    Press Ctrl+C to stop and reset all servos to zero position.
+"""
 from adafruit_servokit import ServoKit
 import time
 

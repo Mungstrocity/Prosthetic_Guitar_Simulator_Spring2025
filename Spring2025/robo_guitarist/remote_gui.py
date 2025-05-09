@@ -1,3 +1,13 @@
+"""
+Remote GUI for controlling a robotic guitarist.
+
+This module provides a graphical interface for controlling a robotic guitarist remotely.
+It allows users to select strings, set durations, and submit commands to a server.
+The application supports both manual control and a random mode.
+
+Make sure that roboGuitar.py is running then launch this file.
+"""
+
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
@@ -16,17 +26,37 @@ state_vars = {
     "active_button": None,
 }
 
-# Ensure button states are reset properly when inputs are blocked
 def notify_blocked_input(event=None):
+    """
+    Display a notification when inputs are blocked in random mode.
+    
+    Args:
+        event: Optional tkinter event object
+    """
     if state_vars["state"] == "random":
         messagebox.showinfo("Random Mode Active", "Inputs are blocked while in Random Mode. Exit Random Mode to continue.")
 
-# Add a function to update the status label
 def update_status(message):
+    """
+    Update the status label with the provided message.
+    
+    Args:
+        message (str): The status message to display
+    """
     status_text.set(message)
 
-# Add a function to send data to the server
 def send_data_to_server(state, string_num, duration):
+    """
+    Send control data to the robotic guitarist server.
+    
+    Args:
+        state (str): Current state of the application
+        string_num (int): Selected string number (0-6)
+        duration (float): Duration in seconds
+    
+    Returns:
+        None
+    """
     server_ip = "10.228.12.158"  # IP address of the server
     server_url = f"http://{server_ip}:5000/handle_gui_data"
 
@@ -45,8 +75,12 @@ def send_data_to_server(state, string_num, duration):
     except requests.exceptions.RequestException as e:
         print(f"Error connecting to the server: {e}")
 
-# Add a function to test server connection
 def test_server_connection():
+    """
+    Test the connection to the robotic guitarist server.
+    
+    Prints a message indicating success or failure of the connection attempt.
+    """
     server_ip = "10.228.12.158"  # IP address of the server
     server_url = f"http://{server_ip}:5000/handle_gui_data"
 
@@ -59,8 +93,17 @@ def test_server_connection():
     except requests.exceptions.RequestException as e:
         print(f"Error connecting to the server: {e}")
 
-# Add a function to fetch the message from the server
 def fetch_message_from_server(string_num, duration):
+    """
+    Fetch a message from the server based on string number and duration.
+    
+    Args:
+        string_num (int): Selected string number (0-6)
+        duration (float): Duration in seconds
+    
+    Returns:
+        str: Message received from the server or error message
+    """
     server_ip = "10.228.12.158"  # IP address of the server
     server_url = f"http://{server_ip}:5000/get_message"
 
@@ -82,8 +125,14 @@ def fetch_message_from_server(string_num, duration):
 
     return "Error fetching message from server"
 
-# Button control functions
 def on_button_click(button_id, button_widgets):
+    """
+    Handle string selection button click events.
+    
+    Args:
+        button_id (int): ID of the clicked button (0-6)
+        button_widgets (dict): Dictionary of button widgets
+    """
     global state_vars
     if state_vars["state"] == "random":
         notify_blocked_input()  # Notify if inputs are blocked
@@ -99,6 +148,15 @@ def on_button_click(button_id, button_widgets):
     state_vars["active_button"].config(relief=tk.SUNKEN)
 
 def on_duration_submit(duration_var):
+    """
+    Process duration submission.
+    
+    Args:
+        duration_var (StringVar): Tkinter variable containing duration text input
+    
+    Updates state variables based on user input and displays status message.
+    Shows error messages for invalid inputs.
+    """
     global state_vars
     try:
         duration_value = float(duration_var.get())
@@ -117,9 +175,23 @@ def on_duration_submit(duration_var):
     except ValueError:
         messagebox.showerror("Invalid Input", "Please enter a valid float value for duration.")
 
-# GUI-building function
 def gui_launch(random_flag, on_data_submit):
-    global state_vars
+    """
+    Launch the Robo Guitarist GUI.
+    
+    Args:
+        random_flag (bool): Whether to start in random mode
+        on_data_submit (function): Callback function executed when data is submitted.
+                                  Takes three arguments: state, string_num, and duration
+    
+    Returns:
+        None
+    
+    This function creates and displays the main GUI window with all controls,
+    including string selection buttons, duration input, and mode toggles.
+    The GUI runs until the window is closed.
+    """
+    global state_vars, status_text
     state_vars["state"] = "ready" if not random_flag else "random"
 
     # Test server connection
@@ -130,6 +202,7 @@ def gui_launch(random_flag, on_data_submit):
     root.geometry("1024x576")
 
     def on_exit_click():
+        """Handle the exit button click or window close event."""
         state_vars["state"] = "exit"
         root.destroy()
 
@@ -170,6 +243,12 @@ def gui_launch(random_flag, on_data_submit):
     submit_button.grid(row=1, column=5, columnspan=2, pady=5, padx=5, sticky="w")
 
     def submit_data():
+        """
+        Submit the current state, string number, and duration to the server.
+        
+        This function validates the input, sends data to the server, 
+        updates the status display, and invokes the callback function.
+        """
         if state_vars["state"] == "random":
             messagebox.showinfo("Random Mode Active", "Inputs not accepted while in Random Mode. Exit Random Mode to continue.")
             return
@@ -184,6 +263,12 @@ def gui_launch(random_flag, on_data_submit):
             on_data_submit(state_vars["state"], state_vars["string_num"], state_vars["duration"])
 
     def toggle_random_mode():
+        """
+        Toggle between random and manual control modes.
+        
+        In random mode, all user inputs are disabled, and the button appearance changes.
+        In manual mode, all user inputs are enabled, and button states are reset.
+        """
         if state_vars["state"] == "ready":
             # Entering random mode
             state_vars["state"] = "random"
@@ -238,7 +323,6 @@ def gui_launch(random_flag, on_data_submit):
     status_frame = tk.Frame(controls_frame, padx=10, pady=10)
     status_frame.pack(side=tk.TOP, fill=tk.X, pady=10, anchor="w")
 
-    global status_text
     status_text = tk.StringVar()
     status_text.set("Status: Idle")
     status_label = tk.Label(status_frame, textvariable=status_text, font=("Helvetica", 12))
@@ -255,6 +339,14 @@ def gui_launch(random_flag, on_data_submit):
     
 if __name__ == "__main__":
     def dummy_on_data_submit(state, string_num, duration):
+        """
+        Example callback function for handling submitted data.
+        
+        Args:
+            state (str): Current state of the application
+            string_num (int): Selected string number (0-6)
+            duration (float): Duration in seconds
+        """
         print(f"Data submitted: state={state}, string_num={string_num}, duration={duration}")
 
     gui_launch(random_flag=False, on_data_submit=dummy_on_data_submit)

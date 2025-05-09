@@ -1,3 +1,27 @@
+"""
+PWM Frequency Test for DC Motor with Worm Gear
+
+Testing optimal PWM frequency for the DC motor with worm gear.
+We determined optimal frequencies are 1 kHz and 2kHz.
+1 kHz is the considered the standard frequency for operation.
+All other frequencies create inconsistent motion especially at lower
+speeds.
+
+This script allows for interactive testing of different PWM frequencies
+to observe motor behavior and find the optimal settings.
+
+Pin Configuration:
+    - GPIO 17 (BCM): IN1 - Motor direction control
+    - GPIO 27 (BCM): IN2 - Motor direction control
+    - GPIO 18 (BCM): ENA - Motor speed control (PWM)
+    - GPIO 23 (BCM): ENC_A - Encoder A signal (not used in this test)
+    - GPIO 24 (BCM): ENC_B - Encoder B signal (not used in this test)
+
+Usage:
+    Run this script and input frequency values when prompted.
+    Valid frequency range: 100 Hz to 10,000 Hz
+    Press Ctrl+C to stop the test and clean up.
+"""
 from gpiozero import PWMOutputDevice, DigitalOutputDevice
 import time
 import math

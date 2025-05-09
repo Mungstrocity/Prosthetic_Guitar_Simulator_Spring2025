@@ -1,3 +1,20 @@
+"""
+I2C Device Detection Test
+
+This script tests the I2C connection to a PCA9685 PWM controller board.
+It initializes the I2C bus and attempts to connect to the PCA9685 at its
+default address (0x40). If successful, it prints a confirmation message.
+
+Requirements:
+    - adafruit_pca9685 library
+    - board library
+    - busio library
+    - PCA9685 PWM controller connected via I2C
+
+Usage:
+    Run this script to verify I2C communication with the PCA9685.
+    A success message will be printed if the connection is established.
+"""
 import board
 import busio
 from adafruit_pca9685 import PCA9685

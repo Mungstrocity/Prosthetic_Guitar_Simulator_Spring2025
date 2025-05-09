@@ -1,3 +1,47 @@
+"""
+Pulsed Motor Control with Encoder Feedback
+
+This script implements a pulsed motor control strategy with encoder feedback for
+a DC motor with worm gear. The motor is driven in short pulses (on/off cycles)
+while the encoder counts are monitored. This approach allows for testing motor
+response characteristics and analyzing encoder behavior under different speeds
+and directions.
+
+Hardware Configuration:
+    Raspberry Pi to Motor Driver:
+    - GPIO 17 (BCM) / Pin 11: IN1 - Direction control 
+    - GPIO 27 (BCM) / Pin 13: IN2 - Direction control
+    - GPIO 18 (BCM) / Pin 12: ENA - PWM speed control (1 kHz)
+
+    Motor Encoder to Raspberry Pi:
+    - GPIO 23 (BCM) / Pin 16: Encoder channel A
+    - GPIO 24 (BCM) / Pin 18: Encoder channel B
+
+Features:
+    - Pulsed motor operation (1 second on, 0.5 seconds off)
+    - Multiple pulse cycles at increasing speed levels
+    - Alternates between forward and backward directions
+    - Counts only rising edges of encoder channel A
+    - Encoder count reset between pulses for isolated measurements
+    - CSV data logging of all parameters
+
+Operation:
+    The motor runs in a sequence of pulses:
+    1. For each speed level (0.1 to 1.0 in 0.1 increments):
+       - Run 5 pulses (1 second on, 0.5 second off)
+       - Record encoder data for each pulse
+    2. After testing all speed levels, reverse direction and repeat
+    3. CSV log includes encoder states, pulse count, change count, speed and direction
+
+Data Logging:
+    Data is logged to a CSV file with the following columns:
+    - A: Encoder A signal value (0 or 1)
+    - B: Encoder B signal value (0 or 1)
+    - Pulse Count: Sequential number of current pulse
+    - Change Count: Number of encoder rising edges during pulse
+    - Speed: Motor speed setting (0.1-1.0)
+    - Direction: Motor direction ("forward" or "backward")
+"""
 # filepath: /home/teambig/capstone/Prosthetic_Guitar_Simulator_Spring2025/Spring2025/motor_tests/src/worm_gpiozero_interrupt.py
 from gpiozero import PWMOutputDevice, DigitalOutputDevice, DigitalInputDevice
 import time

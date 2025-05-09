@@ -1,3 +1,13 @@
+"""
+Simple motor test script for controlling a Raspberry Pico via serial connection.
+
+This script establishes a serial connection with a Raspberry Pico microcontroller,
+sends a command to run a motor at 70% speed forward for 5 seconds, and then sends
+a stop command. It demonstrates basic serial communication and motor control.
+
+Note: This script assumes the Pico is connected at /dev/ttyACM0 on Linux.
+For Windows, the port should be changed to a COM port (e.g., 'COM3').
+"""
 import serial
 import time
 

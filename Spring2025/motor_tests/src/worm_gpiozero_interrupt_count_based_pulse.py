@@ -1,3 +1,49 @@
+"""
+Count-Based Pulse Motor Control with Encoder Feedback
+
+This script provides precise control for a DC motor with worm gear by using encoder 
+count-based pulses. It enables the motor to move an exact number of encoder counts,
+making it suitable for precise positioning applications. The script also logs encoder
+data and motor parameters to a timestamped CSV file for analysis.
+
+Hardware Configuration:
+    Motor to Driver Board:
+    - M1 and M2: Connected to Out1 and Out2 on driver board
+    - GND: Connected to driver board GND (NOT Raspberry Pi GND)
+    - VCC: Connected to driver board VCC (NOT Raspberry Pi VCC)
+
+    Raspberry Pi to Driver Board:
+    - GPIO 17 (BCM) / Pin 11: IN1 on driver board - Direction control 
+    - GPIO 27 (BCM) / Pin 13: IN2 on driver board - Direction control
+    - GPIO 18 (BCM) / Pin 12: ENA on driver board - PWM speed control
+
+    Motor Encoder to Raspberry Pi:
+    - A signal: GPIO 23 (BCM) / Pin 16 - Encoder channel A
+    - B signal: GPIO 24 (BCM) / Pin 18 - Encoder channel B
+
+Features:
+    - Interactive control of motor speed and pulse length
+    - Precise positioning based on encoder count
+    - PWM motor speed control with 1 kHz frequency
+    - Real-time encoder feedback monitoring
+    - Automatic CSV data logging with timestamps in filename
+    - Simple interrupt-based encoder counting
+
+Usage:
+    1. Run the script
+    2. Enter motor speed (0.0-1.0) when prompted
+    3. Enter pulse length (number of encoder counts) when prompted
+    4. The motor will run until it reaches the specified encoder count
+    5. Press Ctrl+C to stop the program
+
+Data Logging:
+    Data is logged to a CSV file with the following columns:
+    - A: Encoder A signal value (0 or 1)
+    - B: Encoder B signal value (0 or 1)
+    - Count: Current encoder count
+    - Speed: Motor speed setting (0.0-1.0)
+    - Direction: Motor direction ("forward" or "backward")
+"""
 # filepath: /home/teambig/capstone/Prosthetic_Guitar_Simulator_Spring2025/Spring2025/motor_tests/src/worm_gpiozero_interrupt.py
 from gpiozero import PWMOutputDevice, DigitalOutputDevice, DigitalInputDevice
 import time
@@ -5,6 +51,7 @@ import threading
 import csv
 from datetime import datetime
 import os
+
 
 
 # Define GPIO Pins (BCM mode)

@@ -1,3 +1,11 @@
+"""
+Angle calculation module for robotic guitarist finger positioning.
+
+This module provides functionality to determine appropriate finger angles
+for playing different frets on different strings of a guitar.
+Angles are retrieved from a CSV file containing pre-calculated values.
+"""
+
 import csv
 import os
 

@@ -1,3 +1,43 @@
+"""
+Worm Gear Motor Control with Encoder Feedback
+
+This script provides comprehensive control for a DC motor with worm gear using PWM
+for speed control and digital output pins for direction control. It also implements 
+encoder feedback by reading quadrature encoder signals to monitor motor position,
+direction, and detect missed or skipped transitions.
+
+Hardware Configuration:
+    Motor to Driver Board:
+    - M1 and M2: Connected to Out1 and Out2 on driver board
+    - GND: Connected to driver board GND (NOT Raspberry Pi GND)
+    - VCC: Connected to driver board VCC (NOT Raspberry Pi VCC)
+
+    Raspberry Pi to Driver Board:
+    - GPIO 17 (BCM) / Pin 11: IN1 on driver board - Direction control 
+    - GPIO 27 (BCM) / Pin 13: IN2 on driver board - Direction control
+    - GPIO 18 (BCM) / Pin 12: ENA on driver board - PWM speed control
+
+    Motor Encoder to Raspberry Pi:
+    - A signal: GPIO 23 (BCM) / Pin 16 - Encoder channel A
+    - B signal: GPIO 24 (BCM) / Pin 18 - Encoder channel B
+
+Features:
+    - PWM motor speed control with adjustable frequency
+    - Forward/backward direction control
+    - Quadrature encoder feedback
+    - Multi-threaded operation for simultaneous control and monitoring
+    - Transition validation to detect encoder issues
+    - Queue-based encoder event processing
+
+Usage:
+    Run this script to start motor control that alternates between forward and 
+    backward rotation at varying speeds while monitoring encoder feedback.
+    Press Ctrl+C to stop the motor and clean up GPIO pins.
+
+Notes:
+    A solid green LED on the motor (opposite side of the wire connections)
+    indicates that the motor is receiving power properly.
+"""
 from gpiozero import PWMOutputDevice, DigitalOutputDevice, DigitalInputDevice
 import time
 import math

@@ -1,3 +1,23 @@
+"""
+Worm Gear Motor Control Test
+
+This script provides control for a DC motor with worm gear using PWM for speed control
+and digital output pins for direction control. The motor runs at full speed in the forward
+direction when executed.
+
+Pin Configuration:
+    - PWM Pin: GPIO 26 (physical pin 37) - Controls motor speed
+    - Direction Pin A: GPIO 5 (physical pin 29) - Forward direction when high
+    - Direction Pin B: GPIO 6 (physical pin 31) - Reverse direction when high
+
+Requirements:
+    - gpiozero library
+    - DC motor with H-bridge or motor driver connected to specified GPIO pins
+
+Usage:
+    Run this script to start the motor at full speed in forward direction.
+    Press Ctrl+C to stop the motor and clean up GPIO pins.
+"""
 from gpiozero import PWMOutputDevice, DigitalOutputDevice
 import time
 
